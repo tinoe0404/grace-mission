@@ -12,15 +12,57 @@
 
   body {
     @apply bg-surface text-textPrimary font-sans;
+    font-size: 15px;
+    line-height: 1.6;
   }
 
+  /* Typography hierarchy */
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif text-primary;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-bold;
+  }
+
+  p {
+    @apply leading-relaxed;
+    max-width: 680px;
+  }
+
+  /* Ensure minimum readable text sizes */
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+    }
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Section spacing utilities */
+  .section-padding {
+    @apply py-24 md:py-28;
+  }
+
+  .section-padding-mobile {
+    @apply py-16;
   }
 }
