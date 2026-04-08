@@ -54,7 +54,7 @@ export default function GalleryPage() {
   return (
     <div className="flex flex-col min-h-screen bg-surface">
       {/* 1. Page Hero */}
-      <section className="bg-primary pt-32 pb-16 relative overflow-hidden">
+      <section className="bg-primary pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 100% 0%, #ffffff 0%, transparent 60%)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -63,13 +63,19 @@ export default function GalleryPage() {
             animate="visible"
             className="flex flex-col items-center text-center"
           >
-            <h1 className="font-serif text-5xl md:text-6xl text-white font-bold mb-4 tracking-tight">Gallery</h1>
-            <div className="flex items-center gap-2 text-sm text-white/80">
+            <h1 className="font-serif text-5xl md:text-[56px] text-white font-bold mb-4 tracking-tight">Gallery</h1>
+            <div className="flex items-center gap-2 text-sm text-white/60">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-4 h-4" />
-              <span className="text-secondary font-medium">Gallery</span>
+              <span className="text-white font-medium">Gallery</span>
             </div>
           </motion.div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 w-full overflow-hidden leading-[0] transform translate-y-[1px]">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[50px] md:h-[80px]">
+            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="fill-surface" />
+          </svg>
         </div>
       </section>
 

@@ -19,7 +19,7 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen bg-surface overflow-hidden">
       {/* 1. Page Hero */}
-      <section className="bg-primary pt-32 pb-16 relative overflow-hidden">
+      <section className="bg-primary pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 100% 0%, #ffffff 0%, transparent 60%)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -28,13 +28,19 @@ export default function ContactPage() {
             animate="visible"
             className="flex flex-col items-center text-center"
           >
-            <h1 className="font-serif text-5xl md:text-6xl text-white font-bold mb-4 tracking-tight">Contact Us</h1>
-            <div className="flex items-center gap-2 text-sm text-white/80">
+            <h1 className="font-serif text-5xl md:text-[56px] text-white font-bold mb-4 tracking-tight">Contact Us</h1>
+            <div className="flex items-center gap-2 text-sm text-white/60">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-4 h-4" />
-              <span className="text-secondary font-medium">Contact</span>
+              <span className="text-white font-medium">Contact</span>
             </div>
           </motion.div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 w-full overflow-hidden leading-[0] transform translate-y-[1px]">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[50px] md:h-[80px]">
+            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="fill-surface" />
+          </svg>
         </div>
       </section>
 
@@ -236,15 +242,41 @@ export default function ContactPage() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                className="relative w-full flex-grow min-h-[350px] bg-gray-200 rounded-3xl overflow-hidden shadow-sm group"
+                className="relative w-full flex-grow min-h-[300px] bg-primary rounded-3xl overflow-hidden shadow-lg"
               >
-                <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/0 transition-colors duration-500 z-10 pointer-events-none" />
-                {/* Mocking a Google Map Embed with a styling overlay */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <MapPin className="text-secondary w-12 h-12 mb-2 z-10" />
-                  <p className="font-bold text-primary font-mono text-xs uppercase tracking-widest bg-white/80 px-3 py-1 rounded backdrop-blur-sm z-10">Map Placeholder</p>
+                {/* CSS grid pattern overlay */}
+                <div 
+                  className="absolute inset-0 opacity-[0.08] pointer-events-none" 
+                  style={{ 
+                    backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+                    backgroundSize: '30px 30px'
+                  }} 
+                />
+                
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-10 px-6 text-center">
+                  {/* Pin icon */}
+                  <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                  </svg>
+                  
+                  <div>
+                    <p className="text-white font-bold text-lg mb-1">Grace Mission Primary School</p>
+                    <p className="text-white/70 text-sm">Harare, Zimbabwe</p>
+                  </div>
+                  
+                  <a
+                    href="https://maps.google.com/?q=Harare+Zimbabwe"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex items-center gap-2 px-6 py-2.5 border-2 border-white/40 text-white rounded-full font-medium text-sm hover:bg-white hover:text-primary transition-all duration-300"
+                  >
+                    Get Directions
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </a>
                 </div>
-                <div className="absolute inset-0 bg-[#e5e3df] z-0" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M29.5 0.5V29.5H0.5\" stroke=\"%23cccccc\" stroke-width=\"1\"/%3E%3C/svg%3E')", backgroundSize: "30px 30px" }} />
               </motion.div>
             </div>
 

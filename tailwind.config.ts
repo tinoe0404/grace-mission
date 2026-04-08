@@ -16,8 +16,13 @@ const config: Config = {
         textMuted: "#6B7280",
         white: "#FFFFFF",
       },
+      fontFamily: {
+        sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        serif: ["var(--font-playfair)", "Playfair Display", "Georgia", "serif"],
+      },
     },
   },
   plugins: [],
 };
 export default config;
+

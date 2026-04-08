@@ -25,7 +25,7 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-surface">
       {/* 1. Page Hero */}
-      <section className="bg-primary pt-32 pb-16 relative overflow-hidden">
+      <section className="bg-primary pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 100% 0%, #ffffff 0%, transparent 60%)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -34,13 +34,19 @@ export default function AboutPage() {
             animate="visible"
             className="flex flex-col items-center text-center"
           >
-            <h1 className="font-serif text-5xl md:text-6xl text-white font-bold mb-4">About Us</h1>
-            <div className="flex items-center gap-2 text-sm text-white/80">
+            <h1 className="font-serif text-5xl md:text-[56px] text-white font-bold mb-4 tracking-tight">About Us</h1>
+            <div className="flex items-center gap-2 text-sm text-white/60">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-4 h-4" />
-              <span className="text-secondary font-medium">About</span>
+              <span className="text-white font-medium">About</span>
             </div>
           </motion.div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 w-full overflow-hidden leading-[0] transform translate-y-[1px]">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[50px] md:h-[80px]">
+            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="fill-white" />
+          </svg>
         </div>
       </section>
 
@@ -81,31 +87,37 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. Head Teacher's Message */}
-      <section className="py-24 bg-[#EBF2FA]">
+      {/* 3. Head Teacher's Message — editorial style */}
+      <section className="py-24 md:py-32 bg-[#EBF2FA] relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            variants={fadeUp as any}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             className="flex flex-col items-center"
           >
-            <div className="relative w-24 h-24 rounded-full bg-white shadow-md border border-gray-200 mb-8 overflow-hidden">
+            {/* Large decorative pink quotation mark */}
+            <span className="text-secondary text-[100px] md:text-[120px] leading-none font-serif select-none pointer-events-none -mb-8">
+              &ldquo;
+            </span>
+
+            <blockquote className="font-serif text-[24px] md:text-[28px] leading-[1.5] text-primary font-medium mb-10 max-w-3xl">
+              Education is not merely about accumulating facts; it is the awakening of potential, the shaping of character, and the inspiring of a lifelong love for learning in the light of God&apos;s grace.
+            </blockquote>
+
+            <div className="relative w-20 h-20 rounded-full bg-white shadow-md border border-gray-200 mb-6 overflow-hidden">
                <Image src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop" alt="Mrs. Sarah Mutasa" fill className="object-cover" />
             </div>
-            <blockquote className="font-serif text-3xl md:text-4xl leading-[1.3] text-primary font-medium mb-10 max-w-3xl">
-              "Education is not merely about accumulating facts; it is the awakening of potential, the shaping of character, and the inspiring of a lifelong love for learning in the light of God's grace."
-            </blockquote>
             <div>
-              <p className="font-bold text-xl text-primary mb-1 tracking-tight">Mrs. Sarah Mutasa</p>
-              <p className="text-secondary text-sm font-bold uppercase tracking-widest">Headmistress</p>
+              <p className="font-bold text-lg text-primary mb-1 tracking-tight">Mrs. Sarah Mutasa</p>
+              <p className="text-secondary text-xs font-bold uppercase tracking-[0.2em]">Headmistress</p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* 4. Mission, Vision, Values */}
+      {/* 4. Mission, Vision, Values - card style */}
       <section className="py-20 md:py-28 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -125,10 +137,12 @@ export default function AboutPage() {
                 <motion.div 
                   key={i}
                   variants={fadeUp as any}
-                  className="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300 group"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-[#EBF2FA] flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
-                    <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
+                  <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mb-6">
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-primary mb-3 tracking-tight">{item.title}</h3>
                   <p className="text-textPrimary/70 leading-relaxed text-[15px]">{item.desc}</p>

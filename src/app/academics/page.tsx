@@ -28,30 +28,30 @@ const GRADE_LEVELS = [
   {
     id: "lower",
     title: "Lower Primary (Grades 1–3)",
-    description: "We build strong academic foundations with a heavy emphasis on reading comprehension, fundamental arithmetic, and structured critical thinking.",
-    subjects: ["Mathematics", "English Language", "Shona", "Environmental Science", "ICT Basics"],
-    achievements: "Pupils achieve reading fluency, basic arithmetic mastery, and primary environmental awareness."
+    description: "Our Lower Primary program focuses on foundational literacy, numeracy, and science. We build strong academic foundations with a heavy emphasis on reading comprehension, fundamental arithmetic, and structured critical thinking.",
+    subjects: ["English", "Maths", "Science & Tech", "Shona", "Art"],
+    achievements: "Pupils read fluently, write independently, and build strong numeracy foundations."
   },
   {
     id: "upper",
     title: "Upper Primary (Grades 4–6)",
-    description: "The curriculum broadens to tackle more complex logic and robust scientific concepts, preparing students for the rigorous expectations of their final year.",
-    subjects: ["Mathematics", "English Language", "Shona", "Science & Technology", "Agriculture", "Visual Arts"],
-    achievements: "Pupils demonstrate independent study skills, advanced reading comprehension, and scientific inquiry."
+    description: "The Upper Primary curriculum focuses on deepening subject knowledge and critical thinking. The curriculum broadens to tackle more complex logic and robust scientific concepts, preparing students for the rigorous expectations of their final year.",
+    subjects: ["Mathematics", "English Language", "Shona", "Science & Technology", "ICT", "Agriculture", "Visual Arts"],
+    achievements: "Pupils develop analytical skills, research habits, and subject specialization readiness."
   },
   {
     id: "grade7",
     title: "Grade 7 (Final Year)",
-    description: "Our Grade 7 capstone class is intensely focused on consolidating seven years of knowledge and preparing students for extraordinary success in the ZIMSEC national examinations.",
-    subjects: ["Intensive Mathematics", "English Comprehension & Composition", "Shona", "General Paper (Science & Agriculture)"],
-    achievements: "Exceptional pass rates, high school readiness, and foundational leadership capabilities."
+    description: "Our Grade 7 capstone class focuses on ZIMSEC examination preparation and secondary school readiness. It is intensely focused on consolidating seven years of knowledge and preparing students for extraordinary success in the national examinations.",
+    subjects: ["Intensive Mathematics", "English Comprehension & Composition", "Shona", "General Paper (Science & Agriculture)", "All subjects with exam emphasis"],
+    achievements: "Pupils sit national Grade 7 exams and transition confidently to secondary school. Exceptional pass rates and foundational leadership capabilities."
   }
 ];
 
 const ACTIVITIES = [
   { name: "Soccer", icon: Trophy },
   { name: "Netball", icon: Activity },
-  { name: "Chess", icon: Atom }, // Using Atom as a puzzle/logic substitute
+  { name: "Chess", icon: Atom },
   { name: "Drama", icon: Palette },
   { name: "Choir", icon: Music },
   { name: "Science Club", icon: BookOpen },
@@ -60,10 +60,12 @@ const ACTIVITIES = [
 export default function AcademicsPage() {
   const [activeTab, setActiveTab] = useState(GRADE_LEVELS[0].id);
 
+  const activeLevel = GRADE_LEVELS.find(l => l.id === activeTab) || GRADE_LEVELS[0];
+
   return (
     <div className="flex flex-col min-h-screen bg-surface overflow-hidden">
       {/* 1. Page Hero */}
-      <section className="bg-primary pt-32 pb-16 relative overflow-hidden">
+      <section className="bg-primary pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 100% 0%, #ffffff 0%, transparent 60%)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -72,13 +74,19 @@ export default function AcademicsPage() {
             animate="visible"
             className="flex flex-col items-center text-center"
           >
-            <h1 className="font-serif text-5xl md:text-6xl text-white font-bold mb-4 tracking-tight">Academics</h1>
-            <div className="flex items-center gap-2 text-sm text-white/80">
+            <h1 className="font-serif text-5xl md:text-[56px] text-white font-bold mb-4 tracking-tight">Academics</h1>
+            <div className="flex items-center gap-2 text-sm text-white/60">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-4 h-4" />
-              <span className="text-secondary font-medium">Academics</span>
+              <span className="text-white font-medium">Academics</span>
             </div>
           </motion.div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 w-full overflow-hidden leading-[0] transform translate-y-[1px]">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[50px] md:h-[80px]">
+            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="fill-white" />
+          </svg>
         </div>
       </section>
 
@@ -118,7 +126,7 @@ export default function AcademicsPage() {
                     custom={i}
                     variants={{
                       hidden: { opacity: 0, x: 20 },
-                      visible: (i) => ({ opacity: 1, x: 0, transition: { delay: i * 0.1, duration: 0.5 } })
+                      visible: (idx: number) => ({ opacity: 1, x: 0, transition: { delay: idx * 0.1, duration: 0.5 } })
                     }}
                     initial="hidden"
                     whileInView="visible"
@@ -168,46 +176,42 @@ export default function AcademicsPage() {
               ))}
             </div>
 
-            {/* Tab Content */}
+            {/* Tab Content — Fixed with AnimatePresence */}
             <div className="lg:w-2/3 bg-white rounded-[2rem] p-8 md:p-12 shadow-xl border border-gray-100 min-h-[400px]">
               <AnimatePresence mode="wait">
-                {GRADE_LEVELS.map((level) => 
-                  activeTab === level.id && (
-                    <motion.div
-                      key={level.id}
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -15 }}
-                      transition={{ duration: 0.3 }}
-                      className="h-full flex flex-col"
-                    >
-                      <h3 className="text-3xl font-bold text-primary mb-6 tracking-tight">{level.title}</h3>
-                      <p className="text-textPrimary/80 text-lg leading-relaxed mb-8">
-                        {level.description}
+                <motion.div
+                  key={activeLevel.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                  className="h-full flex flex-col"
+                >
+                  <h3 className="text-3xl font-bold text-primary mb-6 tracking-tight">{activeLevel.title}</h3>
+                  <p className="text-textPrimary/80 text-lg leading-relaxed mb-8">
+                    {activeLevel.description}
+                  </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-8 mt-auto pt-8 border-t border-gray-100">
+                    <div>
+                      <h4 className="font-bold text-primary uppercase tracking-wider text-xs mb-4">Key Focus Areas</h4>
+                      <ul className="space-y-2">
+                        {activeLevel.subjects.map((sub, i) => (
+                          <li key={i} className="flex items-center gap-2 text-sm text-textPrimary/80">
+                            <div className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />
+                            {sub}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="bg-surface rounded-2xl p-5 border border-gray-100">
+                      <h4 className="font-bold text-primary uppercase tracking-wider text-xs mb-3">Target Achievements</h4>
+                      <p className="text-sm leading-relaxed text-textPrimary/80 font-medium">
+                        {activeLevel.achievements}
                       </p>
-                      
-                      <div className="grid md:grid-cols-2 gap-8 mt-auto pt-8 border-t border-gray-100">
-                        <div>
-                          <h4 className="font-bold text-primary uppercase tracking-wider text-xs mb-4">Key Focus Areas</h4>
-                          <ul className="space-y-2">
-                            {level.subjects.map((sub, i) => (
-                              <li key={i} className="flex items-center gap-2 text-sm text-textPrimary/80">
-                                <div className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />
-                                {sub}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="bg-surface rounded-2xl p-5 border border-gray-100">
-                          <h4 className="font-bold text-primary uppercase tracking-wider text-xs mb-3">Target Achievements</h4>
-                          <p className="text-sm leading-relaxed text-textPrimary/80 font-medium">
-                            {level.achievements}
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )
-                )}
+                    </div>
+                  </div>
+                </motion.div>
               </AnimatePresence>
             </div>
           </div>
@@ -254,7 +258,7 @@ export default function AcademicsPage() {
 
       {/* 5. CTA Banner */}
       <section className="bg-primary py-24 relative overflow-hidden text-center">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'#f4a7c0\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23f4a7c0\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
