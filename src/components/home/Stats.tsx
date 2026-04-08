@@ -3,14 +3,19 @@
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
 
-const STATS = [
+interface StatItem {
+  label: string;
+  value: string;
+}
+
+const DEFAULT_STATS: StatItem[] = [
   { label: "Pupils", value: "500+" },
   { label: "Teachers", value: "30+" },
   { label: "Learning", value: "ECD–Grade 7" },
   { label: "Established", value: "Est. 2005" },
 ];
 
-export default function Stats() {
+export default function Stats({ stats = DEFAULT_STATS }: { stats?: StatItem[] }) {
   const staggerContainer = {
     hidden: { opacity: 0 },
     visible: {
@@ -32,7 +37,7 @@ export default function Stats() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-gray-100"
         >
-          {STATS.map((stat, index) => (
+          {stats.map((stat, index) => (
             <motion.div
               key={index}
               variants={fadeUp}

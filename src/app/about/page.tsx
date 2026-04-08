@@ -1,0 +1,178 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ChevronRight, Target, Lightbulb, Heart } from "lucide-react";
+import Stats from "@/components/home/Stats";
+import { slideInLeft, slideInRight, fadeUp, staggerContainer, fadeIn } from "@/lib/motion";
+
+const ABOUT_STATS = [
+  { label: "Years of Excellence", value: "20+" },
+  { label: "Graduates", value: "2,500+" },
+  { label: "Pass Rate", value: "98%" },
+  { label: "Extracurriculars", value: "15+" },
+];
+
+const TEAM = [
+  { name: "Mrs. Sarah Mutasa", role: "Headmistress" },
+  { name: "Mr. David Banda", role: "Deputy Head" },
+  { name: "Ms. Grace Ncube", role: "Senior Teacher (Infants)" },
+  { name: "Mr. John Moyo", role: "Sports Director" },
+];
+
+export default function AboutPage() {
+  return (
+    <div className="flex flex-col min-h-screen bg-surface">
+      {/* 1. Page Hero */}
+      <section className="bg-primary pt-32 pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 100% 0%, #ffffff 0%, transparent 60%)' }} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            variants={fadeUp as any}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col items-center text-center"
+          >
+            <h1 className="font-serif text-5xl md:text-6xl text-white font-bold mb-4">About Us</h1>
+            <div className="flex items-center gap-2 text-sm text-white/80">
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <ChevronRight className="w-4 h-4" />
+              <span className="text-secondary font-medium">About</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2. Our Story */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <motion.div
+              variants={slideInLeft as any}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-gray-100 flex items-center justify-center border border-gray-200"
+            >
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
+              <div className="text-textMuted font-mono text-sm tracking-widest uppercase font-medium">School Building Image</div>
+            </motion.div>
+            
+            <motion.div
+              variants={slideInRight as any}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <h2 className="font-serif text-4xl font-bold text-primary mb-6">Our Story</h2>
+              <div className="space-y-4 text-textPrimary/80 leading-relaxed text-lg font-light">
+                <p>
+                  Founded in 2005, Grace Mission Primary School began with a simple but profound vision: to provide a nurturing, high-quality education rooted in Christian values. Located in the heart of Harare, we started with just two classrooms and a handful of dedicated staff members.
+                </p>
+                <p>
+                  Over the past two decades, our community has flourished. We have grown to serve over 500 pupils from ECD up to Grade 7, continuously expanding our facilities and curriculum to meet the demands of a modern, rapidly changing world.
+                </p>
+                <p>
+                  At our core, we remain a closely-knit family. We treat every child as an individual gift from God, focusing not just on academic excellence, but on shaping character, fostering compassion, and preparing them for a life of purpose.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Head Teacher's Message */}
+      <section className="py-24 bg-[#EBF2FA]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            variants={fadeUp as any}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="flex flex-col items-center"
+          >
+            <div className="w-24 h-24 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center mb-8 overflow-hidden">
+               <div className="text-gray-400 font-mono text-xs text-center leading-tight mx-2">Head<br/>Photo</div>
+            </div>
+            <blockquote className="font-serif text-3xl md:text-4xl leading-[1.3] text-primary font-medium mb-10 max-w-3xl">
+              "Education is not merely about accumulating facts; it is the awakening of potential, the shaping of character, and the inspiring of a lifelong love for learning in the light of God's grace."
+            </blockquote>
+            <div>
+              <p className="font-bold text-xl text-primary mb-1 tracking-tight">Mrs. Sarah Mutasa</p>
+              <p className="text-secondary text-sm font-bold uppercase tracking-widest">Headmistress</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 4. Mission, Vision, Values */}
+      <section className="py-20 md:py-28 bg-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            variants={staggerContainer as any}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid md:grid-cols-3 gap-8"
+          >
+            {[
+              { title: "Our Mission", icon: Target, desc: "To provide a holistic, Christ-centered education that empowers students to achieve maximum academic potential." },
+              { title: "Our Vision", icon: Lightbulb, desc: "To be the leading primary school in Zimbabwe, known for academic excellence and developing future leaders." },
+              { title: "Our Values", icon: Heart, desc: "Integrity, Compassion, Respect, and Excellence. We instill these biblical principles into everyday school life." },
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div 
+                  key={i}
+                  variants={fadeUp as any}
+                  className="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-[#EBF2FA] flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+                    <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-primary mb-3">{item.title}</h3>
+                  <p className="text-textPrimary/70 leading-relaxed text-[15px]">{item.desc}</p>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 5. Staff Section */}
+      <section className="py-20 md:py-28 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary">Meet our team</h2>
+            <div className="w-16 h-1.5 bg-secondary mx-auto mt-6 rounded-full" />
+          </div>
+
+          <motion.div 
+            variants={staggerContainer as any}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
+          >
+            {TEAM.map((staff, i) => (
+              <motion.div key={i} variants={fadeIn as any} className="flex flex-col items-center group cursor-pointer">
+                <div className="relative w-48 h-48 rounded-full mb-6 overflow-hidden bg-gray-50 flex items-center justify-center ring-4 ring-gray-50 group-hover:ring-secondary/20 transition-all duration-300">
+                  <div className="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/90 transition-all duration-300 z-10 flex items-center justify-center">
+                    <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 text-sm font-semibold tracking-wide uppercase">View Profile</span>
+                  </div>
+                  <span className="text-gray-400 font-mono text-xs text-center leading-tight transform group-hover:scale-110 transition-transform duration-500">Staff<br/>Photo</span>
+                </div>
+                <h3 className="font-bold text-xl text-primary transition-colors group-hover:text-secondary">{staff.name}</h3>
+                <p className="text-textMuted text-[15px] mt-1 font-medium">{staff.role}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 6. School by the numbers */}
+      <Stats stats={ABOUT_STATS} />
+
+    </div>
+  );
+}
