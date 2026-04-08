@@ -24,7 +24,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: "easeOut",
+      ease: "easeOut" as const,
     },
   },
 };
@@ -37,7 +37,7 @@ const socialIconVariants = {
     transition: {
       delay: i * 0.1,
       duration: 0.3,
-      type: "spring",
+      type: "spring" as const,
       stiffness: 200,
     },
   }),
