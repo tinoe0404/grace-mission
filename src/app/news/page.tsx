@@ -18,7 +18,7 @@ const NEWS_ARTICLES = [
   { id: 2, date: "September 28, 2025", headline: "New Science Lab Facility Officially Opened", excerpt: "The state-of-the-art laboratory features interactive boards and modern equipment to foster a deeper understanding of STEM subjects.", image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80&auto=format&fit=crop" },
   { id: 3, date: "September 15, 2025", headline: "Cultural Day Highlights: A Celebration of Diversity", excerpt: "Students arrived in vibrant traditional wear, sharing food, music, and dances from deeply rooted heritages.", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&q=80&auto=format&fit=crop" },
   { id: 4, date: "August 30, 2025", headline: "Grade 7 National Exam Preparation Strategies", excerpt: "An overview of how our final year students are currently brushing up for the ZIMSEC exams in the coming term.", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&auto=format&fit=crop" },
-  { id: 5, date: "August 12, 2025", headline: "Under-10 Netball Team Completes Unbeaten Season", excerpt: "A massive congratulations to our junior netball girls who remained entirely undefeated this season.", image: "https://images.unsplash.com/photo-1526676037777-05a232554f77?w=600&q=80&auto=format&fit=crop" },
+  { id: 5, date: "August 12, 2025", headline: "Under-10 Netball Team Completes Unbeaten Season", excerpt: "A massive congratulations to our junior netball girls who remained entirely undefeated this season.", image: "https://images.unsplash.com/photo-1546410531-b6a6552a9042?w=600&q=80&auto=format&fit=crop" },
 ];
 
 const UPCOMING_EVENTS = [

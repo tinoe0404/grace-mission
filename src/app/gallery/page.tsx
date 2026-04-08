@@ -21,7 +21,7 @@ const GALLERY_IMAGES = [
   { id: 9, category: "Achievements", caption: "Best Primary School in District Award.", url: "https://images.unsplash.com/photo-1610484826967-09f0296ab42d?w=800&q=80&auto=format&fit=crop" },
   { id: 10, category: "Events", caption: "Christmas Carols by Candlelight.", url: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=800&q=80&auto=format&fit=crop" },
   { id: 11, category: "School Life", caption: "Early morning assemblies.", url: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80&auto=format&fit=crop" },
-  { id: 12, category: "Sports", caption: "Netball team practice sessions.", url: "https://images.unsplash.com/photo-1526676037777-05a232554f77?w=800&q=80&auto=format&fit=crop" },
+  { id: 12, category: "Sports", caption: "Netball team practice sessions.", url: "https://images.unsplash.com/photo-1546410531-b6a6552a9042?w=800&q=80&auto=format&fit=crop" },
 ];
 
 export default function GalleryPage() {
