@@ -1,17 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { X, ArrowRight } from "lucide-react";
-import { slideInRight, fadeUp } from "@/lib/motion";
+import { ArrowRight } from "lucide-react";
+import { slideInRight } from "@/lib/motion";
 
 export default function Hero() {
-  const [showBanner, setShowBanner] = useState(true);
-
   // Custom staggering for words
-  const titleContainer: any = {
+  const titleContainer = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -22,7 +19,7 @@ export default function Hero() {
     },
   };
 
-  const wordAnimation: any = {
+  const wordAnimation = {
     hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
@@ -36,31 +33,6 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen bg-primary flex flex-col justify-center overflow-hidden pt-20">
-      {/* Announcement Banner */}
-      <AnimatePresence>
-        {showBanner && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, filter: "blur(4px)" }}
-            className="absolute top-28 left-1/2 -translate-x-1/2 z-40 w-max max-w-[90vw]"
-          >
-            <div className="inline-flex items-center gap-3 bg-secondary/10 hover:bg-secondary/20 transition-colors backdrop-blur-md border border-secondary/30 text-white px-5 py-2.5 rounded-full shadow-lg group">
-              <span className="flex h-2 w-2 rounded-full bg-secondary animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium tracking-wide">
-                Term 2 2025 Enrollment Now Open — <span className="font-bold">Limited Spaces</span>
-              </span>
-              <button
-                onClick={(e) => { e.stopPropagation(); setShowBanner(false); }}
-                className="ml-2 bg-white/10 hover:bg-white/20 rounded-full p-1 transition-colors text-white"
-                aria-label="Dismiss banner"
-              >
-                <X className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 100% 0%, #ffffff 0%, transparent 60%)' }} />

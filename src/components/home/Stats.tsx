@@ -28,7 +28,7 @@ export default function Stats({ stats = DEFAULT_STATS }: { stats?: StatItem[] })
   };
 
   return (
-    <section className="bg-white py-12 md:py-20 relative z-20">
+    <section className="bg-white py-16 md:py-24 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={staggerContainer}
