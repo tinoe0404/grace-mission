@@ -40,21 +40,22 @@ export default function Hero() {
       <AnimatePresence>
         {showBanner && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="absolute top-0 left-0 right-0 z-40 bg-[#F4A7C0]"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, filter: "blur(4px)" }}
+            className="absolute top-28 left-1/2 -translate-x-1/2 z-40 w-max max-w-[90vw]"
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative flex items-center justify-center py-2.5">
-              <span className="text-[#8B1A40] text-sm font-medium tracking-wide">
-                Term 2 2025 Enrollment Now Open — Limited Spaces
+            <div className="inline-flex items-center gap-3 bg-secondary/10 hover:bg-secondary/20 transition-colors backdrop-blur-md border border-secondary/30 text-white px-5 py-2.5 rounded-full shadow-lg group">
+              <span className="flex h-2 w-2 rounded-full bg-secondary animate-pulse" />
+              <span className="text-xs sm:text-sm font-medium tracking-wide">
+                Term 2 2025 Enrollment Now Open — <span className="font-bold">Limited Spaces</span>
               </span>
               <button
-                onClick={() => setShowBanner(false)}
-                className="absolute right-4 text-[#8B1A40] hover:text-[#5c102a] transition-colors p-1"
+                onClick={(e) => { e.stopPropagation(); setShowBanner(false); }}
+                className="ml-2 bg-white/10 hover:bg-white/20 rounded-full p-1 transition-colors text-white"
                 aria-label="Dismiss banner"
               >
-                <X className="w-4 h-4" />
+                <X className="w-3.5 h-3.5" />
               </button>
             </div>
           </motion.div>
@@ -73,13 +74,13 @@ export default function Hero() {
               variants={titleContainer}
               initial="hidden"
               animate="visible"
-              className="mb-6 font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1]"
+              className="mt-12 lg:mt-6 mb-8 font-serif text-5xl sm:text-6xl xl:text-7xl font-bold text-white leading-[1.12]"
             >
-              <div className="overflow-hidden pb-2">
+              <div className="overflow-hidden pb-1">
                 <motion.span className="inline-block mr-4" variants={wordAnimation}>Nurturing</motion.span>
                 <motion.span className="inline-block" variants={wordAnimation}>Minds,</motion.span>
               </div>
-              <div className="overflow-hidden pb-4 text-white/90">
+              <div className="overflow-hidden pb-4 text-white/95">
                 <motion.span className="inline-block mr-4" variants={wordAnimation}>Shaping</motion.span>
                 <motion.span className="inline-block text-secondary" variants={wordAnimation}>Futures.</motion.span>
               </div>
@@ -133,19 +134,18 @@ export default function Hero() {
                 <Image src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80&auto=format&fit=crop" alt="Grace Mission Students" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
 
-              {/* Floating Badge */}
               <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.6 }}
-                className="absolute bottom-16 -left-12 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 flex items-center gap-4"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.2, duration: 0.6, type: "spring", stiffness: 100 }}
+                className="absolute bottom-16 -left-8 md:-left-12 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border border-white/50 flex items-center gap-4 group"
               >
-                <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center transition-transform group-hover:rotate-12 duration-300">
                   <ArrowRight className="text-secondary w-5 h-5 -rotate-45" />
                 </div>
                 <div>
-                  <p className="text-primary font-bold text-lg leading-none">Excellence</p>
-                  <p className="text-textMuted text-xs font-medium">In Education</p>
+                  <p className="text-primary font-bold text-lg leading-none tracking-tight">Excellence</p>
+                  <p className="text-textMuted text-xs font-semibold uppercase tracking-wider mt-1">In Education</p>
                 </div>
               </motion.div>
             </motion.div>
