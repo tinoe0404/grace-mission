@@ -4,6 +4,7 @@ import "./globals.css";
 import { SCHOOL_DETAILS } from "@/lib/constants";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import WhatsAppButton from "@/components/layout/WhatsAppButton";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -27,6 +28,7 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
+        <WhatsAppButton />
         <Footer />
       </body>
     </html>
