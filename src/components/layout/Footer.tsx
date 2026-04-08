@@ -50,7 +50,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div className="lg:col-span-4 lg:pl-12">
-            <h3 className="font-serif text-xl font-bold mb-6 text-white tracking-wide">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-6 text-white tracking-wide">Quick Links</h3>
             <ul className="space-y-3.5">
               {[
                 { label: "About Us", href: "/about" },
@@ -71,7 +71,7 @@ export default function Footer() {
 
           {/* Column 3: Contact Details */}
           <div className="lg:col-span-4">
-            <h3 className="font-serif text-xl font-bold mb-6 text-white tracking-wide">Contact Us</h3>
+            <h3 className="text-xl font-bold mb-6 text-white tracking-wide">Contact Us</h3>
             <ul className="space-y-5">
               <li className="flex items-start gap-4 text-gray-400 text-sm">
                 <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 mt-0.5">

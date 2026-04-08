@@ -34,7 +34,7 @@ export default function Stats({ stats = DEFAULT_STATS }: { stats?: StatItem[] })
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-gray-100"
         >
           {stats.map((stat, index) => (
@@ -45,7 +45,7 @@ export default function Stats({ stats = DEFAULT_STATS }: { stats?: StatItem[] })
                 index === 0 ? "pt-0 border-t-0 border-l-2 !border-secondary" : ""
               }`}
             >
-              <span className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-2 block tracking-tight">
+              <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-2 block tracking-tight">
                 {stat.value}
               </span>
               <span className="text-textMuted text-sm md:text-base font-medium uppercase tracking-wider">

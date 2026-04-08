@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight, Calendar, ArrowRight, Clock, MapPin, CalendarPlus } from "lucide-react";
 import { fadeUp, staggerContainer, fadeIn } from "@/lib/motion";
 
@@ -10,14 +11,14 @@ const FEATURED_NEWS = {
   date: "October 12, 2025",
   headline: "Grace Mission Wins Regional Debate Championship",
   excerpt: "Our senior debate team showcased incredible critical thinking and public speaking skills, bringing home the trophy against 20 other primary schools across the province.",
-  image: "Featured Article Image Placeholder"
+  image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&q=80&auto=format&fit=crop"
 };
 
 const NEWS_ARTICLES = [
-  { id: 2, date: "September 28, 2025", headline: "New Science Lab Facility Officially Opened", excerpt: "The state-of-the-art laboratory features interactive boards and modern equipment to foster a deeper understanding of STEM subjects." },
-  { id: 3, date: "September 15, 2025", headline: "Cultural Day Highlights: A Celebration of Diversity", excerpt: "Students arrived in vibrant traditional wear, sharing food, music, and dances from deeply rooted heritages." },
-  { id: 4, date: "August 30, 2025", headline: "Grade 7 National Exam Preparation Strategies", excerpt: "An overview of how our final year students are currently brushing up for the ZIMSEC exams in the coming term." },
-  { id: 5, date: "August 12, 2025", headline: "Under-10 Netball Team Completes Unbeaten Season", excerpt: "A massive congratulations to our junior netball girls who remained entirely undefeated this season." },
+  { id: 2, date: "September 28, 2025", headline: "New Science Lab Facility Officially Opened", excerpt: "The state-of-the-art laboratory features interactive boards and modern equipment to foster a deeper understanding of STEM subjects.", image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80&auto=format&fit=crop" },
+  { id: 3, date: "September 15, 2025", headline: "Cultural Day Highlights: A Celebration of Diversity", excerpt: "Students arrived in vibrant traditional wear, sharing food, music, and dances from deeply rooted heritages.", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&q=80&auto=format&fit=crop" },
+  { id: 4, date: "August 30, 2025", headline: "Grade 7 National Exam Preparation Strategies", excerpt: "An overview of how our final year students are currently brushing up for the ZIMSEC exams in the coming term.", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&auto=format&fit=crop" },
+  { id: 5, date: "August 12, 2025", headline: "Under-10 Netball Team Completes Unbeaten Season", excerpt: "A massive congratulations to our junior netball girls who remained entirely undefeated this season.", image: "https://images.unsplash.com/photo-1526676037777-05a232554f77?w=600&q=80&auto=format&fit=crop" },
 ];
 
 const UPCOMING_EVENTS = [
@@ -65,15 +66,14 @@ export default function NewsPage() {
                 className="group cursor-pointer bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
               >
                 <div className="aspect-video w-full bg-gray-200 relative overflow-hidden flex items-center justify-center">
-                  <div className="absolute inset-0 bg-primary/5 group-hover:scale-105 transition-transform duration-500 z-0" />
-                  <span className="text-gray-400 font-mono text-sm tracking-widest uppercase font-bold relative z-10">{FEATURED_NEWS.image}</span>
+                  <Image src={FEATURED_NEWS.image} alt="Featured News" fill className="object-cover group-hover:scale-105 transition-transform duration-500 z-0" />
                 </div>
                 <div className="p-8 md:p-10">
                   <div className="flex items-center gap-2 text-secondary font-semibold text-sm mb-4">
                     <Calendar className="w-4 h-4" />
                     {FEATURED_NEWS.date}
                   </div>
-                  <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4 group-hover:text-secondary transition-colors">
+                  <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 group-hover:text-secondary transition-colors tracking-tight">
                     {FEATURED_NEWS.headline}
                   </h2>
                   <p className="text-textPrimary/70 text-lg leading-relaxed mb-6">
@@ -88,12 +88,12 @@ export default function NewsPage() {
 
               {/* 3. News Grid */}
               <div className="mb-4">
-                <h3 className="font-serif text-2xl font-bold text-primary mb-8 border-b-2 border-gray-100 pb-4">Latest Updates</h3>
+                <h3 className="text-2xl font-bold text-primary mb-8 border-b-2 border-gray-100 pb-4 tracking-tight">Latest Updates</h3>
                 <motion.div 
                   variants={staggerContainer as any}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
+                  viewport={{ once: true, amount: 0.1 }}
                   className="grid sm:grid-cols-2 gap-8"
                 >
                   {NEWS_ARTICLES.map((article) => (
@@ -106,10 +106,10 @@ export default function NewsPage() {
                         <div className="absolute top-4 left-4 bg-primary text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10">
                           {article.date}
                         </div>
-                        <span className="text-gray-400 font-mono text-xs tracking-wider uppercase font-bold flex-col flex items-center group-hover:scale-105 transition-transform duration-500">Image</span>
+                        <Image src={article.image!} alt={article.headline} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                       </div>
                       <div className="p-6 flex flex-col flex-grow">
-                        <h4 className="font-serif text-xl font-bold text-primary mb-3 leading-tight group-hover:text-secondary transition-colors">
+                        <h4 className="text-xl font-bold text-primary mb-3 leading-tight group-hover:text-secondary transition-colors">
                           {article.headline}
                         </h4>
                         <p className="text-textPrimary/70 text-sm leading-relaxed mb-6 flex-grow">
@@ -136,7 +136,7 @@ export default function NewsPage() {
                 className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm sticky top-32"
               >
                 <div className="flex items-center justify-between mb-8 pb-4 border-b-2 border-gray-100">
-                  <h3 className="font-serif text-2xl font-bold text-primary">Upcoming Events</h3>
+                  <h3 className="text-2xl font-bold text-primary tracking-tight">Upcoming Events</h3>
                 </div>
 
                 <div className="space-y-6">

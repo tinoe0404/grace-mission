@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight, Target, Lightbulb, Heart } from "lucide-react";
 import Stats from "@/components/home/Stats";
 import { slideInLeft, slideInRight, fadeUp, staggerContainer, fadeIn } from "@/lib/motion";
@@ -14,10 +15,10 @@ const ABOUT_STATS = [
 ];
 
 const TEAM = [
-  { name: "Mrs. Sarah Mutasa", role: "Headmistress" },
-  { name: "Mr. David Banda", role: "Deputy Head" },
-  { name: "Ms. Grace Ncube", role: "Senior Teacher (Infants)" },
-  { name: "Mr. John Moyo", role: "Sports Director" },
+  { name: "Mrs. Sarah Mutasa", role: "Headmistress", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop" },
+  { name: "Mr. David Banda", role: "Deputy Head", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80&auto=format&fit=crop" },
+  { name: "Ms. Grace Ncube", role: "Senior Teacher", image: "https://images.unsplash.com/photo-1580894732444-8ecbef79bd14?w=400&q=80&auto=format&fit=crop" },
+  { name: "Mr. John Moyo", role: "Sports Director", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&auto=format&fit=crop" },
 ];
 
 export default function AboutPage() {
@@ -51,20 +52,19 @@ export default function AboutPage() {
               variants={slideInLeft as any}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.2 }}
               className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-gray-100 flex items-center justify-center border border-gray-200"
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
-              <div className="text-textMuted font-mono text-sm tracking-widest uppercase font-medium">School Building Image</div>
+              <Image src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80&auto=format&fit=crop" alt="School Building" fill className="object-cover" />
             </motion.div>
             
             <motion.div
               variants={slideInRight as any}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.2 }}
             >
-              <h2 className="font-serif text-4xl font-bold text-primary mb-6">Our Story</h2>
+              <h2 className="text-4xl font-bold text-primary mb-6 tracking-tight">Our Story</h2>
               <div className="space-y-4 text-textPrimary/80 leading-relaxed text-lg font-light">
                 <p>
                   Founded in 2005, Grace Mission Primary School began with a simple but profound vision: to provide a nurturing, high-quality education rooted in Christian values. Located in the heart of Harare, we started with just two classrooms and a handful of dedicated staff members.
@@ -88,11 +88,11 @@ export default function AboutPage() {
             variants={fadeUp as any}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col items-center"
           >
-            <div className="w-24 h-24 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center mb-8 overflow-hidden">
-               <div className="text-gray-400 font-mono text-xs text-center leading-tight mx-2">Head<br/>Photo</div>
+            <div className="relative w-24 h-24 rounded-full bg-white shadow-md border border-gray-200 mb-8 overflow-hidden">
+               <Image src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop" alt="Mrs. Sarah Mutasa" fill className="object-cover" />
             </div>
             <blockquote className="font-serif text-3xl md:text-4xl leading-[1.3] text-primary font-medium mb-10 max-w-3xl">
               "Education is not merely about accumulating facts; it is the awakening of potential, the shaping of character, and the inspiring of a lifelong love for learning in the light of God's grace."
@@ -112,7 +112,7 @@ export default function AboutPage() {
             variants={staggerContainer as any}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="grid md:grid-cols-3 gap-8"
           >
             {[
@@ -130,7 +130,7 @@ export default function AboutPage() {
                   <div className="w-14 h-14 rounded-2xl bg-[#EBF2FA] flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
                     <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="font-serif text-2xl font-bold text-primary mb-3">{item.title}</h3>
+                  <h3 className="text-2xl font-bold text-primary mb-3 tracking-tight">{item.title}</h3>
                   <p className="text-textPrimary/70 leading-relaxed text-[15px]">{item.desc}</p>
                 </motion.div>
               );
@@ -143,7 +143,7 @@ export default function AboutPage() {
       <section className="py-20 md:py-28 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary">Meet our team</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">Meet our team</h2>
             <div className="w-16 h-1.5 bg-secondary mx-auto mt-6 rounded-full" />
           </div>
 
@@ -151,7 +151,7 @@ export default function AboutPage() {
             variants={staggerContainer as any}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
           >
             {TEAM.map((staff, i) => (
@@ -160,7 +160,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/90 transition-all duration-300 z-10 flex items-center justify-center">
                     <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 text-sm font-semibold tracking-wide uppercase">View Profile</span>
                   </div>
-                  <span className="text-gray-400 font-mono text-xs text-center leading-tight transform group-hover:scale-110 transition-transform duration-500">Staff<br/>Photo</span>
+                  <Image src={staff.image} alt={staff.name} fill className="object-cover" />
                 </div>
                 <h3 className="font-bold text-xl text-primary transition-colors group-hover:text-secondary">{staff.name}</h3>
                 <p className="text-textMuted text-[15px] mt-1 font-medium">{staff.role}</p>

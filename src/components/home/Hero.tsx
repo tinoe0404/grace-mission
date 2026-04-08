@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { X, ArrowRight } from "lucide-react";
@@ -127,19 +128,9 @@ export default function Hero() {
               <div className="absolute bottom-10 left-10 w-64 h-64 bg-white/20 rounded-full blur-[60px]" />
               
               {/* Image Card */}
-              <div className="relative w-full h-[90%] rounded-[2.5rem] bg-gradient-to-br from-white/10 to-white/5 border border-white/20 shadow-2xl backdrop-blur-md overflow-hidden mt-8 flex flex-col items-center justify-center">
-                <div className="w-full h-full absolute inset-0 bg-primary/40 mix-blend-overlay" />
-                {/* SVG Illustration Placeholder instead of image */}
-                <svg className="w-48 h-48 text-white/20 relative z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-                  <path d="M12 2v20" />
-                  <path d="M8 8h8" />
-                  <path d="M8 12h8" />
-                  <path d="M8 16h8" />
-                </svg>
-                <div className="relative z-10 text-white/40 mt-4 font-mono text-sm tracking-widest font-medium uppercase">
-                  School Image
-                </div>
+              <div className="relative w-full h-[90%] rounded-[2.5rem] bg-gradient-to-br from-white/10 to-white/5 border border-white/20 shadow-2xl backdrop-blur-md overflow-hidden mt-8 flex flex-col items-center justify-center group">
+                <div className="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/10 transition-colors duration-500 z-10" />
+                <Image src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80&auto=format&fit=crop" alt="Grace Mission Students" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
 
               {/* Floating Badge */}

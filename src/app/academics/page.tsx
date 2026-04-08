@@ -90,9 +90,9 @@ export default function AcademicsPage() {
               variants={slideInLeft as any}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.2 }}
             >
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-6">ZIMSEC-Aligned Curriculum</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 tracking-tight">ZIMSEC-Aligned Curriculum</h2>
               <div className="space-y-4 text-textPrimary/80 leading-relaxed text-lg font-light mb-8">
                 <p>
                   At Grace Mission Primary School, we fiercely commit to academic excellence. Our teaching framework is robustly aligned with the updated Zimbabwe School Examinations Council (ZIMSEC) syllabus, ensuring our students are nationally competitive.
@@ -107,7 +107,7 @@ export default function AcademicsPage() {
               variants={slideInRight as any}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.2 }}
               className="bg-surface rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm"
             >
               <h3 className="font-bold text-xl text-primary mb-6">Core Subjects Offered</h3>
@@ -139,7 +139,7 @@ export default function AcademicsPage() {
       <section className="py-20 md:py-28 bg-[#EBF2FA]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary">Academic Progression</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">Academic Progression</h2>
             <div className="w-16 h-1 bg-secondary mx-auto mt-6 rounded-full" />
           </div>
 
@@ -181,7 +181,7 @@ export default function AcademicsPage() {
                       transition={{ duration: 0.3 }}
                       className="h-full flex flex-col"
                     >
-                      <h3 className="font-serif text-3xl font-bold text-primary mb-6">{level.title}</h3>
+                      <h3 className="text-3xl font-bold text-primary mb-6 tracking-tight">{level.title}</h3>
                       <p className="text-textPrimary/80 text-lg leading-relaxed mb-8">
                         {level.description}
                       </p>
@@ -218,7 +218,7 @@ export default function AcademicsPage() {
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary">Co-curricular Activities</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">Co-curricular Activities</h2>
             <p className="text-textMuted mt-4 max-w-2xl mx-auto">Education goes beyond the classroom. We offer a vibrant array of clubs and sports to develop well-rounded individuals.</p>
           </div>
 
@@ -226,7 +226,7 @@ export default function AcademicsPage() {
             variants={staggerContainer as any}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
           >
             {ACTIVITIES.map((activity, i) => {

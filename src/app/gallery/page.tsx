@@ -3,24 +3,25 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight, ZoomIn, X, ChevronLeft, ChevronRight as NavRight } from "lucide-react";
 import { fadeUp } from "@/lib/motion";
 
 const CATEGORIES = ["All", "School Life", "Sports", "Events", "Achievements"];
 
 const GALLERY_IMAGES = [
-  { id: 1, category: "School Life", caption: "Students collaborating in the science lab." },
-  { id: 2, category: "Sports", caption: "Under-12 Soccer Team winning regionals." },
-  { id: 3, category: "Events", caption: "Annual Prize Giving Speech Day." },
-  { id: 4, category: "Achievements", caption: "National Spelling Bee Champions." },
-  { id: 5, category: "School Life", caption: "Art and Craft exhibition in the main hall." },
-  { id: 6, category: "Sports", caption: "Inter-house athletics competition." },
-  { id: 7, category: "Events", caption: "Cultural Day celebrations." },
-  { id: 8, category: "School Life", caption: "Grade 1 reading time." },
-  { id: 9, category: "Achievements", caption: "Best Primary School in District Award." },
-  { id: 10, category: "Events", caption: "Christmas Carols by Candlelight." },
-  { id: 11, category: "School Life", caption: "Early morning assemblies." },
-  { id: 12, category: "Sports", caption: "Netball team practice sessions." },
+  { id: 1, category: "School Life", caption: "Students collaborating in the science lab.", url: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80&auto=format&fit=crop" },
+  { id: 2, category: "Sports", caption: "Under-12 Soccer Team winning regionals.", url: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80&auto=format&fit=crop" },
+  { id: 3, category: "Events", caption: "Annual Prize Giving Speech Day.", url: "https://images.unsplash.com/photo-1511629091441-ee46146481b6?w=800&q=80&auto=format&fit=crop" },
+  { id: 4, category: "Achievements", caption: "National Spelling Bee Champions.", url: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80&auto=format&fit=crop" },
+  { id: 5, category: "School Life", caption: "Art and Craft exhibition in the main hall.", url: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?w=800&q=80&auto=format&fit=crop" },
+  { id: 6, category: "Sports", caption: "Inter-house athletics competition.", url: "https://images.unsplash.com/photo-1546410531-b6a6552a9042?w=800&q=80&auto=format&fit=crop" },
+  { id: 7, category: "Events", caption: "Cultural Day celebrations.", url: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80&auto=format&fit=crop" },
+  { id: 8, category: "School Life", caption: "Grade 1 reading time.", url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80&auto=format&fit=crop" },
+  { id: 9, category: "Achievements", caption: "Best Primary School in District Award.", url: "https://images.unsplash.com/photo-1610484826967-09f0296ab42d?w=800&q=80&auto=format&fit=crop" },
+  { id: 10, category: "Events", caption: "Christmas Carols by Candlelight.", url: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=800&q=80&auto=format&fit=crop" },
+  { id: 11, category: "School Life", caption: "Early morning assemblies.", url: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80&auto=format&fit=crop" },
+  { id: 12, category: "Sports", caption: "Netball team practice sessions.", url: "https://images.unsplash.com/photo-1526676037777-05a232554f77?w=800&q=80&auto=format&fit=crop" },
 ];
 
 export default function GalleryPage() {
@@ -119,9 +120,7 @@ export default function GalleryPage() {
                   onClick={() => openLightbox(i)}
                   className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer bg-gray-200 shadow-sm border border-gray-100"
                 >
-                  <div className="absolute inset-0 flex items-center justify-center font-mono text-gray-400 text-xs font-bold tracking-widest uppercase">
-                    Photo {img.id}
-                  </div>
+                  <Image src={img.url} alt={img.caption || `Gallery photo ${img.id}`} fill className="object-cover" />
                   
                   {/* Hover Overlay */}
                   <motion.div 
@@ -185,10 +184,7 @@ export default function GalleryPage() {
               transition={{ duration: 0.2 }}
               className="relative w-full max-w-4xl aspect-[4/3] md:aspect-video mx-4 bg-white/5 rounded-lg overflow-hidden flex flex-col justify-center items-center"
             >
-              <div className="w-full h-full flex flex-col items-center justify-center text-white/50 text-xl font-medium font-mono border-2 border-dashed border-white/20 rounded-lg">
-                Full Resolution Image {filteredImages[currentImageIndex].id} Placeholder
-                <span className="text-sm mt-2 text-white/30">Category: {filteredImages[currentImageIndex].category}</span>
-              </div>
+              <Image src={filteredImages[currentImageIndex].url} alt={filteredImages[currentImageIndex].caption} fill className="object-cover" />
               
               <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-center">
                 <p className="text-white text-lg font-medium">{filteredImages[currentImageIndex].caption}</p>

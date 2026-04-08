@@ -62,7 +62,7 @@ export default function AdmissionsPage() {
       <section className="py-20 md:py-28 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary">How to Apply</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">How to Apply</h2>
             <p className="text-textMuted mt-4 max-w-2xl mx-auto">Our admissions process is designed to be straightforward and welcoming for parents and pupils alike.</p>
           </div>
 
@@ -70,7 +70,7 @@ export default function AdmissionsPage() {
             variants={staggerContainer as any}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="relative flex flex-col md:flex-row justify-between gap-12 md:gap-4"
           >
             {/* Connecting dashed line (desktop) */}
@@ -103,9 +103,9 @@ export default function AdmissionsPage() {
               variants={slideInLeft as any}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
             >
-              <h2 className="font-serif text-3xl font-bold text-primary mb-8">Required Documents</h2>
+              <h2 className="text-3xl font-bold text-primary mb-8 tracking-tight">Required Documents</h2>
               <div className="bg-white rounded-[2rem] p-8 md:p-10 shadow-lg border border-gray-100">
                 <ul className="space-y-5">
                   {REQUIREMENTS.map((req, i) => (
@@ -124,9 +124,9 @@ export default function AdmissionsPage() {
               variants={slideInRight as any}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
             >
-              <h2 className="font-serif text-3xl font-bold text-primary mb-8">Age Requirements</h2>
+              <h2 className="text-3xl font-bold text-primary mb-8 tracking-tight">Age Requirements</h2>
               <div className="space-y-4">
                 {AGE_REQS.map((req, i) => (
                   <div key={i} className="flex items-center justify-between bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
@@ -149,14 +149,14 @@ export default function AdmissionsPage() {
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary">Fees Structure</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">Fees Structure</h2>
             <p className="text-textMuted mt-4">Transparent tuition fees with no hidden costs.</p>
           </div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
             className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-200"
           >
@@ -185,7 +185,7 @@ export default function AdmissionsPage() {
       <section className="py-20 md:py-28 bg-[#1A3A6B] text-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl mb-4 font-bold">Start Your Enrollment</h2>
+            <h2 className="text-4xl mb-4 font-bold tracking-tight">Start Your Enrollment</h2>
             <p className="text-white/70 text-lg">Send us a direct inquiry and our admissions office will contact you within 24 hours.</p>
           </div>
 

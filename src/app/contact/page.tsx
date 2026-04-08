@@ -45,7 +45,7 @@ export default function ContactPage() {
             variants={staggerContainer as any}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="grid sm:grid-cols-3 gap-6"
           >
             {CONTACT_INFO.map((info, i) => {
@@ -79,10 +79,10 @@ export default function ContactPage() {
               variants={slideInLeft as any}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.2 }}
               className="bg-white rounded-[2rem] p-8 md:p-10 shadow-lg border border-gray-100"
             >
-              <h2 className="font-serif text-3xl font-bold text-primary mb-2">Send a Message</h2>
+              <h2 className="text-3xl font-bold text-primary mb-2 tracking-tight">Send a Message</h2>
               <p className="text-textMuted mb-8 text-sm">We'd love to hear from you. Fill out the form below and we'll be in touch shortly.</p>
               
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
@@ -200,7 +200,7 @@ export default function ContactPage() {
                 variants={slideInRight as any}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm flex items-start gap-5"
               >
                 <div className="w-12 h-12 bg-[#25D366]/10 text-[#25D366] rounded-full flex items-center justify-center shrink-0 mt-1">
@@ -235,7 +235,7 @@ export default function ContactPage() {
                 variants={slideInRight as any}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="relative w-full flex-grow min-h-[350px] bg-gray-200 rounded-3xl overflow-hidden shadow-sm group"
               >
                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/0 transition-colors duration-500 z-10 pointer-events-none" />
@@ -258,7 +258,7 @@ export default function ContactPage() {
           <div className="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-8">
             <span className="text-secondary font-bold text-2xl font-serif">GM</span>
           </div>
-          <h2 className="font-serif text-3xl font-bold mb-8">Grace Mission Primary School</h2>
+          <h2 className="text-3xl font-bold mb-8 tracking-tight">Grace Mission Primary School</h2>
           
           <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-6 md:gap-12 text-white/80 font-medium mb-10 w-full max-w-4xl mx-auto">
             <span className="flex items-center gap-2"><MapPin className="w-5 h-5 text-secondary" /> {SCHOOL_DETAILS.location}</span>
