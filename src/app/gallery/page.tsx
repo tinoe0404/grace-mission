@@ -88,8 +88,14 @@ export default function GalleryPage() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!lightboxOpen) return;
-      if (e.key === "ArrowRight") nextImage();
-      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") {
+        setDirection(1);
+        setCurrentImageIndex((prev) => (prev === filteredImages.length - 1 ? 0 : prev + 1));
+      }
+      if (e.key === "ArrowLeft") {
+        setDirection(-1);
+        setCurrentImageIndex((prev) => (prev === 0 ? filteredImages.length - 1 : prev - 1));
+      }
       if (e.key === "Escape") closeLightbox();
     };
     window.addEventListener("keydown", handleKeyDown);
