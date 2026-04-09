@@ -8,32 +8,32 @@ const SUBJECTS = [
   {
     icon: Calculator,
     title: "Mathematics",
-    description: "Develop fluency at currency and problem-solving in ECO to Grade 7.",
+    description: "Building number fluency, problem-solving, and logical reasoning from ECD through Grade 7.",
   },
   {
     icon: BookOpen,
-    title: "English & Literacy",
-    description: "Developing confident oral, responsibility, and respect sports.",
+    title: "English",
+    description: "Developing confident readers, writers, and speakers through structured literacy programmes.",
   },
   {
     icon: Microscope,
-    title: "Science & Tech",
-    description: "The attra an incooperation of natural and physical works.",
+    title: "Science",
+    description: "Hands-on exploration of the natural world, aligned with the updated ZIMSEC syllabus.",
   },
   {
     icon: Monitor,
-    title: "ICT & Computing",
-    description: "Moderate computer all with debitating from ECO grade.",
+    title: "ICT",
+    description: "Practical computing skills including typing, internet safety, and introductory coding.",
   },
   {
     icon: Dumbbell,
-    title: "Sports & PE",
-    description: "The fally sports, teachcerk, swimming, sports fiturns and teamworks.",
+    title: "Sports",
+    description: "Football, athletics, netball, swimming, and team games developing fitness and character.",
   },
   {
     icon: Palette,
-    title: "Arts & Culture",
-    description: "Music, paleit, visual, and cultural expression.",
+    title: "Arts",
+    description: "Music, visual art, drama, and cultural expression celebrating Zimbabwean heritage.",
   },
 ];
 
@@ -62,29 +62,28 @@ const fadeUp: Variants = {
 
 export default function AcademicsPreview() {
   return (
-    <section className="py-16 md:py-24 bg-surface-warm">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-padding bg-cream">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-10"
+          className="mb-14 text-center md:text-left"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-primary tracking-tight font-serif">
-            Academic Curriculum Overview
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary tracking-tight">
+            Academic Curriculum
           </h2>
-          <div className="w-12 h-1 bg-secondary mt-4 rounded-full" />
         </motion.div>
 
-        {/* Subject cards — vertical list */}
+        {/* Subject cards — grid layout */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex flex-col gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {SUBJECTS.map((subject, i) => {
             const Icon = subject.icon;
@@ -92,21 +91,14 @@ export default function AcademicsPreview() {
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className="bg-white rounded-xl p-5 sm:p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300 flex items-start gap-4 group border-l-4 border-l-transparent hover:border-l-primary/20"
+                className="bg-white rounded-lg p-6 shadow-sm hover:shadow-card-hover transition-shadow duration-300 border-l-4 border-l-primary flex flex-col items-start gap-4"
               >
-                <div className="w-11 h-11 rounded-xl bg-surface flex items-center justify-center shrink-0 group-hover:bg-primary/5 transition-colors">
-                  <Icon className="w-5 h-5 text-primary/70" strokeWidth={1.5} />
+                <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center shrink-0">
+                  <Icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-primary text-base mb-1">{subject.title}</h3>
-                  <p className="text-textMuted text-sm leading-relaxed mb-2">{subject.description}</p>
-                  <Link
-                    href="/academics"
-                    className="text-secondary text-sm font-semibold hover:text-primary transition-colors inline-flex items-center gap-1 group/link"
-                  >
-                    Learn more
-                    <span className="group-hover/link:translate-x-1 transition-transform inline-block">→</span>
-                  </Link>
+                <div className="flex-1">
+                  <h3 className="font-sans font-semibold text-[16px] text-primary mb-2">{subject.title}</h3>
+                  <p className="font-sans text-muted text-[14px] leading-relaxed mb-4">{subject.description}</p>
                 </div>
               </motion.div>
             );

@@ -1,59 +1,73 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cross, Award, UsersRound } from "lucide-react";
+import { Leaf, Star, User } from "lucide-react";
 
 const PILLARS = [
   {
-    icon: Cross,
+    icon: Leaf,
     title: "Faith",
-    description: "Elegant coaldership and Faith.",
+    description: "Every school day begins with devotion, grounding pupils in Christian values and integrity.",
   },
   {
-    icon: Award,
+    icon: Star,
     title: "Excellence",
-    description: "Excellence hat the quality of facility.",
+    description: "Our ZIMSEC results consistently rank among the top in Harare's primary schools.",
   },
   {
-    icon: UsersRound,
+    icon: User,
     title: "Holistic",
-    description: "Holistic the teeth of school of holistic.",
+    description: "Beyond academics — sports, arts, music, and leadership shape the whole child.",
   },
 ];
 
 export default function WhyChooseUs() {
+  const container = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
-    <section className="py-14 md:py-20 bg-white">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-padding bg-cream">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          className="text-center mb-14"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-primary tracking-tight">
-            Why parents choose us
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary tracking-tight">
+            Why Parents Choose Us
           </h2>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex justify-center gap-8 sm:gap-16"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {PILLARS.map((pillar, i) => {
             const Icon = pillar.icon;
             return (
-              <div key={i} className="flex flex-col items-center text-center max-w-[140px]">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-primary/20 bg-primary/5 flex items-center justify-center mb-3 transition-all hover:border-primary/40 hover:bg-primary/10">
-                  <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" strokeWidth={1.6} />
+              <motion.div 
+                variants={item}
+                key={i} 
+                className="flex flex-col items-start bg-white border border-primary-light rounded-2xl p-8 transition-shadow hover:shadow-card-hover"
+              >
+                <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center mb-6">
+                  <Icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-bold text-primary text-sm sm:text-base mb-1">{pillar.title}</h3>
-                <p className="text-textMuted text-xs sm:text-sm leading-snug">{pillar.description}</p>
-              </div>
+                <h3 className="font-serif text-[20px] font-bold text-primary mb-3 leading-tight">{pillar.title}</h3>
+                <p className="font-sans text-[15px] text-muted leading-relaxed">{pillar.description}</p>
+              </motion.div>
             );
           })}
         </motion.div>

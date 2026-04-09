@@ -1,7 +1,6 @@
 "use client";
 
 import Hero from "@/components/home/Hero";
-import Stats from "@/components/home/Stats";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import LatestNewsPreview from "@/components/home/LatestNewsPreview";
 import AcademicsPreview from "@/components/home/AcademicsPreview";
@@ -13,7 +12,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Stats />
       <WhyChooseUs />
       <LatestNewsPreview />
       <AcademicsPreview />

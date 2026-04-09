@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Users, User, GraduationCap, Flag } from "lucide-react";
 
 export default function Hero() {
   const container = {
@@ -14,57 +15,78 @@ export default function Hero() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } }
   };
 
-  return (
-    <section className="relative min-h-[70vh] lg:min-h-[85vh] bg-gradient-to-br from-[#122238] via-[#1A2E44] to-[#182a45] flex flex-col justify-center overflow-hidden">
-      {/* Subtle radial glow */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center pointer-events-none">
-        <div className="w-[600px] h-[600px] bg-white/[0.04] rounded-full blur-[100px]" />
-      </div>
+  const STATS = [
+    { value: "500+", label: "PUPILS" },
+    { value: "30+", label: "TEACHERS" },
+    { value: "ECD - 7", label: "LEARNING" },
+    { value: "EST. 2005", label: "ESTABLISHED" },
+  ];
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-24 md:py-32 flex flex-col items-center text-center mt-8">
+  return (
+    <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1511520610915-d9df2eebdd46?q=80&w=2000&auto=format&fit=crop")' }}
+      />
+      {/* Overlay Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(27,77,62,0.88)] via-[rgba(27,77,62,0.88)] to-[rgba(27,77,62,0.3)] w-full lg:via-[rgba(27,77,62,0.6)]" />
+
+      <div className="max-w-6xl mx-auto px-6 w-full relative z-10 py-24 md:py-32 flex flex-col items-start mt-10">
         <motion.div
           variants={container}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center"
+          className="flex flex-col items-start w-full"
         >
           <motion.h1 
             variants={item}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-5 max-w-4xl tracking-tight italic"
+            className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-bold text-white leading-[1.1] mb-4 max-w-2xl tracking-tight"
           >
-            Nurturing Minds,<br />Shaping Futures.
+            Nurturing Minds,<br />
+            <span className="italic">Shaping Futures.</span>
           </motion.h1>
 
           <motion.p 
             variants={item}
-            className="text-base md:text-lg text-white/75 mb-10 max-w-md leading-relaxed font-light"
+            className="text-[18px] text-white/80 mb-10 max-w-xl leading-relaxed font-sans"
           >
-            A Christ-centered primary school in Harare,<br className="hidden sm:block" />
-            Zimbabwe — ECD to Grade 7
+            A Christ-centered primary school in Harare, Zimbabwe. Excellence from Early Childhood Development to Grade 7.
           </motion.p>
 
-          <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <motion.div variants={item} className="flex flex-wrap items-center gap-4 mb-16">
             <Link 
               href="/admissions" 
-              className="inline-flex justify-center items-center px-7 py-3 bg-secondary text-white rounded-full font-semibold transition-all hover:scale-105 shadow-lg text-sm sm:text-base"
+              className="inline-flex justify-center items-center px-8 py-4 bg-gold text-white rounded-full font-semibold transition-all hover:scale-105 hover:bg-[#b0800c] shadow-lg font-sans text-sm md:text-base"
             >
               Apply for Admission
             </Link>
             <Link 
               href="/about" 
-              className="inline-flex justify-center items-center px-7 py-3 border-2 border-white/40 text-white rounded-full font-semibold transition-all hover:border-white hover:bg-white/10 text-sm sm:text-base"
+              className="inline-flex justify-center items-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold transition-all hover:bg-white/10 hover:text-white font-sans text-sm md:text-base"
             >
               Explore the School
             </Link>
           </motion.div>
-        </motion.div>
-      </div>
 
-      {/* Curved bottom edge */}
-      <div className="absolute bottom-0 inset-x-0 overflow-hidden leading-[0] transform translate-y-[1px]">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="relative block w-full h-[40px] md:h-[60px]">
-          <path d="M0,80 L0,40 Q720,0 1440,40 L1440,80 Z" className="fill-white" />
-        </svg>
+          <motion.div 
+            variants={item}
+            className="w-full max-w-4xl"
+          >
+            <div className="flex flex-wrap sm:flex-nowrap gap-6 md:gap-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-8 py-6 items-center justify-between shadow-xl">
+              {STATS.map((stat, i) => (
+                <div key={i} className="flex flex-col items-start sm:items-center w-1/2 sm:w-auto">
+                  <div className="font-mono text-[32px] font-bold text-gold leading-none mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="font-sans text-[12px] uppercase tracking-widest text-white/70 font-medium">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

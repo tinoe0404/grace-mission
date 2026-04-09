@@ -50,44 +50,43 @@ const fadeUp: Variants = {
 
 export default function OurValues() {
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-padding bg-primary">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          className="text-center md:text-left mb-14"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-primary tracking-tight">
-            Our Values
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+            Our Core Values
           </h2>
-          <div className="w-12 h-1 bg-secondary mx-auto mt-4 rounded-full" />
         </motion.div>
 
-        {/* Value cards — vertical stack */}
+        {/* Value cards — grid layout */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex flex-col gap-4"
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10"
         >
           {VALUES.map((value, i) => (
             <motion.div
               key={i}
               variants={fadeUp}
-              className="relative bg-primary rounded-xl p-6 sm:p-8 overflow-hidden group hover:bg-[#1e3654] transition-colors duration-300"
+              className="relative flex flex-col items-start p-2"
             >
-              {/* Large faded number */}
-              <span className="absolute top-3 right-5 text-[72px] sm:text-[80px] font-bold text-white/[0.06] leading-none font-serif select-none pointer-events-none">
+              {/* Decorative Number */}
+              <span className="absolute -top-3 -left-2 text-[48px] font-mono font-bold text-gold opacity-20 pointer-events-none select-none z-0">
                 {value.number}
               </span>
 
-              <div className="relative z-10">
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{value.title}</h3>
-                <p className="text-white/70 text-sm leading-relaxed max-w-lg">{value.description}</p>
+              <div className="relative z-10 pl-4 border-l-2 border-gold/30">
+                <h3 className="font-serif text-[22px] text-white mb-2">{value.title}</h3>
+                <p className="font-sans text-[15px] text-white/75 leading-[1.7] max-w-lg">{value.description}</p>
               </div>
             </motion.div>
           ))}

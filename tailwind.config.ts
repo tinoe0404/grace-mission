@@ -9,20 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#1A2E44",       // Deep navy
-        "primary-dark": "#122238", // Darker navy for gradients
-        secondary: "#CD7A81",     // Dusty rose / coral
-        "secondary-light": "#DD9298",
-        surface: "#FDFBF7",       // Beige / cream background
-        "surface-warm": "#F5F0E8", // Warmer cream for curriculum section
-        textPrimary: "#152640",
-        textMuted: "#6B7280",
+        primary: "var(--color-primary)",
+        "primary-mid": "var(--color-primary-mid)",
+        "primary-light": "var(--color-primary-light)",
+        gold: "var(--color-gold)",
+        "gold-light": "var(--color-gold-light)",
+        cream: "var(--color-cream)",
+        charcoal: "var(--color-charcoal)",
+        muted: "var(--color-muted)",
         white: "#FFFFFF",
-        charcoal: "#1A1A2E",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        sans: ["var(--font-dm-sans)", "DM Sans", "system-ui", "sans-serif"],
         serif: ["var(--font-playfair)", "Playfair Display", "Georgia", "serif"],
+        mono: ["var(--font-dm-mono)", "DM Mono", "monospace"],
       },
       spacing: {
         '18': '4.5rem',

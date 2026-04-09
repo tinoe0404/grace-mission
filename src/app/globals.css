@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-primary: #1B4D3E;
+    --color-primary-mid: #2A7255;
+    --color-primary-light: #E6F4EF;
+    --color-gold: #C9920E;
+    --color-gold-light: #FEF3D7;
+    --color-cream: #FAF8F3;
+    --color-charcoal: #1E1E1E;
+    --color-muted: #6B6B5E;
+  }
+
   html,
   body {
     @apply scroll-smooth antialiased;
@@ -11,7 +22,7 @@
   }
 
   body {
-    @apply bg-surface text-textPrimary font-sans;
+    @apply bg-cream text-charcoal font-sans;
     font-size: 15px;
     line-height: 1.6;
   }
@@ -57,13 +68,13 @@
     text-wrap: pretty;
   }
 
-  /* Section spacing utilities */
+  /* Section padding rules from user request: py-20 desktop, py-12 mobile */
   .section-padding {
-    @apply py-24 md:py-28;
+    @apply py-12 md:py-20;
   }
 
   .section-padding-mobile {
-    @apply py-16;
+    @apply py-12;
   }
 
   /* Horizontal scroll carousel */

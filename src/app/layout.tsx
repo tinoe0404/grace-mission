@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { DM_Sans, Playfair_Display, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { SCHOOL_DETAILS } from "@/lib/constants";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
@@ -9,8 +9,9 @@ import BottomNav from "@/components/layout/BottomNav";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
+const dmSans = DM_Sans({ subsets: ["latin"], weight: ['400', '500'], variable: "--font-dm-sans" });
+const playfair = Playfair_Display({ subsets: ["latin"], weight: ['400', '700'], style: ['normal', 'italic'], variable: "--font-playfair" });
+const dmMono = DM_Mono({ subsets: ["latin"], weight: ['400', '500'], variable: "--font-dm-mono" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'),
@@ -42,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${playfair.variable} font-sans bg-surface text-textPrimary antialiased flex flex-col min-h-screen`}
+        className={`${dmSans.variable} ${playfair.variable} ${dmMono.variable} font-sans bg-cream text-charcoal antialiased flex flex-col min-h-screen transition-all duration-200`}
       >
         <AnnouncementBar />
         <Navbar />
