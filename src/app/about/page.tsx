@@ -62,7 +62,7 @@ export default function AboutPage() {
       <section className="section-padding bg-cream">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div {...sectionAnim} className="bg-primary text-white rounded-2xl p-10 md:p-16 relative overflow-hidden">
-            <span className="absolute top-4 left-6 font-serif text-[120px] text-white/10 leading-none select-none pointer-events-none" aria-hidden="true">&ldquo;</span>
+            <span className="absolute top-4 left-6 font-serif text-[120px] text-accent/20 leading-none select-none pointer-events-none" aria-hidden="true">&ldquo;</span>
             <blockquote className="font-serif italic text-xl md:text-2xl text-white leading-relaxed max-w-3xl relative z-10">
               Education is not merely about accumulating facts; it is the awakening of potential, the shaping of character, and the inspiring of a lifelong love for learning in the light of God&apos;s grace.
             </blockquote>
@@ -111,7 +111,7 @@ export default function AboutPage() {
               <div key={i} className="group cursor-pointer">
                 <div className="relative overflow-hidden rounded-xl aspect-[3/4]">
                   <Image src={staff.image} alt={staff.name} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/70 transition-all duration-300 flex items-center justify-center">
                     <span className="font-sans text-sm font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Profile</span>
                   </div>
                 </div>
@@ -129,7 +129,7 @@ export default function AboutPage() {
           <div className="bg-primary-light rounded-2xl grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/10">
             {STATS.map((stat, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }} className="py-10 px-8 text-center">
-                <span className="font-mono text-4xl font-bold text-primary leading-none">{stat.value}</span>
+                <span className="font-mono text-4xl font-bold text-accent leading-none">{stat.value}</span>
                 <span className="font-sans text-xs uppercase tracking-widest text-muted mt-1 block">{stat.label}</span>
               </motion.div>
             ))}

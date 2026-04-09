@@ -16,7 +16,7 @@ export default function AnnouncementBar() {
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-gold text-white relative z-[60] overflow-hidden"
+          className="bg-accent text-white relative z-[60] overflow-hidden"
         >
           <div className="max-w-6xl mx-auto px-6 py-2.5 flex items-center justify-center gap-3 text-[13px] font-medium">
             <span className="flex h-2 w-2 relative">

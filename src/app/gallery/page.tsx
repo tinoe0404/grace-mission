@@ -66,7 +66,7 @@ export default function GalleryPage() {
                   />
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 rounded-xl transition-all duration-300" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                    <span className="bg-gold text-white text-[10px] uppercase tracking-wide font-semibold px-3 py-1 rounded-full mb-2 inline-block">{img.category}</span>
+                    <span className="bg-accent-light text-accent text-[10px] uppercase tracking-wide font-semibold px-3 py-1 rounded-full mb-2 inline-block">{img.category}</span>
                     <p className="font-sans text-sm text-white font-medium">{img.caption}</p>
                   </div>
                 </div>

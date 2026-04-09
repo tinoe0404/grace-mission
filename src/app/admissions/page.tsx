@@ -124,7 +124,7 @@ export default function AdmissionsPage() {
                     <td className="px-6 py-4 font-sans text-sm text-charcoal">{fee.item}</td>
                     <td className="px-6 py-4 text-right">
                       <span className="font-mono font-bold text-primary">{fee.amount}</span>
-                      <span className="bg-gold-light text-gold text-[10px] uppercase tracking-wide font-semibold px-2 py-0.5 rounded-full ml-2">{fee.tag}</span>
+                      <span className="bg-accent-light text-accent text-[10px] uppercase tracking-wide font-semibold px-2 py-0.5 rounded-full ml-2">{fee.tag}</span>
                     </td>
                   </tr>
                 ))}

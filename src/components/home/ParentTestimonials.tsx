@@ -35,7 +35,7 @@ export default function ParentTestimonials() {
               variants={fadeUp}
               className="bg-white p-5 sm:p-6 rounded-2xl border border-primary-light shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-200 flex flex-col"
             >
-              <span className="text-gold text-4xl leading-none font-serif select-none mb-2 block">&ldquo;</span>
+              <span className="text-accent/20 text-4xl leading-none font-serif select-none mb-2 block">&ldquo;</span>
               <p className="text-charcoal/80 text-sm leading-relaxed mb-4 flex-grow font-sans">{t.quote}</p>
               <div className="mt-auto">
                 <p className="font-semibold text-charcoal text-sm font-sans">{t.name}</p>

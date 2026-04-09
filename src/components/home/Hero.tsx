@@ -30,7 +30,7 @@ export default function Hero() {
         style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1511520610915-d9df2eebdd46?q=80&w=2000&auto=format&fit=crop")' }}
       />
       {/* Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(27,77,62,0.88)] via-[rgba(27,77,62,0.88)] to-[rgba(27,77,62,0.3)] w-full lg:via-[rgba(27,77,62,0.6)]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/20 w-full" />
 
       <div className="max-w-6xl mx-auto px-6 w-full relative z-10 py-24 md:py-32 flex flex-col items-start mt-10">
         <motion.div
@@ -76,7 +76,7 @@ export default function Hero() {
             <div className="flex flex-wrap sm:flex-nowrap gap-6 md:gap-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-8 py-6 items-center justify-between shadow-xl">
               {STATS.map((stat, i) => (
                 <div key={i} className="flex flex-col items-start sm:items-center w-1/2 sm:w-auto">
-                  <div className="font-mono text-[32px] font-bold text-gold leading-none mb-1">
+                  <div className="font-mono text-[32px] font-bold text-accent leading-none mb-1">
                     {stat.value}
                   </div>
                   <div className="font-sans text-[12px] uppercase tracking-widest text-white/70 font-medium">

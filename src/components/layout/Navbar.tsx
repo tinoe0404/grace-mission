@@ -52,7 +52,7 @@ export default function Navbar() {
           boxShadow: isScrolled ? "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)" : "none",
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 ${isScrolled ? "backdrop-blur-md" : ""}`}
+        className={`sticky top-0 left-0 right-0 z-50 -mb-20 ${isScrolled ? "backdrop-blur-md" : ""}`}
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex justify-between items-center h-20">
@@ -77,8 +77,8 @@ export default function Navbar() {
                   >
                     <span className={`transition-colors duration-300 ${
                       isScrolled 
-                        ? (isActive ? "text-primary font-medium underline underline-offset-4" : "text-muted hover:text-primary") 
-                        : (isActive ? "text-white font-medium underline underline-offset-4" : "text-white/80 hover:text-white drop-shadow-sm")
+                        ? (isActive ? "text-primary font-medium border-b-2 border-accent" : "text-muted hover:text-primary") 
+                        : (isActive ? "text-white font-medium border-b-2 border-accent" : "text-white/80 hover:text-white drop-shadow-sm")
                     }`}>
                       {link.name}
                     </span>
@@ -91,7 +91,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-4 shrink-0">
               <Link 
                 href="/admissions"
-                className="bg-gold text-white px-5 py-2 rounded-full font-sans transition-all duration-200 hover:scale-[1.02] hover:bg-[#b0800c]"
+                className="bg-accent text-white px-5 py-2 rounded-full font-sans transition-all duration-200 hover:scale-[1.02] hover:bg-[#be4068]"
               >
                 Enroll Now
               </Link>
@@ -161,7 +161,7 @@ export default function Navbar() {
                         onClick={() => setIsMobileMenuOpen(false)}
                         className={`block py-3 px-4 rounded-xl text-lg font-sans transition-all ${
                           isActive 
-                            ? "text-primary font-medium underline underline-offset-4 bg-primary-light/50" 
+                            ? "text-primary font-medium border-b-2 border-accent bg-primary-light/50" 
                             : "text-charcoal hover:text-primary hover:bg-cream"
                         }`}
                       >
@@ -177,7 +177,7 @@ export default function Navbar() {
                 <Link 
                   href="/admissions"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-center bg-gold text-white py-3.5 rounded-full font-semibold transition-transform hover:scale-[1.02] shadow-sm min-h-[48px] flex items-center justify-center font-sans"
+                  className="block text-center bg-accent text-white py-3.5 rounded-full font-semibold transition-transform hover:scale-[1.02] hover:bg-[#be4068] shadow-sm min-h-[48px] flex items-center justify-center font-sans"
                 >
                   Enroll Now
                 </Link>

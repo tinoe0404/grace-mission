@@ -9,14 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "var(--color-primary)",
-        "primary-mid": "var(--color-primary-mid)",
-        "primary-light": "var(--color-primary-light)",
-        gold: "var(--color-gold)",
-        "gold-light": "var(--color-gold-light)",
-        cream: "var(--color-cream)",
-        charcoal: "var(--color-charcoal)",
-        muted: "var(--color-muted)",
+        primary: "#1A3A5C",
+        "primary-mid": "#2A5A8C",
+        "primary-light": "#EBF3FB",
+        accent: "#D4547A",
+        "accent-light": "#FBEEF3",
+        gold: "#C9920E",
+        "gold-light": "#FEF3D7",
+        cream: "#F8F9FC",
+        charcoal: "#1E1E1E",
+        muted: "#6B7280",
         white: "#FFFFFF",
       },
       fontFamily: {

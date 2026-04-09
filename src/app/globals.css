@@ -4,14 +4,16 @@
 
 @layer base {
   :root {
-    --color-primary: #1B4D3E;
-    --color-primary-mid: #2A7255;
-    --color-primary-light: #E6F4EF;
+    --color-primary: #1A3A5C;
+    --color-primary-mid: #2A5A8C;
+    --color-primary-light: #EBF3FB;
+    --color-accent: #D4547A;
+    --color-accent-light: #FBEEF3;
     --color-gold: #C9920E;
     --color-gold-light: #FEF3D7;
-    --color-cream: #FAF8F3;
+    --color-cream: #F8F9FC;
     --color-charcoal: #1E1E1E;
-    --color-muted: #6B6B5E;
+    --color-muted: #6B7280;
   }
 
   html {

@@ -50,7 +50,7 @@ export default function NewsPage() {
             <Image src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?w=1200&q=80&auto=format&fit=crop" alt="Annual Spring Concert" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
             <div className="absolute bottom-0 left-0 p-10">
-              <span className="bg-gold text-white font-sans text-xs uppercase tracking-wide px-3 py-1 rounded-full mb-4 inline-block">Featured</span>
+              <span className="bg-accent-light text-accent font-sans text-xs uppercase tracking-wide px-3 py-1 rounded-full mb-4 inline-block font-semibold">Featured</span>
               <h2 className="font-serif text-3xl md:text-4xl text-white font-bold leading-snug">Annual Spring Concert a Resounding Success</h2>
               <p className="font-sans text-white/80 text-[15px] mt-3 max-w-2xl line-clamp-2">
                 The school&apos;s musical talent shone brilliantly as pupils from ECD to Grade 7 performed to a packed auditorium of parents and community members.
@@ -92,7 +92,7 @@ export default function NewsPage() {
                 <div key={i} className={`flex items-start gap-5 py-5 ${i < EVENTS.length - 1 ? "border-b border-primary/10" : ""}`}>
                   <div className="bg-primary text-white rounded-xl px-3 py-2 text-center w-16 shrink-0">
                     <span className="font-mono font-bold text-lg leading-none block">{event.day}</span>
-                    <span className="font-sans text-[10px] uppercase tracking-wide mt-1 text-white/70 block">{event.month}</span>
+                    <span className="font-sans text-[10px] uppercase tracking-wide mt-1 text-accent/80 block">{event.month}</span>
                   </div>
                   <div className="flex-1">
                     <h4 className="font-sans font-semibold text-charcoal text-sm">{event.title}</h4>
