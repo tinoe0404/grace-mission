@@ -5,6 +5,7 @@ import { SCHOOL_DETAILS } from "@/lib/constants";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import BottomNav from "@/components/layout/BottomNav";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 
@@ -45,12 +46,13 @@ export default function RootLayout({
       >
         <AnnouncementBar />
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow pb-16 md:pb-0">
           {children}
         </main>
         <WhatsAppButton />
         <ScrollToTop />
         <Footer />
+        <BottomNav />
       </body>
     </html>
   );

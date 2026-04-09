@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { fadeUp } from "@/lib/motion";
+import { motion, Variants } from "framer-motion";
 
 const VALUES = [
   {
@@ -12,12 +11,12 @@ const VALUES = [
   {
     number: "02",
     title: "Excellence",
-    description: "We pursue the highest standards in academics, sports, and character. Mediocrity is never an option — every child is challenged to reach their God-given potential.",
+    description: "We pursue the highest standards in academics, sports, and character. Every child is challenged to reach their God-given potential in all they do.",
   },
   {
     number: "03",
     title: "Discipline",
-    description: "We cultivate self-control, responsibility, and respect through consistent routines and clear expectations. Discipline builds the foundation for lifelong success.",
+    description: "We cultivate self-control, responsibility, and respect through consistent routines and clear expectations. Discipline builds a foundation for lifelong success.",
   },
   {
     number: "04",
@@ -26,64 +25,69 @@ const VALUES = [
   },
 ];
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.12,
       delayChildren: 0.1,
+    },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as any,
     },
   },
 };
 
 export default function OurValues() {
   return (
-    <section className="py-20 md:py-28 bg-primary relative overflow-hidden">
-      {/* Subtle pattern overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage:
-            'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-        }}
-      />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-16 md:py-24 bg-white">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Our Values</h2>
-          <div className="w-16 h-1 bg-secondary mx-auto mt-6 rounded-full" />
+          <h2 className="text-2xl md:text-3xl font-bold text-primary tracking-tight">
+            Our Values
+          </h2>
+          <div className="w-12 h-1 bg-secondary mx-auto mt-4 rounded-full" />
         </motion.div>
 
+        {/* Value cards — vertical stack */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          viewport={{ once: true, amount: 0.1 }}
+          className="flex flex-col gap-4"
         >
           {VALUES.map((value, i) => (
             <motion.div
               key={i}
               variants={fadeUp}
-              whileHover={{ y: -8 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="relative p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 group cursor-pointer hover:border-b-2 hover:border-b-secondary"
+              className="relative bg-primary rounded-xl p-6 sm:p-8 overflow-hidden group hover:bg-[#1e3654] transition-colors duration-300"
             >
               {/* Large faded number */}
-              <span className="absolute top-4 right-6 text-[80px] font-bold text-secondary/[0.15] leading-none font-serif select-none pointer-events-none">
+              <span className="absolute top-3 right-5 text-[72px] sm:text-[80px] font-bold text-white/[0.06] leading-none font-serif select-none pointer-events-none">
                 {value.number}
               </span>
 
               <div className="relative z-10">
-                <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
-                <p className="text-white/70 text-sm leading-relaxed">{value.description}</p>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{value.title}</h3>
+                <p className="text-white/70 text-sm leading-relaxed max-w-lg">{value.description}</p>
               </div>
             </motion.div>
           ))}

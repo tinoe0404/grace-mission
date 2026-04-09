@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { fadeUp } from "@/lib/motion";
+import { motion, Variants } from "framer-motion";
 
 const TESTIMONIALS = [
   {
@@ -19,56 +18,78 @@ const TESTIMONIALS = [
     name: "Mrs. Moyo",
     role: "Parent of ECD B pupil",
   },
+  {
+    quote: "An outstanding environment that balances academics and character development flawlessly. Highly recommended!",
+    name: "Mr. Banda",
+    role: "Parent of Grade 6 pupil",
+  },
 ];
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.12,
       delayChildren: 0.1,
+    },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as any,
     },
   },
 };
 
 export default function ParentTestimonials() {
   return (
-    <section className="py-20 md:py-28 bg-surface">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">
-            What parents say about us
+    <section className="py-16 md:py-24 bg-surface">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold text-primary tracking-tight">
+            What parents say
           </h2>
-          <div className="w-16 h-1 bg-secondary mx-auto mt-6 rounded-full" />
-        </div>
+        </motion.div>
 
+        {/* 2x2 Grid */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid md:grid-cols-3 gap-8"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-2 gap-3 sm:gap-4"
         >
           {TESTIMONIALS.map((testimonial, i) => (
             <motion.div
               key={i}
               variants={fadeUp}
-              className="bg-white p-8 md:p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300 relative group"
+              className="bg-white p-4 sm:p-6 rounded-xl border border-gray-100 shadow-card hover:shadow-card-hover transition-shadow duration-300 flex flex-col"
             >
-              {/* Large pink quotation mark */}
-              <span className="text-secondary text-[72px] leading-none font-serif absolute top-4 left-6 select-none pointer-events-none opacity-80">
-                &ldquo;
+              {/* Pink quotation mark */}
+              <span className="text-secondary text-3xl sm:text-4xl leading-none font-serif select-none mb-2 block font-bold">
+                &ldquo;&ldquo;
               </span>
 
-              <div className="relative z-10 pt-10">
-                <p className="text-textPrimary/80 italic text-lg leading-relaxed mb-8">
-                  {testimonial.quote}
-                </p>
-                <div className="border-t border-gray-100 pt-6">
-                  <p className="font-bold text-primary text-base">{testimonial.name}</p>
-                  <p className="text-textMuted text-sm mt-1">{testimonial.role}</p>
-                </div>
+              <p className="text-textPrimary/80 text-xs sm:text-sm leading-relaxed mb-4 flex-grow">
+                {testimonial.quote}
+              </p>
+
+              <div className="mt-auto">
+                <p className="font-bold text-primary text-xs sm:text-sm">{testimonial.name}</p>
+                <p className="text-textMuted text-[10px] sm:text-xs mt-0.5">{testimonial.role}</p>
               </div>
             </motion.div>
           ))}

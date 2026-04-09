@@ -9,11 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#1A3A6B",
-        secondary: "#E8729A",
-        "secondary-light": "#F4A7C0",
-        surface: "#F7F8FA",
-        textPrimary: "#1A1A2E",
+        primary: "#1A2E44",       // Deep navy
+        "primary-dark": "#122238", // Darker navy for gradients
+        secondary: "#CD7A81",     // Dusty rose / coral
+        "secondary-light": "#DD9298",
+        surface: "#FDFBF7",       // Beige / cream background
+        "surface-warm": "#F5F0E8", // Warmer cream for curriculum section
+        textPrimary: "#152640",
         textMuted: "#6B7280",
         white: "#FFFFFF",
         charcoal: "#1A1A2E",
@@ -25,6 +27,11 @@ const config: Config = {
       spacing: {
         '18': '4.5rem',
         '22': '5.5rem',
+      },
+      boxShadow: {
+        'stats': '0 8px 40px rgba(0,0,0,0.08), 0 2px 12px rgba(0,0,0,0.04)',
+        'card': '0 2px 12px rgba(0,0,0,0.06)',
+        'card-hover': '0 8px 30px rgba(0,0,0,0.12)',
       },
       animation: {
         'pulse-gentle': 'pulse-gentle 2s ease-in-out infinite',
@@ -40,4 +47,3 @@ const config: Config = {
   plugins: [],
 };
 export default config;
-

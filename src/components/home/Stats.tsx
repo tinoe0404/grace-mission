@@ -1,58 +1,67 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeUp } from "@/lib/motion";
+import { Users, User, GraduationCap, Flag } from "lucide-react";
 
-interface StatItem {
-  label: string;
-  value: string;
-}
-
-const DEFAULT_STATS: StatItem[] = [
-  { label: "Pupils", value: "500+" },
-  { label: "Teachers", value: "30+" },
-  { label: "Learning", value: "ECD–Grade 7" },
-  { label: "Established", value: "Est. 2005" },
+const STATS = [
+  {
+    icon: Users,
+    value: "500+",
+    label: "PUPILS",
+  },
+  {
+    icon: User,
+    value: "30+",
+    label: "TEACHERS",
+  },
+  {
+    icon: GraduationCap,
+    value: "ECD - GRADE 7",
+    label: "LEARNING",
+  },
+  {
+    icon: Flag,
+    value: "EST. 2005",
+    label: "ESTABLISHED",
+  },
 ];
 
-export default function Stats({ stats = DEFAULT_STATS }: { stats?: StatItem[] }) {
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
+export default function Stats() {
   return (
-    <section className="bg-white py-16 md:py-24 relative z-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative z-20 bg-white">
+      <div className="max-w-xl mx-auto px-4 sm:px-6 -mt-8 md:-mt-10">
         <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-gray-100"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="bg-white rounded-2xl shadow-stats border border-gray-100 overflow-hidden"
         >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              variants={fadeUp}
-              className={`flex flex-col pl-6 md:pl-8 border-l-2 border-secondary/20 first:border-0 md:first:border-l-2 pt-6 md:pt-0 border-t-0 hover:border-secondary transition-colors duration-300 ${
-                index === 0 ? "pt-0 border-t-0 border-l-2 !border-secondary" : ""
-              }`}
-            >
-              <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-2 block tracking-tight">
-                {stat.value}
-              </span>
-              <span className="text-textMuted text-sm md:text-base font-medium uppercase tracking-wider">
-                {stat.label}
-              </span>
-            </motion.div>
-          ))}
+          <div className="grid grid-cols-2">
+            {STATS.map((stat, i) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  key={i}
+                  className={`flex items-center gap-3 px-5 py-5 sm:px-6 sm:py-6 ${
+                    i < 2 ? "border-b border-gray-100" : ""
+                  } ${i % 2 === 0 ? "border-r border-gray-100" : ""}`}
+                >
+                  <div className="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 text-primary" strokeWidth={1.8} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="font-bold text-primary text-base sm:text-lg leading-tight truncate">
+                      {stat.value}
+                    </div>
+                    <div className="text-textMuted text-[11px] sm:text-xs font-semibold tracking-wider uppercase">
+                      {stat.label}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </motion.div>
       </div>
     </section>

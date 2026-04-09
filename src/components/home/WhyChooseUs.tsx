@@ -1,96 +1,62 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { slideInLeft, slideInRight, fadeUp, staggerContainer } from "@/lib/motion";
+import { Cross, Award, UsersRound } from "lucide-react";
 
-const FEATURES = [
+const PILLARS = [
   {
-    title: "Faith-Centered Learning",
-    description: "Biblical values woven into every lesson, nurturing character alongside intellect.",
+    icon: Cross,
+    title: "Faith",
+    description: "Elegant coaldership and Faith.",
   },
   {
-    title: "Academic Excellence",
-    description: "Consistently outstanding ZIMSEC results with a 98% national exam pass rate.",
+    icon: Award,
+    title: "Excellence",
+    description: "Excellence hat the quality of facility.",
   },
   {
-    title: "Holistic Development",
-    description: "Sports, arts, and leadership programs that develop well-rounded individuals.",
+    icon: UsersRound,
+    title: "Holistic",
+    description: "Holistic the teeth of school of holistic.",
   },
-  {
-    title: "Experienced Educators",
-    description: "Qualified, passionate teachers with an average of 10+ years in primary education.",
-  },
-];
-
-const IMAGES = [
-  { src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&auto=format&fit=crop", alt: "Students learning together" },
-  { src: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&q=80&auto=format&fit=crop", alt: "Classroom activities" },
-  { src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80&auto=format&fit=crop", alt: "Children reading" },
-  { src: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?w=600&q=80&auto=format&fit=crop", alt: "Art and creativity" },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 md:py-28 bg-surface">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left: Image Grid */}
-          <motion.div
-            variants={slideInLeft}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid grid-cols-2 gap-4"
-          >
-            {IMAGES.map((img, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative aspect-square rounded-2xl overflow-hidden shadow-lg"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
+    <section className="py-14 md:py-20 bg-white">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold text-primary tracking-tight">
+            Why parents choose us
+          </h2>
+        </motion.div>
 
-          {/* Right: Content */}
-          <motion.div
-            variants={slideInRight}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 tracking-tight">
-              Why parents choose us
-            </h2>
-            <p className="text-textPrimary/70 text-lg leading-relaxed mb-10 max-w-lg">
-              For over two decades, families across Harare have trusted Grace Mission to provide a safe, enriching, and Christ-centered environment where children thrive academically, spiritually, and socially.
-            </p>
-
-            <div className="space-y-6">
-              {FEATURES.map((feature, i) => (
-                <div key={i} className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-primary text-lg mb-1">{feature.title}</h3>
-                    <p className="text-textPrimary/60 text-sm leading-relaxed">{feature.description}</p>
-                  </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="flex justify-center gap-8 sm:gap-16"
+        >
+          {PILLARS.map((pillar, i) => {
+            const Icon = pillar.icon;
+            return (
+              <div key={i} className="flex flex-col items-center text-center max-w-[140px]">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-primary/20 bg-primary/5 flex items-center justify-center mb-3 transition-all hover:border-primary/40 hover:bg-primary/10">
+                  <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" strokeWidth={1.6} />
                 </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+                <h3 className="font-bold text-primary text-sm sm:text-base mb-1">{pillar.title}</h3>
+                <p className="text-textMuted text-xs sm:text-sm leading-snug">{pillar.description}</p>
+              </div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

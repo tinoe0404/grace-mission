@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
-import Stats from "@/components/home/Stats";
 
 const ABOUT_STATS = [
   { label: "Years of Excellence", value: "20+" },
@@ -219,7 +218,29 @@ export default function AboutPage() {
       </motion.section>
 
       {/* 6. Stats - bg-[#F7F8FA] */}
-      <Stats stats={ABOUT_STATS} />
+      <section className="py-16 md:py-20 bg-[#F7F8FA]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {ABOUT_STATS.map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="flex flex-col"
+              >
+                <span className="font-serif text-4xl md:text-5xl font-bold text-[#1A3A6B] tracking-tight leading-none mb-2">
+                  {stat.value}
+                </span>
+                <span className="text-gray-500 text-sm font-medium">
+                  {stat.label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

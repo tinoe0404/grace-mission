@@ -56,19 +56,13 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            {/* Logo Section */}
-            <Link href="/" className="flex items-center gap-3 group shrink-0">
-              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-md relative overflow-hidden">
-                <span className="text-secondary font-bold text-lg font-serif">GM</span>
-              </div>
-              <div className="flex flex-col">
-                <span className={`font-bold text-[1.1rem] leading-tight transition-colors duration-300 ${isScrolled ? "text-primary" : "text-white drop-shadow-md"}`}>
-                  Grace Mission
-                </span>
-                <span className={`text-xs font-medium tracking-wide transition-colors duration-300 ${isScrolled ? "text-textMuted" : "text-white/90 drop-shadow-md"}`}>
-                  Primary School
-                </span>
-              </div>
+            <Link href="/" className="flex flex-col group shrink-0">
+              <span className={`font-bold text-2xl font-serif tracking-tight leading-none transition-colors duration-300 ${isScrolled ? "text-primary" : "text-white"}`}>
+                Grace Mission
+              </span>
+              <span className="text-[14px] font-medium text-secondary mt-0.5 tracking-wide">
+                Primary School
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
