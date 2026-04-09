@@ -2,115 +2,111 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, Clock } from "lucide-react";
+import PageHero from "@/components/layout/PageHero";
+
+const ARTICLES = [
+  {
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80&auto=format&fit=crop",
+    date: "March 15, 2025",
+    title: "Grade 7 Pupils Achieve Outstanding ZIMSEC Results",
+    excerpt: "Our Grade 7 class recorded a 98% pass rate, with 15 pupils achieving distinctions across all subjects.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&q=80&auto=format&fit=crop",
+    date: "February 28, 2025",
+    title: "New Computer Lab Officially Opened",
+    excerpt: "The state-of-the-art ICT lab was inaugurated, bringing modern computing to all students.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80&auto=format&fit=crop",
+    date: "January 20, 2025",
+    title: "Annual Sports Day 2025 — A Day to Remember",
+    excerpt: "Athletes from all houses competed in track, field, and swimming events.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80&auto=format&fit=crop",
+    date: "December 5, 2024",
+    title: "Art Exhibition Showcases Student Creativity",
+    excerpt: "The annual art exhibition showcased paintings, sculptures, and installations from Grades 3 to 7.",
+  },
+];
+
+const EVENTS = [
+  { day: "25", month: "OCT", title: "Inter-house Sports Day", time: "8:00 AM", location: "School Grounds" },
+  { day: "10", month: "NOV", title: "Parents Evening — Years 3–6", time: "5:30 PM", location: "Main Hall" },
+  { day: "21", month: "NOV", title: "School Play Auditions", time: "2:00 PM", location: "Drama Studio" },
+  { day: "05", month: "DEC", title: "Prize Giving Ceremony", time: "10:00 AM", location: "Main Hall" },
+];
 
 export default function NewsPage() {
-  const EVENTS = [
-    {
-      month: "OCT",
-      day: "25",
-      title: "Inter-house Sports Day",
-      desc: "This Inter-house Sports Day bun will be comented on regional school.",
-      time: "12:00",
-    },
-    {
-      month: "NOV",
-      day: "10",
-      title: "Parents Evening - Years 3-6",
-      desc: "The eventing and students and cave that parents Evening - Years 3-6.",
-      time: "12:00",
-    },
-    {
-      month: "NOV",
-      day: "21",
-      title: "School Play Auditions",
-      desc: "School play auditions to react completing, auditions & place.",
-      time: "12:00",
-    },
-  ];
-
   return (
-    <div className="flex flex-col min-h-screen bg-[#FDFBF7] pb-24 md:pb-12 text-[#1A2E44]">
-      {/* 1. Header Area with Pink Background */}
-      <div className="bg-[#F7D8D9] pt-12 pb-6 px-5 rounded-b-2xl md:rounded-none z-10 w-full shrink-0">
-        <div className="w-full max-w-md mx-auto flex flex-col gap-6">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="p-1 -ml-1 hover:bg-white/20 rounded-full transition-colors">
-              <ChevronLeft className="w-6 h-6 text-[#1A2E44]" strokeWidth={2.5} />
-            </Link>
-            <div className="font-serif text-[22px] italic font-bold text-[#1A2E44] leading-none tracking-tight text-right">
-              Grace
-              <br />
-              <span className="text-[14px]">Mission</span>
+    <div className="flex flex-col min-h-screen">
+      <PageHero title="News & Events" breadcrumb="News" image="https://images.unsplash.com/photo-1523580494863-6ead3f259519?w=1200&q=80&auto=format&fit=crop" />
+
+      {/* Featured Article */}
+      <section className="section-padding bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="relative rounded-2xl overflow-hidden h-[420px] mb-16 group cursor-pointer">
+            <Image src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?w=1200&q=80&auto=format&fit=crop" alt="Annual Spring Concert" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
+            <div className="absolute bottom-0 left-0 p-10">
+              <span className="bg-gold text-white font-sans text-xs uppercase tracking-wide px-3 py-1 rounded-full mb-4 inline-block">Featured</span>
+              <h2 className="font-serif text-3xl md:text-4xl text-white font-bold leading-snug">Annual Spring Concert a Resounding Success</h2>
+              <p className="font-sans text-white/80 text-[15px] mt-3 max-w-2xl line-clamp-2">
+                The school&apos;s musical talent shone brilliantly as pupils from ECD to Grade 7 performed to a packed auditorium of parents and community members.
+              </p>
+              <span className="font-sans text-sm font-semibold text-gold hover:underline mt-5 inline-flex items-center gap-1 cursor-pointer">
+                Read full article →
+              </span>
             </div>
           </div>
-          <h1 className="font-serif text-[38px] font-bold text-[#1A2E44] tracking-tight leading-none mt-2">
-            Latest News & Events
-          </h1>
-        </div>
-      </div>
 
-      <div className="max-w-md mx-auto w-full px-5 pt-8 flex flex-col gap-8 flex-1">
-        
-        {/* 2. Featured News Overlay */}
-        <div className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white">
-          <div className="w-full h-[180px] relative">
-            <Image 
-              src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?w=800&q=80&fit=crop" 
-              alt="Annual Spring Concert" 
-              fill 
-              className="object-cover" 
-            />
+          {/* Latest Updates Grid */}
+          <div className="mb-6">
+            <span className="font-sans text-[11px] uppercase tracking-[0.15em] text-gold mb-3 block">Latest</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal tracking-tight mb-10">Latest Updates</h2>
           </div>
-          <div className="p-6 flex flex-col gap-3">
-            <h2 className="font-bold text-[22px] text-[#1A2E44] leading-[1.2] tracking-tight">
-              Annual Spring Concert a Resounding Success!
-            </h2>
-            <p className="text-[14px] text-[#1A2E44]/80 leading-snug">
-              The school&apos;s musical talent shone brilliantly last night... eventt a annual spring concert...
-            </p>
-            <button className="mt-2 bg-[#1A2E44] hover:bg-[#112030] text-[#F7D8D9] px-6 py-2.5 rounded-full text-[14px] font-bold shadow-md transition-colors w-fit">
-              Read More
-            </button>
-          </div>
-        </div>
-
-        {/* 3. Upcoming Events List */}
-        <div>
-          <h2 className="font-bold text-[22px] text-[#1A2E44] mb-5 tracking-tight">
-            Upcoming Events
-          </h2>
-          <div className="flex flex-col gap-4">
-            {EVENTS.map((item, i) => (
-              <div 
-                key={i} 
-                className="bg-white rounded-[20px] p-4 flex items-center gap-4 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-gray-100"
-              >
-                {/* Date Circle */}
-                <div className="w-[66px] h-[66px] rounded-full bg-[#F7D8D9] flex flex-col items-center justify-center shrink-0">
-                  <span className="text-[#1A2E44] text-[13px] font-bold tracking-widest">{item.month}</span>
-                  <span className="text-[#1A2E44] text-[24px] font-bold leading-none">{item.day}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            {ARTICLES.map((article, i) => (
+              <div key={i} className="bg-white border border-primary-light rounded-2xl overflow-hidden group cursor-pointer hover:shadow-md hover:shadow-primary/10 hover:-translate-y-0.5 transition-all duration-200">
+                <div className="relative h-48 overflow-hidden">
+                  <Image src={article.image} alt={article.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                
-                {/* Details */}
-                <div className="flex flex-col gap-1 pr-2">
-                  <h3 className="font-bold text-[16px] text-[#1A2E44] leading-tight w-full truncate mb-0.5">
-                    {item.title}
-                  </h3>
-                  <p className="text-[12px] text-[#1A2E44]/70 leading-snug">
-                    {item.desc}
-                  </p>
-                  <div className="flex items-center gap-1.5 mt-1">
-                    <Clock className="w-4 h-4 text-[#1A2E44]" />
-                    <span className="text-[12px] font-bold text-[#1A2E44]">{item.time}</span>
-                  </div>
+                <div className="p-6">
+                  <p className="font-sans text-xs text-muted mb-2">{article.date}</p>
+                  <h3 className="font-serif text-lg text-charcoal leading-snug group-hover:text-primary transition-colors">{article.title}</h3>
+                  <p className="font-sans text-sm text-muted mt-2 line-clamp-2">{article.excerpt}</p>
+                  <span className="font-sans text-sm font-semibold text-primary mt-4 inline-flex items-center gap-1 hover:gap-2 transition-all cursor-pointer">
+                    Read more →
+                  </span>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Upcoming Events */}
+          <div className="bg-primary-light rounded-2xl p-8">
+            <h2 className="font-serif text-2xl text-primary mb-6">Upcoming Events</h2>
+            <div className="space-y-0">
+              {EVENTS.map((event, i) => (
+                <div key={i} className={`flex items-start gap-5 py-5 ${i < EVENTS.length - 1 ? "border-b border-primary/10" : ""}`}>
+                  <div className="bg-primary text-white rounded-xl px-3 py-2 text-center w-16 shrink-0">
+                    <span className="font-mono font-bold text-lg leading-none block">{event.day}</span>
+                    <span className="font-sans text-[10px] uppercase tracking-wide mt-1 text-white/70 block">{event.month}</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-sans font-semibold text-charcoal text-sm">{event.title}</h4>
+                    <p className="font-sans text-xs text-muted mt-0.5">{event.time} · {event.location}</p>
+                  </div>
+                  <button className="border border-primary/30 text-primary text-xs px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all shrink-0 self-center font-sans">
+                    Add
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        
-      </div>
+      </section>
     </div>
   );
 }

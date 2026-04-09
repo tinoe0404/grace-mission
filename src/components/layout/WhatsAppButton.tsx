@@ -12,7 +12,7 @@ export default function WhatsAppButton() {
       href={`https://wa.me/${SCHOOL_DETAILS.whatsapp.replace(/[^0-9]/g, "")}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-[90] flex items-center justify-center bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-2xl cursor-pointer min-w-[56px] min-h-[56px]"
+      className="fixed bottom-24 right-5 z-[90] flex items-center justify-center bg-[#25D366] text-white rounded-full shadow-lg shadow-green-900/30 hover:shadow-2xl cursor-pointer min-w-[56px] min-h-[56px]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       initial={{ scale: 0 }}

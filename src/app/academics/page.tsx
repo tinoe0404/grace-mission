@@ -2,143 +2,175 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calculator, BookOpen, FlaskConical, Pi, Feather } from "lucide-react";
+import Link from "next/link";
+import PageHero from "@/components/layout/PageHero";
 
-const TABS = ["Curriculum", "Extra-Curricular", "Calendar"];
+const CORE_SUBJECTS = ["Mathematics", "English Language", "Shona / Ndebele", "Environmental Science", "Social Studies", "Religious & Moral Education", "ICT & Computing", "Physical Education"];
 
-const CURRICULUM = [
+const STAGES = [
   {
-    id: "mathematics",
-    title: "Mathematics",
-    description: "Building a strong foundation in numbers and problem-solving.",
-    Icon: () => (
-      <div className="relative w-12 h-12 flex items-center justify-center">
-        <Calculator className="w-[30px] h-[30px] text-[#1A2E44] z-10" strokeWidth={1.5} />
-        <div className="absolute top-0 right-0 bg-white rounded-full p-0.5">
-          <Pi className="w-5 h-5 text-[#1A2E44]" strokeWidth={2.5} />
-        </div>
-      </div>
-    )
+    label: "ECD A & B",
+    focus: ["Play-based learning", "Motor skill development", "Early literacy & numeracy", "Social interaction"],
+    achievement: "Confident, school-ready learners prepared for formal education.",
   },
   {
-    id: "literacy",
-    title: "Literacy",
-    description: "Developing critical reading, writing, and communication skills.",
-    Icon: () => (
-      <div className="relative w-12 h-12 flex items-center justify-center">
-        <BookOpen className="w-[30px] h-[30px] text-[#1A2E44] z-10" strokeWidth={1.5} />
-        <Feather className="w-5 h-5 text-[#1A2E44] absolute -top-1 -right-1 transform rotate-12 bg-white rounded-full" strokeWidth={2} />
-      </div>
-    )
+    label: "Lower Primary",
+    focus: ["Core literacy & numeracy", "Science exploration", "Creative arts", "Sports introduction"],
+    achievement: "Strong foundational skills in reading, writing, and arithmetic.",
   },
   {
-    id: "science",
-    title: "Science",
-    description: "Exploring the natural world through hands-on experiments.",
-    Icon: () => (
-      <div className="relative w-12 h-12 flex items-center justify-center">
-        <FlaskConical className="w-[30px] h-[30px] text-[#1A2E44] z-10" strokeWidth={1.5} />
-        <div className="absolute top-2 right-1 flex space-x-0.5">
-          <div className="w-1.5 h-1.5 rounded-full border border-[#1A2E44] bg-white" />
-        </div>
-      </div>
-    )
-  }
+    label: "Upper Primary",
+    focus: ["Advanced problem-solving", "Research projects", "Leadership development", "Competitive sports"],
+    achievement: "Independent learners ready for secondary education challenges.",
+  },
+  {
+    label: "Grade 7",
+    focus: ["ZIMSEC exam preparation", "Study skills mastery", "Career awareness", "Character refinement"],
+    achievement: "Outstanding ZIMSEC results and well-rounded graduates.",
+  },
+];
+
+const ACTIVITIES = [
+  { name: "Soccer", icon: "⚽" },
+  { name: "Netball", icon: "🏐" },
+  { name: "Chess", icon: "♟️" },
+  { name: "Drama", icon: "🎭" },
+  { name: "Choir", icon: "🎵" },
+  { name: "Science Club", icon: "🔬" },
 ];
 
 export default function AcademicsPage() {
-  const [activeTab, setActiveTab] = useState("Curriculum");
+  const [activeStage, setActiveStage] = useState(0);
 
   return (
-    <div className="flex flex-col min-h-screen bg-white pb-24 md:pb-12 relative overflow-hidden">
-      {/* Solid pink header block */}
-      <div className="absolute top-0 left-0 right-0 h-[260px] bg-[#F7D8D9]" />
-      
-      {/* Content Container */}
-      <div className="relative z-10 w-full max-w-md mx-auto pt-14 px-5 flex flex-col min-h-screen">
-        {/* Header Text */}
-        <div className="text-center mb-6">
-          <p className="text-sm font-semibold text-[#1A2E44] mb-5 tracking-wide">Grace Mission - Academics</p>
-          <h1 className="font-serif text-[42px] leading-[1.1] text-[#1A2E44] tracking-tight mb-8">
-            Primary<br />Excellence
-          </h1>
-        </div>
+    <div className="flex flex-col min-h-screen">
+      <PageHero title="Academics" breadcrumb="Academics" image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80&auto=format&fit=crop" />
 
-        {/* Tab Navigation */}
-        <div className="flex items-center gap-6 overflow-x-auto scrollbar-hide border-b border-white/40 mb-6">
-          {TABS.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`relative pb-3 text-[14px] font-medium whitespace-nowrap transition-colors ${
-                activeTab === tab ? "text-[#1A2E44]" : "text-[#1A2E44]/60"
-              }`}
-            >
-              {tab}
-              {activeTab === tab && (
-                <motion.div
-                  layoutId="academicsTab"
-                  className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-[#E1AFA8]"
-                  style={{ borderRadius: "2px" }}
-                />
-              )}
-            </button>
-          ))}
+      {/* Curriculum Intro */}
+      <section className="section-padding bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <span className="inline-block bg-gold-light text-gold font-sans text-xs font-semibold px-4 py-1.5 rounded-full mb-4">ZIMSEC-Aligned Curriculum</span>
+              <h2 className="font-serif text-4xl text-charcoal leading-snug mb-6">
+                Academic Excellence,<br />Zimbabwe Standard.
+              </h2>
+              <p className="font-sans text-[15px] text-muted leading-relaxed">
+                Our curriculum is fully aligned with the Zimbabwe School Examinations Council (ZIMSEC) standards. We provide a comprehensive education covering all core and elective subjects, ensuring every child is well-prepared for national examinations and beyond.
+              </p>
+            </div>
+            <div className="bg-primary rounded-2xl p-10 text-white">
+              <h3 className="font-serif text-xl text-white mb-6">Core Subjects</h3>
+              <ul className="space-y-3">
+                {CORE_SUBJECTS.map((subject) => (
+                  <li key={subject} className="flex items-center gap-3 font-sans text-[15px] leading-loose">
+                    <span className="text-gold font-bold">✓</span>
+                    {subject}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Tab Content */}
-        <AnimatePresence mode="wait">
-          {activeTab === "Curriculum" && (
+      {/* Academic Progression */}
+      <section className="section-padding bg-cream">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="font-sans text-[11px] uppercase tracking-[0.15em] text-gold mb-3 block">Learning Pathway</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal tracking-tight">Academic Progression</h2>
+          </div>
+
+          {/* Stepper */}
+          <div className="flex items-center justify-center gap-0 mb-8 overflow-x-auto no-scrollbar">
+            {STAGES.map((stage, i) => (
+              <div key={i} className="flex items-center shrink-0">
+                <button
+                  onClick={() => setActiveStage(i)}
+                  className={`px-6 py-2.5 rounded-full font-sans text-sm font-medium transition-all whitespace-nowrap ${
+                    activeStage === i
+                      ? "bg-primary text-white"
+                      : "border border-primary/30 text-primary hover:bg-primary-light"
+                  }`}
+                >
+                  {stage.label}
+                </button>
+                {i < STAGES.length - 1 && <div className="h-px w-8 bg-primary/20 hidden sm:block" />}
+              </div>
+            ))}
+          </div>
+
+          {/* Content Panel */}
+          <AnimatePresence mode="wait">
             <motion.div
-              key="curriculum"
+              key={activeStage}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="flex-1 flex flex-col gap-4 pb-20"
+              transition={{ duration: 0.25 }}
+              className="bg-white border border-primary-light rounded-2xl p-10"
             >
-              {CURRICULUM.map((item) => (
-                <div 
-                  key={item.id} 
-                  className="bg-white rounded-[20px] p-5 flex items-start gap-4 shadow-[0_2px_16px_rgba(0,0,0,0.04)] border border-gray-100/50"
-                >
-                  <div className="shrink-0 mt-1">
-                    <item.Icon />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-[17px] text-[#1A2E44] mb-1">{item.title}</h3>
-                    <p className="text-[13px] text-gray-500 leading-snug mb-3">
-                      {item.description}
-                    </p>
-                    <button className="bg-[#F7D8D9]/70 hover:bg-[#F7D8D9] transition-colors text-[#1A2E44] text-[11px] font-bold px-3 py-1.5 rounded-lg inline-flex">
-                      View Details
-                    </button>
-                  </div>
+              <div className="grid md:grid-cols-2 gap-10">
+                <div>
+                  <h3 className="font-serif text-xl text-charcoal mb-4">Key Focus Areas</h3>
+                  <ul className="space-y-3">
+                    {STAGES[activeStage].focus.map((f) => (
+                      <li key={f} className="flex items-center gap-2 font-sans text-[15px] text-charcoal">
+                        <span className="inline-block w-2 h-2 rounded-full bg-gold shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
+                <div>
+                  <h3 className="font-serif text-xl text-charcoal mb-4">Target Achievement</h3>
+                  <p className="font-serif italic text-lg text-primary leading-relaxed">{STAGES[activeStage].achievement}</p>
+                </div>
+              </div>
             </motion.div>
-          )}
-
-          {activeTab !== "Curriculum" && (
-            <motion.div
-              key="other"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="flex-1 flex flex-col items-center justify-center text-center p-8 bg-white/50 rounded-[20px] border border-gray-100"
-            >
-              <p className="text-gray-500 font-medium">{activeTab} section coming soon.</p>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Download Prospectus Sticky Floating Button */}
-        <div className="fixed bottom-[88px] left-0 right-0 px-5 max-w-md mx-auto z-20 md:absolute md:bottom-6">
-          <button className="w-full bg-[#F7D8D9] hover:bg-[#F0C9CB] transition-colors text-[#1A2E44] font-semibold py-3.5 rounded-[14px] shadow-sm text-[14px]">
-            Download Prospectus
-          </button>
+          </AnimatePresence>
         </div>
-      </div>
+      </section>
+
+      {/* Co-Curricular Activities */}
+      <section className="section-padding bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="font-sans text-[11px] uppercase tracking-[0.15em] text-gold mb-3 block">Beyond the Classroom</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal tracking-tight">Co-Curricular Activities</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {ACTIVITIES.map((act) => (
+              <div
+                key={act.name}
+                className="bg-white border border-primary-light rounded-xl py-6 px-4 text-center hover:bg-primary hover:text-white hover:border-primary cursor-pointer group transition-all duration-200"
+              >
+                <span className="text-2xl block mb-2">{act.icon}</span>
+                <span className="font-sans text-sm font-medium text-charcoal group-hover:text-white transition-colors">{act.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Strip */}
+      <section className="section-padding bg-cream">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="bg-primary-light rounded-2xl py-14 px-10 text-center">
+            <h3 className="font-serif text-3xl text-primary">Ready to start the journey?</h3>
+            <p className="font-sans text-muted mt-3">Give your child the gift of a world-class, Christ-centered education.</p>
+            <div className="flex justify-center flex-wrap gap-4 mt-8">
+              <Link href="/admissions" className="bg-gold text-white font-sans font-semibold px-8 py-3 rounded-full hover:bg-[#b07d0b] hover:scale-[1.02] active:scale-[0.98] transition-all">
+                Apply Now
+              </Link>
+              <Link href="/contact" className="border border-primary text-primary font-sans font-semibold px-8 py-3 rounded-full hover:bg-primary hover:text-white transition-all">
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

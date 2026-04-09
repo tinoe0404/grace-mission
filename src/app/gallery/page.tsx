@@ -2,112 +2,96 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { X } from "lucide-react";
+import PageHero from "@/components/layout/PageHero";
+
+const CATEGORIES = ["All", "Campus", "Academics", "Sports", "Arts", "Events"];
+
+const IMAGES = [
+  { url: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80&fit=crop", caption: "Classroom Learning", category: "Academics" },
+  { url: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&q=80&fit=crop", caption: "Sports Day", category: "Sports" },
+  { url: "https://images.unsplash.com/photo-1549646440-ae74c86add5f?w=600&q=80&fit=crop", caption: "Choir Performance", category: "Arts" },
+  { url: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&fit=crop", caption: "Junior Assembly", category: "Events" },
+  { url: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&q=80&fit=crop", caption: "Science Lab", category: "Academics" },
+  { url: "https://images.unsplash.com/photo-1460518451285-97b6aa326961?w=600&q=80&fit=crop", caption: "Art Class", category: "Arts" },
+  { url: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80&fit=crop", caption: "School Building", category: "Campus" },
+  { url: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&q=80&fit=crop", caption: "Morning Assembly", category: "Events" },
+  { url: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80&fit=crop", caption: "Computer Lab", category: "Academics" },
+];
 
 export default function GalleryPage() {
-  const [activeTab, setActiveTab] = useState("Photos");
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
-  // Simulating Masonry items based on the provided screenshot
-  // Each category is split into left and right columns
-  const leftColumn = [
-    { title: "Classroom Learning", url: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80&fit=crop", aspect: "aspect-[4/5]" },
-    { title: "Choir Performance", url: "https://images.unsplash.com/photo-1549646440-ae74c86add5f?w=600&q=80&fit=crop", aspect: "aspect-[3/4]" },
-    { title: "Junior Play", url: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&fit=crop", aspect: "aspect-[2/1]" }
-  ];
-  
-  const rightColumn = [
-    { title: "Sports Day", url: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&q=80&fit=crop", aspect: "aspect-[3/4]" },
-    { title: "Science Lab", url: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&q=80&fit=crop", aspect: "aspect-[4/5]" },
-    { title: "Art Class", url: "https://images.unsplash.com/photo-1460518451285-97b6aa326961?w=600&q=80&fit=crop", aspect: "aspect-[3/2]" }
-  ];
+  const filtered = activeFilter === "All" ? IMAGES : IMAGES.filter((img) => img.category === activeFilter);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FDFBF7] pb-24 md:pb-12 text-[#1A2E44]">
-      {/* 1. Header Area with Pink Background */}
-      <div className="bg-[#F7D8D9] pt-12 pb-6 px-5 rounded-b-2xl md:rounded-none z-10 w-full shrink-0">
-        <div className="w-full max-w-md mx-auto flex flex-col gap-6">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="p-1 -ml-1 hover:bg-white/20 rounded-full transition-colors">
-              <ChevronLeft className="w-6 h-6 text-[#1A2E44]" strokeWidth={2.5} />
-            </Link>
-            <div className="font-serif text-[22px] italic font-bold text-[#1A2E44] leading-none tracking-tight text-right">
-              Grace
-              <br />
-              <span className="text-[14px]">Mission</span>
-            </div>
+    <div className="flex flex-col min-h-screen">
+      <PageHero title="Gallery" breadcrumb="Gallery" image="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&q=80&auto=format&fit=crop" />
+
+      <section className="section-padding bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Filter Bar */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveFilter(cat)}
+                className={`px-6 py-2.5 rounded-full font-sans text-sm font-medium transition-all ${
+                  activeFilter === cat
+                    ? "bg-primary text-white"
+                    : "border border-primary/30 text-primary bg-transparent hover:bg-primary-light"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
-          <h1 className="font-serif text-[40px] font-bold text-[#1A2E44] tracking-tight leading-none mt-2">
-            Gallery
-          </h1>
-        </div>
-      </div>
 
-      <div className="max-w-md mx-auto w-full px-5 pt-6 flex flex-col gap-6 flex-1">
-        {/* 2. Top Slider Tab */}
-        <div className="bg-[#1A2E44] rounded-full p-1.5 flex shadow-sm shrink-0">
-          <button 
-            onClick={() => setActiveTab("Photos")}
-            className={`flex-1 py-2.5 rounded-full text-[15px] font-semibold transition-all ${
-              activeTab === "Photos" 
-                ? "bg-[#F7D8D9] text-[#1A2E44] shadow-sm transform scale-[1.02]" 
-                : "text-white/80 hover:text-white"
-            }`}
-          >
-            Photos
-          </button>
-          <button 
-            onClick={() => setActiveTab("Videos")}
-            className={`flex-1 py-2.5 rounded-full text-[15px] font-semibold transition-all ${
-              activeTab === "Videos" 
-                ? "bg-[#F7D8D9] text-[#1A2E44] shadow-sm transform scale-[1.02]" 
-                : "text-[#F7D8D9] hover:text-white"
-            }`}
-          >
-            Videos
-          </button>
-        </div>
-
-        {/* 3. Masonry Layout using Flex Columns */}
-        {activeTab === "Photos" ? (
-          <div className="flex gap-4 items-start pb-4">
-            {/* Left Column */}
-            <div className="flex flex-col gap-4 flex-1">
-              {leftColumn.map((item, i) => (
-                <div key={i} className={`relative w-full ${item.aspect} rounded-[16px] overflow-hidden shadow-sm group`}>
-                  <Image src={item.url} alt={item.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white text-[15px] font-medium leading-tight text-balance shadow-black drop-shadow-md">
-                      {item.title}
-                    </h3>
+          {/* Masonry Grid */}
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
+            {filtered.map((img, i) => (
+              <div
+                key={i}
+                className="relative group break-inside-avoid mb-4 cursor-pointer"
+                onClick={() => setLightboxIdx(i)}
+              >
+                <div className="relative rounded-xl overflow-hidden">
+                  <Image
+                    src={img.url}
+                    alt={img.caption}
+                    width={600}
+                    height={400}
+                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 rounded-xl transition-all duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <span className="bg-gold text-white text-[10px] uppercase tracking-wide font-semibold px-3 py-1 rounded-full mb-2 inline-block">{img.category}</span>
+                    <p className="font-sans text-sm text-white font-medium">{img.caption}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-            
-            {/* Right Column */}
-            <div className="flex flex-col gap-4 flex-1 mt-6">
-              {rightColumn.map((item, i) => (
-                <div key={i} className={`relative w-full ${item.aspect} rounded-[16px] overflow-hidden shadow-sm group`}>
-                  <Image src={item.url} alt={item.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white text-[15px] font-medium leading-tight text-balance shadow-black drop-shadow-md">
-                      {item.title}
-                    </h3>
-                  </div>
-                </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-        ) : (
-          <div className="flex-1 flex flex-col items-center justify-center p-12 text-center border-2 border-dashed border-[#1A2E44]/20 rounded-3xl opacity-60">
-            <h3 className="font-serif text-[24px] text-[#1A2E44] mb-2">Coming Soon</h3>
-            <p className="text-[14px]">Video content will be available shortly.</p>
-          </div>
-        )}
-      </div>
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      {lightboxIdx !== null && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={() => setLightboxIdx(null)}>
+          <button className="absolute top-4 right-4 text-white text-2xl w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors z-10" onClick={() => setLightboxIdx(null)} aria-label="Close">
+            <X className="w-5 h-5" />
+          </button>
+          <Image
+            src={filtered[lightboxIdx].url}
+            alt={filtered[lightboxIdx].caption}
+            width={1200}
+            height={800}
+            className="max-h-[85vh] max-w-[90vw] rounded-xl object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }

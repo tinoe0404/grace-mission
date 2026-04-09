@@ -14,44 +14,29 @@
     --color-muted: #6B6B5E;
   }
 
-  html,
+  html {
+    @apply scroll-smooth;
+  }
+
+  * {
+    transition-property: color, background-color, border-color, opacity, transform;
+    transition-duration: 200ms;
+  }
+
   body {
-    @apply scroll-smooth antialiased;
+    @apply bg-cream text-charcoal font-sans antialiased;
+    font-size: 15px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  body {
-    @apply bg-cream text-charcoal font-sans;
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  /* Typography hierarchy */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif text-primary;
+  h1, h2, h3, h4 {
+    @apply font-serif;
     line-height: 1.2;
     letter-spacing: -0.02em;
   }
 
-  h1 {
-    @apply text-5xl md:text-6xl font-bold;
-  }
-
-  h2 {
-    @apply text-3xl md:text-4xl font-bold;
-  }
-
-  h3 {
-    @apply text-xl md:text-2xl font-bold;
-  }
-
-  p {
-    @apply leading-relaxed;
-    max-width: 680px;
-  }
-
-  /* Ensure minimum readable text sizes */
   @media (max-width: 768px) {
     body {
       font-size: 14px;
@@ -68,16 +53,10 @@
     text-wrap: pretty;
   }
 
-  /* Section padding rules from user request: py-20 desktop, py-12 mobile */
   .section-padding {
     @apply py-12 md:py-20;
   }
 
-  .section-padding-mobile {
-    @apply py-12;
-  }
-
-  /* Horizontal scroll carousel */
   .scroll-snap-x {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -87,7 +66,6 @@
     scroll-snap-align: start;
   }
 
-  /* Hide scrollbar but allow scroll */
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -97,15 +75,28 @@
     display: none;
   }
 
-  /* Safe area for bottom nav */
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
-  /* Bottom nav spacing on mobile */
   @media (max-width: 767px) {
     .main-content {
       padding-bottom: 5rem;
     }
   }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+main {
+  animation: fadeUp 0.4s ease both;
 }

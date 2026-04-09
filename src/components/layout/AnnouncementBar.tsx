@@ -8,8 +8,6 @@ import { X } from "lucide-react";
 export default function AnnouncementBar() {
   const [isVisible, setIsVisible] = useState(true);
 
-  if (!isVisible) return null;
-
   return (
     <AnimatePresence>
       {isVisible && (

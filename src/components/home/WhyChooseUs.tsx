@@ -1,75 +1,64 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Leaf, Star, User } from "lucide-react";
 
 const PILLARS = [
   {
-    icon: Leaf,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7"><path d="M12 4v16" /><path d="M8 9h8" /></svg>
+    ),
     title: "Faith",
-    description: "Every school day begins with devotion, grounding pupils in Christian values and integrity.",
+    description: "Grounded in Christian principles and spiritual growth.",
   },
   {
-    icon: Star,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7"><path d="M6 9H4.5a2.5 2.5 0 010-5C7 4 9 8 12 8s5-4 7.5-4a2.5 2.5 0 010 5H18" /><path d="M12 8v13" /><path d="M6 12a5.2 5.2 0 006 5 5.2 5.2 0 006-5" /></svg>
+    ),
     title: "Excellence",
-    description: "Our ZIMSEC results consistently rank among the top in Harare's primary schools.",
+    description: "Pursuing the highest standards in all we do.",
   },
   {
-    icon: User,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20" /><path d="M2 12h20" /></svg>
+    ),
     title: "Holistic",
-    description: "Beyond academics — sports, arts, music, and leadership shape the whole child.",
+    description: "Developing mind, body, and spirit together.",
   },
 ];
 
 export default function WhyChooseUs() {
-  const container = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-  };
-
   return (
-    <section className="section-padding bg-cream">
+    <section className="section-padding bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-14"
+          className="text-center mb-12"
         >
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary tracking-tight">
-            Why Parents Choose Us
+          <span className="font-sans text-[11px] uppercase tracking-[0.15em] text-gold mb-3 block">Our Pillars</span>
+          <h2 className="font-serif text-3xl md:text-4xl text-charcoal tracking-tight">
+            Why parents choose us
           </h2>
         </motion.div>
 
         <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="flex justify-center gap-12 sm:gap-20"
         >
-          {PILLARS.map((pillar, i) => {
-            const Icon = pillar.icon;
-            return (
-              <motion.div 
-                variants={item}
-                key={i} 
-                className="flex flex-col items-start bg-white border border-primary-light rounded-2xl p-8 transition-shadow hover:shadow-card-hover"
-              >
-                <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center mb-6">
-                  <Icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
-                </div>
-                <h3 className="font-serif text-[20px] font-bold text-primary mb-3 leading-tight">{pillar.title}</h3>
-                <p className="font-sans text-[15px] text-muted leading-relaxed">{pillar.description}</p>
-              </motion.div>
-            );
-          })}
+          {PILLARS.map((pillar, i) => (
+            <div key={i} className="flex flex-col items-center text-center max-w-[160px]">
+              <div className="w-16 h-16 rounded-full border-2 border-primary/20 bg-primary-light flex items-center justify-center mb-4 text-primary transition-all hover:border-primary/40 hover:bg-primary/10">
+                {pillar.icon}
+              </div>
+              <h3 className="font-serif text-lg text-charcoal mb-1">{pillar.title}</h3>
+              <p className="text-muted text-sm leading-snug font-sans">{pillar.description}</p>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
