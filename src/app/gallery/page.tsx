@@ -9,30 +9,30 @@ const CATEGORIES = ["All", "School Life", "Achievements", "Events"];
 
 const IMAGES = [
   // School Life
-  { url: "/images/hoyo/IMG_6966.JPG", caption: "Students in Blue Blazers at School Entrance", category: "School Life" },
-  { url: "/images/hoyo/IMG_6967.JPG", caption: "Formal Uniform Group — Entrance Arch", category: "School Life" },
-  { url: "/images/hoyo/IMG_6968.JPG", caption: "Students & Building — Academic Day", category: "School Life" },
-  { url: "/images/hoyo/IMG_6970.JPG", caption: "School Building — Widest Angle", category: "School Life" },
-  { url: "/images/hoyo/IMG_6956.JPG", caption: "Real Madrid Jersey Day — Big Group", category: "School Life" },
-  { url: "/images/hoyo/IMG_6957.JPG", caption: "Man Utd Jersey Day Crowd", category: "School Life" },
-  { url: "/images/hoyo/IMG_6958.JPG", caption: "Liverpool Jersey Day Group", category: "School Life" },
-  { url: "/images/hoyo/IMG_6969.JPG", caption: "School Facade — Blue Sky & Students", category: "School Life" },
+  { url: "/images/hoyo/IMG_6966.JPG", caption: "Students in Blue Blazers at School Entrance", category: "School Life", objectPosition: "center 30%" },
+  { url: "/images/hoyo/IMG_6967.JPG", caption: "Formal Uniform Group — Entrance Arch", category: "School Life", objectPosition: "center 30%" },
+  { url: "/images/hoyo/IMG_6968.JPG", caption: "Students & Building — Academic Day", category: "School Life", objectPosition: "center 35%" },
+  { url: "/images/hoyo/IMG_6970.JPG", caption: "School Building — Widest Angle", category: "School Life", objectPosition: "center 50%" },
+  { url: "/images/hoyo/IMG_6956.JPG", caption: "Jersey Day — School Community Comes Together", category: "School Life", objectPosition: "center 35%" },
+  { url: "/images/hoyo/IMG_6957.JPG", caption: "Man Utd Jersey Day Crowd", category: "School Life", objectPosition: "center 30%" },
+  { url: "/images/hoyo/IMG_6958.JPG", caption: "Liverpool Jersey Day Group", category: "School Life", objectPosition: "center 30%" },
+  { url: "/images/hoyo/IMG_6969.JPG", caption: "School Facade — Blue Sky & Students", category: "School Life", objectPosition: "center 25%" },
 
   // Achievements
-  { url: "/images/hoyo/IMG_6964.JPG", caption: "Gold Medal Bite — Pure Joy", category: "Achievements" },
-  { url: "/images/hoyo/IMG_6965.JPG", caption: "Trophy & Medals — Provincial Champions", category: "Achievements" },
-  { url: "/images/hoyo/IMG_6963.JPG", caption: "Three Athletes — Race Bibs", category: "Achievements" },
-  { url: "/images/hoyo/IMG_6947.JPG", caption: "Football Team — Regional Trophy Winners", category: "Achievements" },
-  { url: "/images/hoyo/IMG_6950.JPG", caption: "Athletics Medal Moment with Teacher", category: "Achievements" },
-  { url: "/images/hoyo/IMG_6951.JPG", caption: "Teacher & Student Celebrating Win", category: "Achievements" },
+  { url: "/images/hoyo/IMG_6964.JPG", caption: "Gold Medal Bite — Pure Joy", category: "Achievements", objectPosition: "center 15%" },
+  { url: "/images/hoyo/IMG_6965.JPG", caption: "Trophy & Medals — Provincial Champions", category: "Achievements", objectPosition: "center 20%" },
+  { url: "/images/hoyo/IMG_6963.JPG", caption: "Three Athletes — Race Bibs", category: "Achievements", objectPosition: "center 20%" },
+  { url: "/images/hoyo/IMG_6947.JPG", caption: "Football Team — Regional Trophy Winners", category: "Achievements", objectPosition: "center 25%" },
+  { url: "/images/hoyo/IMG_6950.JPG", caption: "Athletics Medal Moment with Teacher", category: "Achievements", objectPosition: "center 20%" },
+  { url: "/images/hoyo/IMG_6951.JPG", caption: "Teacher & Student Celebrating Win", category: "Achievements", objectPosition: "center 20%" },
 
   // Events
-  { url: "/images/hoyo/IMG_6976.JPG", caption: "Speech & Prize Giving Day — Stage", category: "Events" },
-  { url: "/images/hoyo/IMG_6977.JPG", caption: "Prize Giving Banquet Hall", category: "Events" },
-  { url: "/images/hoyo/IMG_6980.JPG", caption: "Top Student Award on Red Carpet", category: "Events" },
-  { url: "/images/hoyo/IMG_6981.JPG", caption: "Outstanding Student with Principal", category: "Events" },
-  { url: "/images/hoyo/IMG_6979.JPG", caption: "Teacher Giving Speech at Ceremony", category: "Events" },
-  { url: "/images/hoyo/IMG_6953.JPG", caption: "Athletics Team with Coach", category: "Events" },
+  { url: "/images/hoyo/IMG_6976.JPG", caption: "Speech & Prize Giving Day — Stage", category: "Events", objectPosition: "center 15%" },
+  { url: "/images/hoyo/IMG_6977.JPG", caption: "Prize Giving Banquet Hall", category: "Events", objectPosition: "center 30%" },
+  { url: "/images/hoyo/IMG_6980.JPG", caption: "Top Student Award on Red Carpet", category: "Events", objectPosition: "center 20%" },
+  { url: "/images/hoyo/IMG_6981.JPG", caption: "Outstanding Student with Principal", category: "Events", objectPosition: "center 12%" },
+  { url: "/images/hoyo/IMG_6979.JPG", caption: "Teacher Giving Speech at Ceremony", category: "Events", objectPosition: "center 25%" },
+  { url: "/images/hoyo/IMG_6953.JPG", caption: "Athletics Team with Coach", category: "Events", objectPosition: "center 20%" },
 ];
 
 export default function GalleryPage() {
@@ -79,6 +79,7 @@ export default function GalleryPage() {
                     width={600}
                     height={400}
                     className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    style={{ objectPosition: img.objectPosition }}
                   />
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 rounded-xl transition-all duration-300" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">

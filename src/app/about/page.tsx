@@ -5,10 +5,10 @@ import Image from "next/image";
 import PageHero from "@/components/layout/PageHero";
 
 const TEAM = [
-  { name: "Mrs. Sarah Mutasa", role: "Principal", image: "/images/hoyo/IMG_6981.JPG" },
-  { name: "Mr. David Banda", role: "Deputy Principal (Academics)", image: "/images/hoyo/IMG_6953.JPG" },
-  { name: "Ms. Grace Ncube", role: "Head of O-Level Department", image: "/images/hoyo/IMG_6953.JPG" },
-  { name: "Mr. John Moyo", role: "Head of Sport & Co-curriculars", image: "/images/hoyo/IMG_6953.JPG" },
+  { name: "Mrs. Sarah Mutasa", role: "Principal", image: "/images/hoyo/IMG_6981.JPG", objectPosition: "center 12%", initials: "" },
+  { name: "Mr. David Banda", role: "Deputy Principal (Academics)", image: "", objectPosition: "", initials: "DB" },
+  { name: "Ms. Grace Ncube", role: "Head of O-Level Department", image: "", objectPosition: "", initials: "GN" },
+  { name: "Mr. John Moyo", role: "Head of Sport & Co-curriculars", image: "", objectPosition: "", initials: "JM" },
 ];
 
 const STATS = [
@@ -34,9 +34,16 @@ export default function AboutPage() {
       <motion.section {...sectionAnim} className="section-padding bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-primary/5">
-              <Image src="/images/hoyo/IMG_6969.JPG" alt="Grace Mission School Building" fill className="object-cover" />
-              <div className="absolute bottom-4 left-4 bg-primary text-white font-sans text-sm px-4 py-2 rounded-full">
+            {/* Story Image — fixed height, proper crop */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[420px]">
+              <Image
+                src="/images/hoyo/IMG_6969.JPG"
+                alt="Grace Missions High School building with students in uniform"
+                fill
+                className="object-cover"
+                style={{ objectPosition: "center 25%" }}
+              />
+              <div className="absolute bottom-4 left-4 bg-[#3D1A6E] text-white font-sans text-sm px-4 py-2 rounded-full font-medium">
                 Est. 2005 · Harare, Zimbabwe
               </div>
             </div>
@@ -71,8 +78,9 @@ export default function AboutPage() {
               Education is not merely about accumulating facts; it is the awakening of potential, the shaping of character, and the inspiring of a lifelong love for learning in the light of God&apos;s grace.
             </blockquote>
             <div className="mt-6 flex items-center gap-4 relative z-10">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-gold">
-                <Image src="/images/hoyo/IMG_6981.JPG" alt="Mrs. Sarah Mutasa" fill className="object-cover" />
+              {/* Headmistress photo — tight face crop */}
+              <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#C9920E] flex-shrink-0">
+                <Image src="/images/hoyo/IMG_6981.JPG" alt="Mrs. Sarah Mutasa" fill className="object-cover" style={{ objectPosition: "center 15%" }} />
               </div>
               <div>
                 <p className="font-sans font-semibold text-white text-sm">Mrs. Sarah Mutasa</p>
@@ -113,8 +121,23 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {TEAM.map((staff, i) => (
               <div key={i} className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-xl aspect-[3/4] bg-primary/5">
-                  <Image src={staff.image} alt={staff.name} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative overflow-hidden rounded-xl aspect-[3/4]">
+                  {/* Use real photo if available, otherwise initials avatar */}
+                  {staff.image ? (
+                    <Image
+                      src={staff.image}
+                      alt={staff.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      style={{ objectPosition: staff.objectPosition }}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-[#3D1A6E] to-[#5C2D9E] flex items-center justify-center">
+                      <span className="font-serif text-4xl md:text-5xl text-white/90 font-bold select-none">
+                        {staff.initials}
+                      </span>
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/70 transition-all duration-300 flex items-center justify-center">
                     <span className="font-sans text-sm font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Profile</span>
                   </div>

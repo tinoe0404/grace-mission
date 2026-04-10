@@ -9,18 +9,22 @@ const NEWS_ITEMS = [
   {
     image: "/images/hoyo/IMG_6976.JPG",
     headline: "Form 4 Students Achieve Outstanding O-Level Results",
+    objectPosition: "center 15%",
   },
   {
     image: "/images/hoyo/IMG_6965.JPG",
     headline: "Athletics: Provincial Champions for Third Year Running",
+    objectPosition: "center 20%",
   },
   {
     image: "/images/hoyo/IMG_6980.JPG",
     headline: "Inter-Schools Debate Championship: Grace Missions Win",
+    objectPosition: "center 20%",
   },
   {
     image: "/images/hoyo/IMG_6977.JPG",
     headline: "New Science Laboratory Opens for A-Level Students",
+    objectPosition: "center 30%",
   },
 ];
 
@@ -70,7 +74,7 @@ export default function LatestNewsPreview() {
               className="snap-start shrink-0 w-[220px] sm:w-[260px] cursor-pointer group"
             >
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-primary/5">
-                <Image src={item.image} alt={item.headline} fill sizes="(max-width: 640px) 220px, 260px" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src={item.image} alt={item.headline} fill sizes="(max-width: 640px) 220px, 260px" className="object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: item.objectPosition }} />
               </div>
               <p className="text-sm font-semibold text-charcoal leading-snug group-hover:text-primary transition-colors line-clamp-3 font-sans">
                 {item.headline}

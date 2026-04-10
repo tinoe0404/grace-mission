@@ -141,8 +141,8 @@ export default function AcademicsPage() {
                   <p className="font-serif italic text-lg text-primary leading-relaxed mb-4">{STAGES[activeStage].achievement}</p>
                   {activeStage === 0 && (
                     <div className="relative aspect-[4/3] rounded-xl overflow-hidden mt-4 bg-primary/5">
-                      <Image src="/images/hoyo/IMG_6980.JPG" alt="ECD Graduate receiving certificate" fill className="object-cover" />
-                      <Image src="/images/hoyo/IMG_6980.JPG" alt="Student learning" fill className="object-cover" />
+                      <Image src="/images/hoyo/IMG_6980.JPG" alt="ECD Graduate receiving certificate" fill className="object-cover" style={{ objectPosition: "center 20%" }} />
+                      <Image src="/images/hoyo/IMG_6980.JPG" alt="Student learning" fill className="object-cover" style={{ objectPosition: "center 20%" }} />
                       <div className="absolute bottom-3 left-3 bg-gold text-white font-sans text-xs px-3 py-1.5 rounded-full">Academic Excellence</div>
                     </div>
                   )}

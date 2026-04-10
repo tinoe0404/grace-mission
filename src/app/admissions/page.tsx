@@ -208,7 +208,7 @@ export default function AdmissionsPage() {
             {/* Info Card with Image */}
             <div className="md:col-span-2 space-y-6">
               <div className="relative rounded-2xl overflow-hidden aspect-[3/4] bg-primary/5">
-                <Image src="/images/hoyo/IMG_6966.JPG" alt="Students in uniform at school entrance" fill className="object-cover" />
+                <Image src="/images/hoyo/IMG_6966.JPG" alt="Students in uniform at school entrance" fill className="object-cover" style={{ objectPosition: "center 30%" }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="font-serif text-lg text-white font-semibold">Join our family</p>

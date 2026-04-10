@@ -10,24 +10,28 @@ const ARTICLES = [
     date: "March 15, 2025",
     title: "Athletics: Trophy Win at Provincial Championships",
     excerpt: "Our student returned with the championship trophy and two gold medals from the provincial athletics competition.",
+    objectPosition: "center 20%",
   },
   {
     image: "/images/hoyo/IMG_6977.JPG",
     date: "February 28, 2025",
     title: "Speech & Prize Giving Banquet: A Night to Remember",
     excerpt: "Parents, graduates, and staff gathered for a beautiful evening celebrating our outstanding achievers.",
+    objectPosition: "center 30%",
   },
   {
     image: "/images/hoyo/IMG_6969.JPG",
     date: "January 20, 2025",
     title: "New Academic Wing: State-of-the-Art Facilities",
     excerpt: "Our distinctive red brick and green roof campus continues to grow with new classrooms and learning spaces.",
+    objectPosition: "center 25%",
   },
   {
     image: "/images/hoyo/IMG_6947.JPG",
     date: "December 5, 2024",
     title: "Football Team Wins Regional Tournament",
     excerpt: "Our football team brought home the trophy after an outstanding performance at the regional championships.",
+    objectPosition: "center 25%",
   },
 ];
 
@@ -47,7 +51,7 @@ export default function NewsPage() {
       <section className="section-padding bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="relative rounded-2xl overflow-hidden h-[420px] mb-16 group cursor-pointer bg-primary/5">
-            <Image src="/images/hoyo/IMG_6976.JPG" alt="ECD Graduation Ceremony" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+            <Image src="/images/hoyo/IMG_6976.JPG" alt="Grace Missions Graduation Ceremony" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center 18%" }} />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
             <div className="absolute bottom-0 left-0 p-10">
               <span className="bg-accent-light text-accent font-sans text-xs uppercase tracking-wide px-3 py-1 rounded-full mb-4 inline-block font-semibold">Featured</span>
@@ -70,7 +74,7 @@ export default function NewsPage() {
             {ARTICLES.map((article, i) => (
               <div key={i} className="bg-white border border-primary-light rounded-2xl overflow-hidden group cursor-pointer hover:shadow-md hover:shadow-primary/10 hover:-translate-y-0.5 transition-all duration-200">
                 <div className="relative h-48 overflow-hidden bg-primary/5">
-                  <Image src={article.image} alt={article.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <Image src={article.image} alt={article.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: article.objectPosition }} />
                 </div>
                 <div className="p-6">
                   <p className="font-sans text-xs text-muted mb-2">{article.date}</p>
