@@ -44,7 +44,7 @@ export default function AboutPage() {
                 style={{ objectPosition: "center 25%" }}
               />
               <div className="absolute bottom-4 left-4 bg-[#3D1A6E] text-white font-sans text-sm px-4 py-2 rounded-full font-medium">
-                Est. 2005 · Harare, Zimbabwe
+                Est. 2005 · Victoria Falls, Zimbabwe
               </div>
             </div>
             <div>

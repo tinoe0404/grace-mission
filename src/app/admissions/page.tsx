@@ -220,7 +220,7 @@ export default function AdmissionsPage() {
                 <div className="space-y-2 font-sans text-sm text-white/70 mb-4">
                   <p>📞 {SCHOOL_DETAILS.phone}</p>
                   <p>📧 {SCHOOL_DETAILS.email}</p>
-                  <p>📍 Marlborough, Harare</p>
+                  <p>📍 Mkhosana, Victoria Falls</p>
                 </div>
                 <a
                   href={`https://wa.me/${SCHOOL_DETAILS.whatsapp.replace(/[^0-9]/g, "")}`}

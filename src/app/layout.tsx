@@ -19,16 +19,16 @@ export const metadata: Metadata = {
     default: 'Grace Missions High School | O-Level & A-Level',
     template: '%s | Grace Missions High School'
   },
-  description: 'Grace Missions High School — a Christ-centered secondary school in Zimbabwe offering Form 1 to Form 6, O-Level and A-Level education. ZIMSEC-aligned. Harare.',
+  description: 'Grace Missions High School — a Christ-centered secondary school in Zimbabwe offering Form 1 to Form 6, O-Level and A-Level education. ZIMSEC-aligned. Mkhosana, Victoria Falls.',
   keywords: [
     'Grace Missions High School',
     'Zimbabwe high school',
     'O-Level Zimbabwe',
     'A-Level Zimbabwe',
-    'ZIMSEC school Harare',
+    'ZIMSEC school Victoria Falls',
     'Form 1 to Form 6 Zimbabwe',
     'Christian school Zimbabwe',
-    'secondary school Harare'
+    'secondary school Victoria Falls'
   ],
   icons: {
     icon: '/images/logo.png',
