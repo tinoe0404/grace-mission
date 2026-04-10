@@ -38,7 +38,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 w-full relative z-10 py-24 md:py-32 flex flex-col items-start mt-10">
+      <div className="max-w-6xl mx-auto px-6 w-full relative z-10 py-24 md:py-32 flex flex-col items-start mt-16">
         <motion.div
           variants={container}
           initial="hidden"
