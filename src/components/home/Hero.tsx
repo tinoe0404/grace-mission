@@ -15,13 +15,6 @@ export default function Hero() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } }
   };
 
-  const STATS = [
-    { value: "500+", label: "PUPILS" },
-    { value: "30+", label: "TEACHERS" },
-    { value: "ECD - 7", label: "LEARNING" },
-    { value: "EST. 2005", label: "ESTABLISHED" },
-  ];
-
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
       {/* Background Image */}
@@ -69,23 +62,7 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          <motion.div 
-            variants={item}
-            className="w-full max-w-4xl"
-          >
-            <div className="flex flex-wrap sm:flex-nowrap gap-6 md:gap-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-8 py-6 items-center justify-between shadow-xl">
-              {STATS.map((stat, i) => (
-                <div key={i} className="flex flex-col items-start sm:items-center w-1/2 sm:w-auto">
-                  <div className="font-mono text-[32px] font-bold text-accent leading-none mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="font-sans text-[12px] uppercase tracking-widest text-white/70 font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+
         </motion.div>
       </div>
     </section>
