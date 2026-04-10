@@ -19,9 +19,9 @@ export default function Hero() {
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover"
-        style={{ backgroundImage: 'url("/images/hoyo/IMG_6969.JPG")', backgroundPosition: 'center bottom' }}
+        style={{ backgroundImage: 'url("/images/hoyo/IMG_6969.JPG")', backgroundPosition: 'center bott' }}
       />
       {/* Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/20 w-full" />
@@ -45,7 +45,7 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-start w-full"
         >
-          <motion.h1 
+          <motion.h1
             variants={item}
             className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-bold text-white leading-[1.1] mb-4 max-w-2xl tracking-tight"
           >
@@ -53,7 +53,7 @@ export default function Hero() {
             <span className="italic">Enlightenment.</span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             variants={item}
             className="text-[18px] text-white/80 mb-10 max-w-xl leading-relaxed font-sans"
           >
@@ -61,14 +61,14 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={item} className="flex flex-wrap items-center gap-4 mb-16">
-            <Link 
-              href="/admissions" 
+            <Link
+              href="/admissions"
               className="inline-flex justify-center items-center px-8 py-4 bg-gold text-white rounded-full font-semibold transition-all hover:scale-105 hover:bg-[#b0800c] shadow-lg font-sans text-sm md:text-base"
             >
               Apply for Form 1
             </Link>
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               className="inline-flex justify-center items-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold transition-all hover:bg-white/10 hover:text-white font-sans text-sm md:text-base"
             >
               Explore Our School

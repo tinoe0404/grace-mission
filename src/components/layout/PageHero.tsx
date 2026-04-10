@@ -12,16 +12,16 @@ interface PageHeroProps {
 }
 
 const overlayMap = {
-  light:  "from-[#3D1A6E]/70 via-[#3D1A6E]/25 to-transparent",
-  medium: "from-[#3D1A6E]/85 via-[#3D1A6E]/35 to-[#3D1A6E]/10",
-  dark:   "from-[#3D1A6E]/95 via-[#3D1A6E]/50 to-[#3D1A6E]/20",
+  light:  "from-[#3D1A6E]/60 via-[#3D1A6E]/15 to-transparent",
+  medium: "from-[#3D1A6E]/70 via-[#3D1A6E]/25 to-[#3D1A6E]/5",
+  dark:   "from-[#3D1A6E]/80 via-[#3D1A6E]/35 to-[#3D1A6E]/10",
 };
 
 export default function PageHero({
   title,
   breadcrumb,
   image,
-  objectPosition = "center",
+  objectPosition = "center 50%",
   overlayIntensity = "medium",
 }: PageHeroProps) {
   return (
@@ -36,7 +36,7 @@ export default function PageHero({
         priority
       />
 
-      {/* Overlay — gradient darkest at bottom (text) and lightest at top (photo) */}
+      {/* Overlay — much lighter so photo actually shows through */}
       <div className={`absolute inset-0 bg-gradient-to-t ${overlayMap[overlayIntensity]}`} />
 
       {/* Content — pinned to bottom-left */}
@@ -49,10 +49,10 @@ export default function PageHero({
           height={40}
           className="object-contain brightness-0 invert opacity-70 mb-3"
         />
-        <h1 className="font-serif text-4xl md:text-5xl text-white font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+        <h1 className="font-serif text-4xl md:text-5xl text-white font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
           {title}
         </h1>
-        <nav className="flex items-center gap-2 mt-2 font-sans text-sm text-white/70">
+        <nav className="flex items-center gap-2 mt-2 font-sans text-sm text-white/80 drop-shadow-[0_1px_4px_rgba(0,0,0,0.4)]">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span>/</span>
           <span className="text-white">{breadcrumb}</span>
