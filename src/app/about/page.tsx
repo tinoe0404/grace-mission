@@ -41,6 +41,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div>
+              <Image src="/images/logo.png" alt="Grace Missions Crest" width={64} height={64} className="object-contain mb-4" />
               <span className="font-sans text-[11px] uppercase tracking-[0.15em] text-gold mb-3 block">Our Heritage</span>
               <h2 className="font-serif text-4xl text-charcoal leading-snug mb-6">Our Story</h2>
               <div className="space-y-4 text-muted leading-[1.8] text-[15px] font-sans">
@@ -62,6 +63,9 @@ export default function AboutPage() {
       <section className="section-padding bg-cream">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div {...sectionAnim} className="bg-primary text-white rounded-2xl p-10 md:p-16 relative overflow-hidden">
+            <div className="absolute top-6 right-8 opacity-15 pointer-events-none">
+              <Image src="/images/logo.png" alt="" aria-hidden="true" width={100} height={100} className="object-contain brightness-0 invert" />
+            </div>
             <span className="absolute top-4 left-6 font-serif text-[120px] text-accent/20 leading-none select-none pointer-events-none" aria-hidden="true">&ldquo;</span>
             <blockquote className="font-serif italic text-xl md:text-2xl text-white leading-relaxed max-w-3xl relative z-10">
               Education is not merely about accumulating facts; it is the awakening of potential, the shaping of character, and the inspiring of a lifelong love for learning in the light of God&apos;s grace.

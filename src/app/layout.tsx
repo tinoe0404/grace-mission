@@ -16,10 +16,14 @@ const dmMono = DM_Mono({ subsets: ["latin"], weight: ['400', '500'], variable: "
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'),
   title: {
-    default: `${SCHOOL_DETAILS.name} | ${SCHOOL_DETAILS.tagline}`,
-    template: `%s | ${SCHOOL_DETAILS.name}`
+    default: "Grace Missions Junior School",
+    template: `%s | Grace Missions Junior School`
   },
-  description: `Welcome to ${SCHOOL_DETAILS.name}. ${SCHOOL_DETAILS.tagline}. High-quality primary education in ${SCHOOL_DETAILS.location}.`,
+  description: "Nurturing Minds, Shaping Futures",
+  icons: {
+    icon: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
   openGraph: {
     type: "website",
     title: `${SCHOOL_DETAILS.name}`,
@@ -42,6 +46,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/images/logo.png" />
+      </head>
       <body
         className={`${dmSans.variable} ${playfair.variable} ${dmMono.variable} font-sans bg-cream text-charcoal antialiased flex flex-col min-h-screen transition-all duration-200`}
       >

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { SCHOOL_DETAILS } from "@/lib/constants";
 
@@ -20,12 +21,22 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Col 1 — Brand */}
           <div>
-            <Link href="/" className="inline-flex flex-col">
-              <span className="font-serif font-bold text-xl text-white">Grace Mission</span>
-              <span className="font-sans text-[10px] tracking-[0.15em] uppercase text-white/40 mt-0.5">Primary School</span>
+            <Link href="/" className="flex items-center gap-3 mb-4">
+              <Image
+                src="/images/logo.png"
+                alt="Grace Missions School Crest"
+                width={56}
+                height={56}
+                className="object-contain brightness-0 invert"
+              />
+              <div>
+                <span className="font-serif font-bold text-xl text-white block">Grace Missions</span>
+                <span className="font-sans text-[10px] tracking-widest uppercase text-white/50 block">Junior School</span>
+              </div>
             </Link>
-            <p className="font-sans text-sm text-white/60 mt-2 max-w-xs leading-relaxed">
-              Every school day begins with devotion, grounding pupils in Christian values and integrity, shaping futures since 2005.
+            <p className="font-sans text-sm text-white/50 leading-relaxed max-w-xs">
+              "Soaring high on the wings of enlightenment."
+              Nurturing minds and shaping futures since 2005.
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-4 mt-6">

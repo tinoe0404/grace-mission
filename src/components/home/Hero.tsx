@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { Users, User, GraduationCap, Flag } from "lucide-react";
 
@@ -24,6 +25,18 @@ export default function Hero() {
       />
       {/* Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/20 w-full" />
+
+      {/* Decorative Watermark */}
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none hidden md:block">
+        <Image
+          src="/images/logo.png"
+          alt=""
+          aria-hidden="true"
+          width={320}
+          height={320}
+          className="object-contain"
+        />
+      </div>
 
       <div className="max-w-6xl mx-auto px-6 w-full relative z-10 py-24 md:py-32 flex flex-col items-start mt-10">
         <motion.div

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -56,13 +57,22 @@ export default function Navbar() {
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex justify-between items-center h-20">
-            <Link href="/" className="flex flex-col group shrink-0">
-              <span className={`font-bold text-2xl font-serif tracking-tight leading-none transition-colors duration-300 ${isScrolled ? "text-primary" : "text-white"}`}>
-                Grace Mission
-              </span>
-              <span className={`text-[11px] font-sans uppercase tracking-wide mt-1 transition-colors duration-300 ${isScrolled ? "text-primary" : "text-white/80"}`}>
-                Primary School
-              </span>
+            <Link href="/" className="flex items-center gap-3 shrink-0">
+              <Image
+                src="/images/logo.png"
+                alt="Grace Missions School Crest"
+                width={44}
+                height={44}
+                className={`object-contain w-9 h-9 sm:w-[44px] sm:h-[44px] transition-all duration-300 ${!isScrolled ? "brightness-0 invert opacity-90" : ""}`}
+              />
+              <div className="hidden sm:block">
+                <span className={`font-serif font-bold text-lg leading-none block transition-colors duration-300 ${isScrolled ? "text-primary" : "text-white"}`}>
+                  Grace Missions
+                </span>
+                <span className={`font-sans text-[10px] tracking-[0.15em] uppercase leading-none block mt-1 transition-colors duration-300 ${isScrolled ? "text-muted" : "text-white/80"}`}>
+                  Junior School
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -135,7 +145,10 @@ export default function Navbar() {
             >
               {/* Header */}
               <div className="flex justify-between items-center p-6 border-b border-gray-100">
-                <span className="font-bold text-xl text-primary font-serif">Grace Mission</span>
+                <div className="flex items-center gap-2">
+                  <Image src="/images/logo.png" alt="Grace Missions School Crest" width={36} height={36} className="object-contain" />
+                  <span className="font-bold text-lg text-primary font-serif">Grace Missions</span>
+                </div>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="p-2 -mr-2 text-muted hover:text-primary transition-colors hover:bg-cream rounded-full focus:outline-none focus:ring-2 focus:ring-primary"
