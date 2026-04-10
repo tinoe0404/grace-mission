@@ -57,7 +57,7 @@ export default function AcademicsPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHero title="Academics" breadcrumb="Academics" image="/images/hoyo/IMG_6968.JPG" />
+      <PageHero title="Academics" breadcrumb="Academics" image="/images/hoyo/IMG_6968.JPG" objectPosition="center 35%" overlayIntensity="medium" />
 
       {/* Curriculum Intro */}
       <section className="section-padding bg-white">

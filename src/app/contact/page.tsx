@@ -20,7 +20,7 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHero title="Contact Us" breadcrumb="Contact" image="/images/hoyo/IMG_6974.JPG" />
+      <PageHero title="Contact Us" breadcrumb="Contact" image="/images/hoyo/IMG_6974.JPG" objectPosition="center 40%" overlayIntensity="light" />
 
       {/* Contact Info Cards */}
       <section className="section-padding bg-white">

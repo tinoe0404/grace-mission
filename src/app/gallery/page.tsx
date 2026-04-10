@@ -43,7 +43,7 @@ export default function GalleryPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHero title="Gallery" breadcrumb="Gallery" image="/images/hoyo/IMG_6969.JPG" />
+      <PageHero title="Gallery" breadcrumb="Gallery" image="/images/hoyo/IMG_6970.JPG" objectPosition="center 55%" overlayIntensity="light" />
 
       <section className="section-padding bg-white">
         <div className="max-w-6xl mx-auto px-6">

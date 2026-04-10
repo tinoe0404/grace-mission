@@ -25,7 +25,7 @@ const ELECTIVES = [
 export default function OLevelPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHero title="Ordinary Level" breadcrumb="O-Level" image="/images/hoyo/IMG_6968.JPG" />
+      <PageHero title="Ordinary Level" breadcrumb="O-Level" image="/images/hoyo/IMG_6967.JPG" objectPosition="center 30%" overlayIntensity="medium" />
 
       <section className="section-padding bg-white">
         <div className="max-w-6xl mx-auto px-6">

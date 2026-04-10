@@ -55,7 +55,7 @@ export default function AdmissionsPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHero title="Admissions" breadcrumb="Admissions" image="/images/hoyo/IMG_6966.JPG" />
+      <PageHero title="Admissions" breadcrumb="Admissions" image="/images/hoyo/IMG_6966.JPG" objectPosition="center 30%" overlayIntensity="medium" />
 
       {/* How to Apply */}
       <section className="section-padding bg-white">

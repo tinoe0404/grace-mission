@@ -30,7 +30,7 @@ const PATHWAYS = [
 export default function ALevelPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHero title="Advanced Level" breadcrumb="A-Level" image="/images/hoyo/IMG_6977.JPG" />
+      <PageHero title="Advanced Level" breadcrumb="A-Level" image="/images/hoyo/IMG_6977.JPG" objectPosition="center 25%" overlayIntensity="medium" />
 
       <section className="section-padding bg-white">
         <div className="max-w-6xl mx-auto px-6">

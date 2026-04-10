@@ -28,7 +28,7 @@ const sectionAnim = {
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHero title="About Us" breadcrumb="About" image="/images/hoyo/IMG_6968.JPG" />
+      <PageHero title="About Us" breadcrumb="About" image="/images/hoyo/IMG_6969.JPG" objectPosition="center 30%" overlayIntensity="medium" />
 
       {/* Our Story */}
       <motion.section {...sectionAnim} className="section-padding bg-white">

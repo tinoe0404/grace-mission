@@ -41,7 +41,7 @@ const EVENTS = [
 export default function NewsPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHero title="News & Events" breadcrumb="News" image="/images/hoyo/IMG_6976.JPG" />
+      <PageHero title="News & Events" breadcrumb="News" image="/images/hoyo/IMG_6976.JPG" objectPosition="center 15%" overlayIntensity="medium" />
 
       {/* Featured Article */}
       <section className="section-padding bg-white">
