@@ -5,18 +5,34 @@ import Image from "next/image";
 import { X } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 
-const CATEGORIES = ["All", "Campus", "Academics", "Sports", "Arts", "Events"];
+const CATEGORIES = ["All", "School Life", "Achievements", "Events"];
 
 const IMAGES = [
-  { url: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80&fit=crop", caption: "Classroom Learning", category: "Academics" },
-  { url: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&q=80&fit=crop", caption: "Sports Day", category: "Sports" },
-  { url: "https://images.unsplash.com/photo-1549646440-ae74c86add5f?w=600&q=80&fit=crop", caption: "Choir Performance", category: "Arts" },
-  { url: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&fit=crop", caption: "Junior Assembly", category: "Events" },
-  { url: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&q=80&fit=crop", caption: "Science Lab", category: "Academics" },
-  { url: "https://images.unsplash.com/photo-1460518451285-97b6aa326961?w=600&q=80&fit=crop", caption: "Art Class", category: "Arts" },
-  { url: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80&fit=crop", caption: "School Building", category: "Campus" },
-  { url: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&q=80&fit=crop", caption: "Morning Assembly", category: "Events" },
-  { url: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80&fit=crop", caption: "Computer Lab", category: "Academics" },
+  // School Life
+  { url: "/images/hoyo/IMG_6966.JPG", caption: "Students in Blue Blazers at School Entrance", category: "School Life" },
+  { url: "/images/hoyo/IMG_6967.JPG", caption: "Formal Uniform Group — Entrance Arch", category: "School Life" },
+  { url: "/images/hoyo/IMG_6968.JPG", caption: "Students & Building — Academic Day", category: "School Life" },
+  { url: "/images/hoyo/IMG_6970.JPG", caption: "School Building — Widest Angle", category: "School Life" },
+  { url: "/images/hoyo/IMG_6956.JPG", caption: "Real Madrid Jersey Day — Big Group", category: "School Life" },
+  { url: "/images/hoyo/IMG_6957.JPG", caption: "Man Utd Jersey Day Crowd", category: "School Life" },
+  { url: "/images/hoyo/IMG_6958.JPG", caption: "Liverpool Jersey Day Group", category: "School Life" },
+  { url: "/images/hoyo/IMG_6969.JPG", caption: "School Facade — Blue Sky & Students", category: "School Life" },
+
+  // Achievements
+  { url: "/images/hoyo/IMG_6964.JPG", caption: "Gold Medal Bite — Pure Joy", category: "Achievements" },
+  { url: "/images/hoyo/IMG_6965.JPG", caption: "Trophy & Medals — Provincial Champions", category: "Achievements" },
+  { url: "/images/hoyo/IMG_6963.JPG", caption: "Three Athletes — Race Bibs", category: "Achievements" },
+  { url: "/images/hoyo/IMG_6947.JPG", caption: "Football Team — Regional Trophy Winners", category: "Achievements" },
+  { url: "/images/hoyo/IMG_6950.JPG", caption: "Athletics Medal Moment with Teacher", category: "Achievements" },
+  { url: "/images/hoyo/IMG_6951.JPG", caption: "Teacher & Student Celebrating Win", category: "Achievements" },
+
+  // Events
+  { url: "/images/hoyo/IMG_6976.JPG", caption: "ECD Graduation Ceremony — Stage", category: "Events" },
+  { url: "/images/hoyo/IMG_6977.JPG", caption: "Graduation Banquet Hall — Full Room", category: "Events" },
+  { url: "/images/hoyo/IMG_6980.JPG", caption: "ECD Graduate on Red Carpet", category: "Events" },
+  { url: "/images/hoyo/IMG_6981.JPG", caption: "Graduate with Headmistress — Class of 2025", category: "Events" },
+  { url: "/images/hoyo/IMG_6979.JPG", caption: "Teacher Giving Speech at Ceremony", category: "Events" },
+  { url: "/images/hoyo/IMG_6953.JPG", caption: "Athletics Team with Coach", category: "Events" },
 ];
 
 export default function GalleryPage() {
@@ -27,7 +43,7 @@ export default function GalleryPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHero title="Gallery" breadcrumb="Gallery" image="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&q=80&auto=format&fit=crop" />
+      <PageHero title="Gallery" breadcrumb="Gallery" image="/images/hoyo/IMG_6969.JPG" />
 
       <section className="section-padding bg-white">
         <div className="max-w-6xl mx-auto px-6">
@@ -36,7 +52,7 @@ export default function GalleryPage() {
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActiveFilter(cat)}
+                onClick={() => { setActiveFilter(cat); setLightboxIdx(null); }}
                 className={`px-6 py-2.5 rounded-full font-sans text-sm font-medium transition-all ${
                   activeFilter === cat
                     ? "bg-primary text-white"
@@ -52,7 +68,7 @@ export default function GalleryPage() {
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
             {filtered.map((img, i) => (
               <div
-                key={i}
+                key={`${activeFilter}-${i}`}
                 className="relative group break-inside-avoid mb-4 cursor-pointer"
                 onClick={() => setLightboxIdx(i)}
               >

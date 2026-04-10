@@ -6,28 +6,28 @@ import PageHero from "@/components/layout/PageHero";
 
 const ARTICLES = [
   {
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80&auto=format&fit=crop",
+    image: "/images/hoyo/IMG_6965.JPG",
     date: "March 15, 2025",
-    title: "Grade 7 Pupils Achieve Outstanding ZIMSEC Results",
-    excerpt: "Our Grade 7 class recorded a 98% pass rate, with 15 pupils achieving distinctions across all subjects.",
+    title: "Athletics: Trophy Win at Provincial Championships",
+    excerpt: "Our student returned with the championship trophy and two gold medals from the provincial athletics competition.",
   },
   {
-    image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&q=80&auto=format&fit=crop",
+    image: "/images/hoyo/IMG_6977.JPG",
     date: "February 28, 2025",
-    title: "New Computer Lab Officially Opened",
-    excerpt: "The state-of-the-art ICT lab was inaugurated, bringing modern computing to all students.",
+    title: "ECD Graduation Banquet: A Night to Remember",
+    excerpt: "Parents, graduates, and staff gathered for a beautiful evening celebrating the ECD Class of 2025.",
   },
   {
-    image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80&auto=format&fit=crop",
+    image: "/images/hoyo/IMG_6969.JPG",
     date: "January 20, 2025",
-    title: "Annual Sports Day 2025 — A Day to Remember",
-    excerpt: "Athletes from all houses competed in track, field, and swimming events.",
+    title: "New Academic Wing: State-of-the-Art Facilities",
+    excerpt: "Our distinctive red brick and green roof campus continues to grow with new classrooms and learning spaces.",
   },
   {
-    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80&auto=format&fit=crop",
+    image: "/images/hoyo/IMG_6947.JPG",
     date: "December 5, 2024",
-    title: "Art Exhibition Showcases Student Creativity",
-    excerpt: "The annual art exhibition showcased paintings, sculptures, and installations from Grades 3 to 7.",
+    title: "Football Team Wins Regional Tournament",
+    excerpt: "Our football team brought home the trophy after an outstanding performance at the regional championships.",
   },
 ];
 
@@ -41,19 +41,19 @@ const EVENTS = [
 export default function NewsPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHero title="News & Events" breadcrumb="News" image="https://images.unsplash.com/photo-1523580494863-6ead3f259519?w=1200&q=80&auto=format&fit=crop" />
+      <PageHero title="News & Events" breadcrumb="News" image="/images/hoyo/IMG_6976.JPG" />
 
       {/* Featured Article */}
       <section className="section-padding bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="relative rounded-2xl overflow-hidden h-[420px] mb-16 group cursor-pointer">
-            <Image src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?w=1200&q=80&auto=format&fit=crop" alt="Annual Spring Concert" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+            <Image src="/images/hoyo/IMG_6976.JPG" alt="ECD Graduation Ceremony" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
             <div className="absolute bottom-0 left-0 p-10">
               <span className="bg-accent-light text-accent font-sans text-xs uppercase tracking-wide px-3 py-1 rounded-full mb-4 inline-block font-semibold">Featured</span>
-              <h2 className="font-serif text-3xl md:text-4xl text-white font-bold leading-snug">Annual Spring Concert a Resounding Success</h2>
+              <h2 className="font-serif text-3xl md:text-4xl text-white font-bold leading-snug">ECD Class of 2025 Celebrates Graduation — Little Steps, Greater Dreams</h2>
               <p className="font-sans text-white/80 text-[15px] mt-3 max-w-2xl line-clamp-2">
-                The school&apos;s musical talent shone brilliantly as pupils from ECD to Grade 7 performed to a packed auditorium of parents and community members.
+                The Grace Missions Junior School ECD graduation ceremony saw our youngest learners cross the stage in their blue gowns, marking the first milestone of their academic journey.
               </p>
               <span className="font-sans text-sm font-semibold text-gold hover:underline mt-5 inline-flex items-center gap-1 cursor-pointer">
                 Read full article →

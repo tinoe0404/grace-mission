@@ -26,8 +26,8 @@ export default function Hero() {
     <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1511520610915-d9df2eebdd46?q=80&w=2000&auto=format&fit=crop")' }}
+        className="absolute inset-0 bg-cover"
+        style={{ backgroundImage: 'url("/images/hoyo/IMG_6969.JPG")', backgroundPosition: 'center bottom' }}
       />
       {/* Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/20 w-full" />

@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     title: `${SCHOOL_DETAILS.name}`,
     description: `${SCHOOL_DETAILS.tagline}`,
     siteName: SCHOOL_DETAILS.name,
-    images: [{ url: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop" }],
+    images: [{ url: "/images/hoyo/IMG_6956.JPG" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SCHOOL_DETAILS.name}`,
     description: `${SCHOOL_DETAILS.tagline}`,
-    images: ["https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/images/hoyo/IMG_6956.JPG"],
   }
 };
 

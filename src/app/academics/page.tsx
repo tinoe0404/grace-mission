@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import PageHero from "@/components/layout/PageHero";
@@ -44,7 +45,7 @@ export default function AcademicsPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHero title="Academics" breadcrumb="Academics" image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80&auto=format&fit=crop" />
+      <PageHero title="Academics" breadcrumb="Academics" image="/images/hoyo/IMG_6968.JPG" />
 
       {/* Curriculum Intro */}
       <section className="section-padding bg-white">
@@ -125,7 +126,13 @@ export default function AcademicsPage() {
                 </div>
                 <div>
                   <h3 className="font-serif text-xl text-charcoal mb-4">Target Achievement</h3>
-                  <p className="font-serif italic text-lg text-primary leading-relaxed">{STAGES[activeStage].achievement}</p>
+                  <p className="font-serif italic text-lg text-primary leading-relaxed mb-4">{STAGES[activeStage].achievement}</p>
+                  {activeStage === 0 && (
+                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden mt-4">
+                      <Image src="/images/hoyo/IMG_6980.JPG" alt="ECD Graduate receiving certificate" fill className="object-cover" />
+                      <div className="absolute bottom-3 left-3 bg-gold text-white font-sans text-xs px-3 py-1.5 rounded-full">ECD Graduation 2025</div>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>

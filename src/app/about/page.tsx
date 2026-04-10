@@ -5,10 +5,10 @@ import Image from "next/image";
 import PageHero from "@/components/layout/PageHero";
 
 const TEAM = [
-  { name: "Mrs. Sarah Mutasa", role: "Headmistress", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop" },
-  { name: "Mr. David Banda", role: "Deputy Head", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80&auto=format&fit=crop" },
-  { name: "Ms. Grace Ncube", role: "Senior Teacher", image: "https://images.unsplash.com/photo-1580894732444-8ecbef79bd14?w=400&q=80&auto=format&fit=crop" },
-  { name: "Mr. John Moyo", role: "Sports Director", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&auto=format&fit=crop" },
+  { name: "Mrs. Sarah Mutasa", role: "Headmistress", image: "/images/hoyo/IMG_6981.JPG" },
+  { name: "Mr. David Banda", role: "Deputy Head", image: "/images/hoyo/IMG_6953.JPG" },
+  { name: "Ms. Grace Ncube", role: "Senior Teacher", image: "/images/hoyo/IMG_6953.JPG" },
+  { name: "Mr. John Moyo", role: "Sports Director", image: "/images/hoyo/IMG_6953.JPG" },
 ];
 
 const STATS = [
@@ -28,14 +28,14 @@ const sectionAnim = {
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHero title="About Us" breadcrumb="About" image="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80&auto=format&fit=crop" />
+      <PageHero title="About Us" breadcrumb="About" image="/images/hoyo/IMG_6968.JPG" />
 
       {/* Our Story */}
       <motion.section {...sectionAnim} className="section-padding bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              <Image src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80&auto=format&fit=crop" alt="School Building" fill className="object-cover" />
+              <Image src="/images/hoyo/IMG_6969.JPG" alt="Grace Mission School Building" fill className="object-cover" />
               <div className="absolute bottom-4 left-4 bg-primary text-white font-sans text-sm px-4 py-2 rounded-full">
                 Est. 2005 · Harare, Zimbabwe
               </div>
@@ -68,7 +68,7 @@ export default function AboutPage() {
             </blockquote>
             <div className="mt-6 flex items-center gap-4 relative z-10">
               <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-gold">
-                <Image src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop" alt="Mrs. Sarah Mutasa" fill className="object-cover" />
+                <Image src="/images/hoyo/IMG_6981.JPG" alt="Mrs. Sarah Mutasa" fill className="object-cover" />
               </div>
               <div>
                 <p className="font-sans font-semibold text-white text-sm">Mrs. Sarah Mutasa</p>

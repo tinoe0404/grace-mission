@@ -7,20 +7,20 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const NEWS_ITEMS = [
   {
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&auto=format&fit=crop",
-    headline: "Grade 7 pupils achieve outstanding ZIMSEC results.",
+    image: "/images/hoyo/IMG_6976.JPG",
+    headline: "ECD Class of 2025 celebrates graduation ceremony.",
   },
   {
-    image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80&auto=format&fit=crop",
-    headline: "New computer lab officially opened for students.",
+    image: "/images/hoyo/IMG_6965.JPG",
+    headline: "Athletics: Trophy win at Provincial Championships.",
   },
   {
-    image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&q=80&auto=format&fit=crop",
-    headline: "Annual Sports Day 2024 — a day to remember.",
+    image: "/images/hoyo/IMG_6980.JPG",
+    headline: "ECD graduate receives certificate on the red carpet.",
   },
   {
-    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&q=80&auto=format&fit=crop",
-    headline: "Art exhibition showcases student creativity.",
+    image: "/images/hoyo/IMG_6977.JPG",
+    headline: "ECD Graduation Banquet: A Night to Remember.",
   },
 ];
 
