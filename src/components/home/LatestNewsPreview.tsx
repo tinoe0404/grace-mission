@@ -69,8 +69,8 @@ export default function LatestNewsPreview() {
               transition={{ delay: i * 0.1, duration: 0.4 }}
               className="snap-start shrink-0 w-[220px] sm:w-[260px] cursor-pointer group"
             >
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-3">
-                <Image src={item.image} alt={item.headline} fill sizes="(max-width: 640px) 220px, 260px" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-primary/5">
+                <Image src={item.image} alt={item.headline} fill sizes="(max-width: 640px) 220px, 260px" className="object-contain group-hover:scale-105 transition-transform duration-500" />
               </div>
               <p className="text-sm font-semibold text-charcoal leading-snug group-hover:text-primary transition-colors line-clamp-3 font-sans">
                 {item.headline}

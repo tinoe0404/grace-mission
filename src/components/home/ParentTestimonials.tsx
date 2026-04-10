@@ -56,9 +56,9 @@ export default function ParentTestimonials() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative rounded-2xl overflow-hidden hidden md:block"
+            className="relative rounded-2xl overflow-hidden hidden md:block bg-primary/5"
           >
-            <Image src="/images/hoyo/IMG_6965.JPG" alt="Student with trophy and gold medals" fill className="object-cover" />
+            <Image src="/images/hoyo/IMG_6965.JPG" alt="Student with trophy and gold medals" fill className="object-contain" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <p className="font-serif text-lg text-white font-bold">Provincial Champions</p>

@@ -128,8 +128,8 @@ export default function AcademicsPage() {
                   <h3 className="font-serif text-xl text-charcoal mb-4">Target Achievement</h3>
                   <p className="font-serif italic text-lg text-primary leading-relaxed mb-4">{STAGES[activeStage].achievement}</p>
                   {activeStage === 0 && (
-                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden mt-4">
-                      <Image src="/images/hoyo/IMG_6980.JPG" alt="ECD Graduate receiving certificate" fill className="object-cover" />
+                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden mt-4 bg-primary/5">
+                      <Image src="/images/hoyo/IMG_6980.JPG" alt="ECD Graduate receiving certificate" fill className="object-contain" />
                       <div className="absolute bottom-3 left-3 bg-gold text-white font-sans text-xs px-3 py-1.5 rounded-full">ECD Graduation 2025</div>
                     </div>
                   )}

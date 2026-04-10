@@ -46,8 +46,8 @@ export default function NewsPage() {
       {/* Featured Article */}
       <section className="section-padding bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="relative rounded-2xl overflow-hidden h-[420px] mb-16 group cursor-pointer">
-            <Image src="/images/hoyo/IMG_6976.JPG" alt="ECD Graduation Ceremony" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+          <div className="relative rounded-2xl overflow-hidden h-[420px] mb-16 group cursor-pointer bg-primary/5">
+            <Image src="/images/hoyo/IMG_6976.JPG" alt="ECD Graduation Ceremony" fill className="object-contain object-center group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
             <div className="absolute bottom-0 left-0 p-10">
               <span className="bg-accent-light text-accent font-sans text-xs uppercase tracking-wide px-3 py-1 rounded-full mb-4 inline-block font-semibold">Featured</span>
@@ -69,8 +69,8 @@ export default function NewsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
             {ARTICLES.map((article, i) => (
               <div key={i} className="bg-white border border-primary-light rounded-2xl overflow-hidden group cursor-pointer hover:shadow-md hover:shadow-primary/10 hover:-translate-y-0.5 transition-all duration-200">
-                <div className="relative h-48 overflow-hidden">
-                  <Image src={article.image} alt={article.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative h-48 overflow-hidden bg-primary/5">
+                  <Image src={article.image} alt={article.title} fill className="object-contain group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <p className="font-sans text-xs text-muted mb-2">{article.date}</p>

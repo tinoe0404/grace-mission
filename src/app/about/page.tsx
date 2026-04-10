@@ -34,8 +34,8 @@ export default function AboutPage() {
       <motion.section {...sectionAnim} className="section-padding bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              <Image src="/images/hoyo/IMG_6969.JPG" alt="Grace Mission School Building" fill className="object-cover" />
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-primary/5">
+              <Image src="/images/hoyo/IMG_6969.JPG" alt="Grace Mission School Building" fill className="object-contain" />
               <div className="absolute bottom-4 left-4 bg-primary text-white font-sans text-sm px-4 py-2 rounded-full">
                 Est. 2005 · Harare, Zimbabwe
               </div>
@@ -109,8 +109,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {TEAM.map((staff, i) => (
               <div key={i} className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-xl aspect-[3/4]">
-                  <Image src={staff.image} alt={staff.name} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative overflow-hidden rounded-xl aspect-[3/4] bg-primary/5">
+                  <Image src={staff.image} alt={staff.name} fill className="object-contain object-top group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/70 transition-all duration-300 flex items-center justify-center">
                     <span className="font-sans text-sm font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Profile</span>
                   </div>
