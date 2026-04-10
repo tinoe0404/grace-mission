@@ -14,8 +14,8 @@ const ARTICLES = [
   {
     image: "/images/hoyo/IMG_6977.JPG",
     date: "February 28, 2025",
-    title: "ECD Graduation Banquet: A Night to Remember",
-    excerpt: "Parents, graduates, and staff gathered for a beautiful evening celebrating the ECD Class of 2025.",
+    title: "Speech & Prize Giving Banquet: A Night to Remember",
+    excerpt: "Parents, graduates, and staff gathered for a beautiful evening celebrating our outstanding achievers.",
   },
   {
     image: "/images/hoyo/IMG_6969.JPG",
@@ -33,9 +33,9 @@ const ARTICLES = [
 
 const EVENTS = [
   { day: "25", month: "OCT", title: "Inter-house Sports Day", time: "8:00 AM", location: "School Grounds" },
-  { day: "10", month: "NOV", title: "Parents Evening — Years 3–6", time: "5:30 PM", location: "Main Hall" },
-  { day: "21", month: "NOV", title: "School Play Auditions", time: "2:00 PM", location: "Drama Studio" },
-  { day: "05", month: "DEC", title: "Prize Giving Ceremony", time: "10:00 AM", location: "Main Hall" },
+  { day: "10", month: "NOV", title: "A-Level Subject Choices Seminar", time: "5:30 PM", location: "Main Hall" },
+  { day: "21", month: "NOV", title: "Form 1 Orientation", time: "8:00 AM", location: "Main Hall" },
+  { day: "05", month: "DEC", title: "ZIMSEC Exams Begin", time: "8:00 AM", location: "Exam Center" },
 ];
 
 export default function NewsPage() {
@@ -51,9 +51,9 @@ export default function NewsPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
             <div className="absolute bottom-0 left-0 p-10">
               <span className="bg-accent-light text-accent font-sans text-xs uppercase tracking-wide px-3 py-1 rounded-full mb-4 inline-block font-semibold">Featured</span>
-              <h2 className="font-serif text-3xl md:text-4xl text-white font-bold leading-snug">ECD Class of 2025 Celebrates Graduation — Little Steps, Greater Dreams</h2>
+              <h2 className="font-serif text-3xl md:text-4xl text-white font-bold leading-snug">Form 4 & 6 Graduates Celebrate End of Era</h2>
               <p className="font-sans text-white/80 text-[15px] mt-3 max-w-2xl line-clamp-2">
-                The Grace Missions Junior School ECD graduation ceremony saw our youngest learners cross the stage in their blue gowns, marking the first milestone of their academic journey.
+                The Grace Missions High School speech and prize giving ceremony saw our learners crossing the stage, marking the final milestone of their academic journey.
               </p>
               <span className="font-sans text-sm font-semibold text-gold hover:underline mt-5 inline-flex items-center gap-1 cursor-pointer">
                 Read full article →

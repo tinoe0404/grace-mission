@@ -9,16 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#1A3A5C",
-        "primary-mid": "#2A5A8C",
-        "primary-light": "#EBF3FB",
+        primary: "#3D1A6E",
+        "primary-mid": "#5C2D9E",
+        "primary-light": "#F0E8FF",
         accent: "#D4547A",
         "accent-light": "#FBEEF3",
         gold: "#C9920E",
         "gold-light": "#FEF3D7",
         cream: "#F8F9FC",
         charcoal: "#1E1E1E",
-        muted: "#6B7280",
+        muted: "#6B6880",
         white: "#FFFFFF",
       },
       fontFamily: {

@@ -16,7 +16,7 @@ export default function AnnouncementBar() {
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-accent text-white relative z-[60] overflow-hidden"
+          className="bg-gold text-white relative z-[60] overflow-hidden"
         >
           <div className="max-w-6xl mx-auto px-6 py-2.5 flex items-center justify-center gap-3 text-[13px] font-medium">
             <span className="flex h-2 w-2 relative">
@@ -24,14 +24,14 @@ export default function AnnouncementBar() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
             </span>
             <div className="flex items-center gap-2">
-              <span className="hidden sm:inline">Term 2 2025 Enrollment Now Open</span>
-              <span className="sm:hidden">Term 2 Enrollment Open</span>
+              <span className="hidden sm:inline">Form 1 Intake 2025 Now Open — Limited Places Available</span>
+              <span className="sm:hidden">Form 1 Intake 2025 Open</span>
               <span className="mx-2 text-white/50">|</span>
               <Link 
                 href="/admissions" 
                 className="font-bold underline underline-offset-2 hover:text-white/80 transition-colors"
               >
-                Apply Now
+                Apply Now →
               </Link>
             </div>
             <button

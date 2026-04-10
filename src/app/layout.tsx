@@ -16,10 +16,20 @@ const dmMono = DM_Mono({ subsets: ["latin"], weight: ['400', '500'], variable: "
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'),
   title: {
-    default: "Grace Missions Junior School",
-    template: `%s | Grace Missions Junior School`
+    default: 'Grace Missions High School | O-Level & A-Level',
+    template: '%s | Grace Missions High School'
   },
-  description: "Nurturing Minds, Shaping Futures",
+  description: 'Grace Missions High School — a Christ-centered secondary school in Zimbabwe offering Form 1 to Form 6, O-Level and A-Level education. ZIMSEC-aligned. Harare.',
+  keywords: [
+    'Grace Missions High School',
+    'Zimbabwe high school',
+    'O-Level Zimbabwe',
+    'A-Level Zimbabwe',
+    'ZIMSEC school Harare',
+    'Form 1 to Form 6 Zimbabwe',
+    'Christian school Zimbabwe',
+    'secondary school Harare'
+  ],
   icons: {
     icon: '/images/logo.png',
     apple: '/images/logo.png',

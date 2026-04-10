@@ -5,17 +5,17 @@ import Image from "next/image";
 import PageHero from "@/components/layout/PageHero";
 
 const TEAM = [
-  { name: "Mrs. Sarah Mutasa", role: "Headmistress", image: "/images/hoyo/IMG_6981.JPG" },
-  { name: "Mr. David Banda", role: "Deputy Head", image: "/images/hoyo/IMG_6953.JPG" },
-  { name: "Ms. Grace Ncube", role: "Senior Teacher", image: "/images/hoyo/IMG_6953.JPG" },
-  { name: "Mr. John Moyo", role: "Sports Director", image: "/images/hoyo/IMG_6953.JPG" },
+  { name: "Mrs. Sarah Mutasa", role: "Principal", image: "/images/hoyo/IMG_6981.JPG" },
+  { name: "Mr. David Banda", role: "Deputy Principal (Academics)", image: "/images/hoyo/IMG_6953.JPG" },
+  { name: "Ms. Grace Ncube", role: "Head of O-Level Department", image: "/images/hoyo/IMG_6953.JPG" },
+  { name: "Mr. John Moyo", role: "Head of Sport & Co-curriculars", image: "/images/hoyo/IMG_6953.JPG" },
 ];
 
 const STATS = [
   { value: "20+", label: "Years of Excellence" },
-  { value: "2,500+", label: "Graduates" },
-  { value: "98%", label: "Pass Rate" },
-  { value: "15+", label: "Extracurriculars" },
+  { value: "1,000+", label: "Graduates" },
+  { value: "95%+", label: "O-Level Pass Rate" },
+  { value: "10+", label: "A-Level Pathways" },
 ];
 
 const sectionAnim = {
@@ -45,9 +45,9 @@ export default function AboutPage() {
               <span className="font-sans text-[11px] uppercase tracking-[0.15em] text-gold mb-3 block">Our Heritage</span>
               <h2 className="font-serif text-4xl text-charcoal leading-snug mb-6">Our Story</h2>
               <div className="space-y-4 text-muted leading-[1.8] text-[15px] font-sans">
-                <p>Founded in 2005, Grace Mission Primary School began with a simple but profound vision: to provide a nurturing, high-quality education rooted in Christian values. Located in the heart of Harare, we started with just two classrooms and a handful of dedicated staff members.</p>
-                <p>Over the past two decades, our community has flourished. We have grown to serve over 500 pupils from ECD up to Grade 7, continuously expanding our facilities and curriculum to meet the demands of a modern, rapidly changing world.</p>
-                <p>At our core, we remain a closely-knit family. We treat every child as an individual gift from God, focusing not just on academic excellence, but on shaping character, fostering compassion, and preparing them for a life of purpose.</p>
+                <p>Founded in 2005, Grace Missions High School was established with a bold vision: to provide Zimbabwe with a Christ-centered secondary school that produces academically excellent, spiritually grounded, and socially responsible young leaders.</p>
+                <p>From our first cohort of Form 1 students, we have grown to serve over 600 learners across Form 1 to Form 6. Our O-Level and A-Level results consistently place us among the top performing schools in the province, and our alumni go on to study at the University of Zimbabwe, NUST, MSU, and universities abroad.</p>
+                <p>At our core, we remain a family — a community where teachers know every student by name, where faith is lived not just taught, and where every young person is challenged to fly higher than they ever imagined.</p>
               </div>
               <div className="flex flex-wrap gap-2 mt-6">
                 {["Mission-Driven", "Christ-Centered", "Community-Built"].map((pill) => (
@@ -76,7 +76,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <p className="font-sans font-semibold text-white text-sm">Mrs. Sarah Mutasa</p>
-                <p className="font-sans text-white/60 text-sm">Headmistress</p>
+                <p className="font-sans text-white/60 text-sm">Principal</p>
               </div>
             </div>
           </motion.div>
@@ -88,9 +88,9 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { title: "Our Mission", body: "To provide a holistic, Christ-centered education that empowers students to achieve maximum academic potential.", icon: <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg> },
-              { title: "Our Vision", body: "To be the leading primary school in Zimbabwe, known for academic excellence and developing future leaders.", icon: <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg> },
-              { title: "Our Values", body: "Integrity, Compassion, Respect, and Excellence. We instill these biblical principles into everyday school life.", icon: <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg> },
+              { title: "Our Mission", body: "To provide a holistic, Christ-centered O-Level and A-Level education that empowers students to achieve their maximum academic potential and become servant leaders.", icon: <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg> },
+              { title: "Our Vision", body: "To be the leading high school in Zimbabwe, known for ZIMSEC excellence, spiritual formation, and producing future national leaders.", icon: <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg> },
+              { title: "Our Values", body: "Integrity, Discipline, Faith, and Excellence — lived daily in every classroom, sports field, and chapel service.", icon: <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg> },
             ].map((card, i) => (
               <motion.div key={i} whileHover={{ y: -6 }} transition={{ duration: 0.2 }} className="bg-white p-8 rounded-2xl border border-primary-light shadow-sm hover:shadow-xl transition-all duration-300">
                 <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center mb-5">{card.icon}</div>

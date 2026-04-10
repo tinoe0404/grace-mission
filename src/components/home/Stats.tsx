@@ -6,18 +6,18 @@ import { Users, User, GraduationCap, Flag } from "lucide-react";
 const STATS = [
   {
     icon: Users,
-    value: "500+",
-    label: "PUPILS",
+    value: "600+",
+    label: "STUDENTS",
   },
   {
     icon: User,
-    value: "30+",
-    label: "TEACHERS",
+    value: "40+",
+    label: "STAFF",
   },
   {
     icon: GraduationCap,
-    value: "ECD - GRADE 7",
-    label: "LEARNING",
+    value: "FORM 1–6",
+    label: "O & A LEVEL",
   },
   {
     icon: Flag,
@@ -51,7 +51,7 @@ export default function Stats() {
                     <Icon className="w-5 h-5 text-primary" strokeWidth={1.8} />
                   </div>
                   <div className="min-w-0">
-                    <div className="font-bold text-primary text-base sm:text-lg leading-tight truncate">
+                    <div className="font-bold text-gold text-base sm:text-lg leading-tight truncate">
                       {stat.value}
                     </div>
                     <div className="text-textMuted text-[11px] sm:text-xs font-semibold tracking-wider uppercase">

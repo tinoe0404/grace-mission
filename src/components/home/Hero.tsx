@@ -49,15 +49,15 @@ export default function Hero() {
             variants={item}
             className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-bold text-white leading-[1.1] mb-4 max-w-2xl tracking-tight"
           >
-            Nurturing Minds,<br />
-            <span className="italic">Shaping Futures.</span>
+            Soaring High on the Wings of<br />
+            <span className="italic">Enlightenment.</span>
           </motion.h1>
 
           <motion.p 
             variants={item}
             className="text-[18px] text-white/80 mb-10 max-w-xl leading-relaxed font-sans"
           >
-            A Christ-centered primary school in Harare, Zimbabwe. Excellence from Early Childhood Development to Grade 7.
+            A Christ-centered high school in Zimbabwe, offering Form 1 to Form 6 — O-Level & A-Level.
           </motion.p>
 
           <motion.div variants={item} className="flex flex-wrap items-center gap-4 mb-16">
@@ -65,13 +65,13 @@ export default function Hero() {
               href="/admissions" 
               className="inline-flex justify-center items-center px-8 py-4 bg-gold text-white rounded-full font-semibold transition-all hover:scale-105 hover:bg-[#b0800c] shadow-lg font-sans text-sm md:text-base"
             >
-              Apply for Admission
+              Apply for Form 1
             </Link>
             <Link 
               href="/about" 
               className="inline-flex justify-center items-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold transition-all hover:bg-white/10 hover:text-white font-sans text-sm md:text-base"
             >
-              Explore the School
+              Explore Our School
             </Link>
           </motion.div>
 

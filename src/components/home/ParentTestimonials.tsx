@@ -4,10 +4,10 @@ import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 
 const TESTIMONIALS = [
-  { quote: "Grace Mission has transformed our daughter. She comes home excited to learn every single day.", name: "Mrs. Chikwanda", role: "Parent of Grade 4 pupil" },
-  { quote: "The teachers here genuinely care. My son's confidence has grown tremendously since joining.", name: "Mr. Sibanda", role: "Parent of Grade 2 pupil" },
-  { quote: "Best decision we made. The Christian values taught here align perfectly with our family.", name: "Mrs. Moyo", role: "Parent of ECD B pupil" },
-  { quote: "An outstanding environment that balances academics and character development flawlessly.", name: "Mr. Banda", role: "Parent of Grade 6 pupil" },
+  { quote: "Grace Missions prepared my son for university. His A-Level results exceeded all expectations.", name: "Mrs. Chikwanda", role: "Parent of A-Level student" },
+  { quote: "The teachers here don't just teach — they mentor. My daughter's confidence has soared.", name: "Mr. Sibanda", role: "Parent of Form 2 student" },
+  { quote: "The Christian foundation here is genuine. Our family values are reinforced, not undermined.", name: "Mrs. Moyo", role: "Parent of Form 1 student" },
+  { quote: "Best academic school in the region. The O-Level pass rate speaks for itself.", name: "Mr. Banda", role: "Parent of Form 4 student" },
 ];
 
 const staggerContainer: Variants = {

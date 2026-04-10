@@ -11,7 +11,15 @@ import { SCHOOL_DETAILS } from "@/lib/constants";
 const NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Academics", href: "/academics" },
+  { 
+    name: "Academics", 
+    href: "/academics",
+    sublinks: [
+      { name: "Academics Overview", href: "/academics" },
+      { name: "O-Level (Form 1–4)", href: "/academics/o-level" },
+      { name: "A-Level (Form 5–6)", href: "/academics/a-level" },
+    ]
+  },
   { name: "Admissions", href: "/admissions" },
   { name: "Gallery", href: "/gallery" },
   { name: "News", href: "/news" },
@@ -70,7 +78,7 @@ export default function Navbar() {
                   Grace Missions
                 </span>
                 <span className={`font-sans text-[10px] tracking-[0.15em] uppercase leading-none block mt-1 transition-colors duration-300 ${isScrolled ? "text-muted" : "text-white/80"}`}>
-                  Junior School
+                  High School
                 </span>
               </div>
             </Link>
@@ -80,19 +88,33 @@ export default function Navbar() {
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href || (pathname.startsWith(link.href) && link.href !== "/");
                 return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="relative px-1 py-2 font-sans text-[14px] transition-colors group"
-                  >
-                    <span className={`transition-colors duration-300 ${
-                      isScrolled 
-                        ? (isActive ? "text-primary font-medium border-b-2 border-accent" : "text-muted hover:text-primary") 
-                        : (isActive ? "text-white font-medium border-b-2 border-accent" : "text-white/80 hover:text-white drop-shadow-sm")
-                    }`}>
-                      {link.name}
-                    </span>
-                  </Link>
+                  <div key={link.name} className="relative group">
+                    <Link
+                      href={link.href}
+                      className="relative px-1 py-2 font-sans text-[14px] transition-colors"
+                    >
+                      <span className={`transition-colors duration-300 ${
+                        isScrolled 
+                          ? (isActive ? "text-primary font-medium border-b-2 border-accent" : "text-muted hover:text-primary") 
+                          : (isActive ? "text-white font-medium border-b-2 border-accent" : "text-white/80 hover:text-white drop-shadow-sm")
+                      }`}>
+                        {link.name}
+                      </span>
+                    </Link>
+                    {link.sublinks && (
+                      <div className="absolute left-0 top-full mt-2 w-56 bg-white shadow-xl rounded-xl border border-primary-light opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 overflow-hidden flex flex-col py-2 z-50">
+                        {link.sublinks.map((sublink) => (
+                          <Link
+                            key={sublink.name}
+                            href={sublink.href}
+                            className="px-4 py-2.5 text-sm font-sans text-charcoal hover:bg-primary-light hover:text-primary transition-colors"
+                          >
+                            {sublink.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 );
               })}
             </div>
@@ -103,7 +125,7 @@ export default function Navbar() {
                 href="/admissions"
                 className="bg-accent text-white px-5 py-2 rounded-full font-sans transition-all duration-200 hover:scale-[1.02] hover:bg-[#be4068]"
               >
-                Enroll Now
+                Apply Now
               </Link>
             </div>
 
@@ -192,7 +214,7 @@ export default function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block text-center bg-accent text-white py-3.5 rounded-full font-semibold transition-transform hover:scale-[1.02] hover:bg-[#be4068] shadow-sm min-h-[48px] flex items-center justify-center font-sans"
                 >
-                  Enroll Now
+                  Apply Now
                 </Link>
               </div>
             </motion.div>

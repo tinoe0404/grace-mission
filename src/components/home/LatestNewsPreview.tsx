@@ -8,19 +8,19 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const NEWS_ITEMS = [
   {
     image: "/images/hoyo/IMG_6976.JPG",
-    headline: "ECD Class of 2025 celebrates graduation ceremony.",
+    headline: "Form 4 Students Achieve Outstanding O-Level Results",
   },
   {
     image: "/images/hoyo/IMG_6965.JPG",
-    headline: "Athletics: Trophy win at Provincial Championships.",
+    headline: "Athletics: Provincial Champions for Third Year Running",
   },
   {
     image: "/images/hoyo/IMG_6980.JPG",
-    headline: "ECD graduate receives certificate on the red carpet.",
+    headline: "Inter-Schools Debate Championship: Grace Missions Win",
   },
   {
     image: "/images/hoyo/IMG_6977.JPG",
-    headline: "ECD Graduation Banquet: A Night to Remember.",
+    headline: "New Science Laboratory Opens for A-Level Students",
   },
 ];
 

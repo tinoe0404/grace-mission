@@ -27,10 +27,10 @@ const IMAGES = [
   { url: "/images/hoyo/IMG_6951.JPG", caption: "Teacher & Student Celebrating Win", category: "Achievements" },
 
   // Events
-  { url: "/images/hoyo/IMG_6976.JPG", caption: "ECD Graduation Ceremony — Stage", category: "Events" },
-  { url: "/images/hoyo/IMG_6977.JPG", caption: "Graduation Banquet Hall — Full Room", category: "Events" },
-  { url: "/images/hoyo/IMG_6980.JPG", caption: "ECD Graduate on Red Carpet", category: "Events" },
-  { url: "/images/hoyo/IMG_6981.JPG", caption: "Graduate with Headmistress — Class of 2025", category: "Events" },
+  { url: "/images/hoyo/IMG_6976.JPG", caption: "Speech & Prize Giving Day — Stage", category: "Events" },
+  { url: "/images/hoyo/IMG_6977.JPG", caption: "Prize Giving Banquet Hall", category: "Events" },
+  { url: "/images/hoyo/IMG_6980.JPG", caption: "Top Student Award on Red Carpet", category: "Events" },
+  { url: "/images/hoyo/IMG_6981.JPG", caption: "Outstanding Student with Principal", category: "Events" },
   { url: "/images/hoyo/IMG_6979.JPG", caption: "Teacher Giving Speech at Ceremony", category: "Events" },
   { url: "/images/hoyo/IMG_6953.JPG", caption: "Athletics Team with Coach", category: "Events" },
 ];

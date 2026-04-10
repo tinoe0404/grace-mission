@@ -6,22 +6,22 @@ const VALUES = [
   {
     number: "01",
     title: "Faith",
-    description: "We ground every aspect of school life in Christian principles, teaching pupils to walk in integrity and love. Our morning devotions and chapel services nurture spiritual growth.",
+    description: "We ground every aspect of school life in Christian principles, teaching students to walk in integrity and love. Our morning devotions and chapel services nurture spiritual growth.",
   },
   {
     number: "02",
     title: "Excellence",
-    description: "We pursue the highest standards in academics, sports, and character. Every child is challenged to reach their God-given potential in all they do.",
+    description: "We pursue the highest standards in academics, sports, and character. Every student is challenged to reach their God-given potential in all they do.",
   },
   {
     number: "03",
     title: "Discipline",
-    description: "We cultivate self-control, responsibility, and respect through consistent routines and clear expectations. Discipline builds a foundation for lifelong success.",
+    description: "We cultivate self-control, responsibility, and respect through consistent routines and clear expectations. Our structured Form system builds accountability that prepares students for university life.",
   },
   {
     number: "04",
     title: "Community",
-    description: "We are a family. Parents, teachers, and pupils work together in partnership, creating a warm, supportive environment where everyone belongs.",
+    description: "We are a family. Parents, teachers, and students work together in partnership, creating a warm, supportive environment where everyone belongs.",
   },
 ];
 

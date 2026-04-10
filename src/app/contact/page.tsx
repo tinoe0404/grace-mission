@@ -109,7 +109,7 @@ export default function ContactPage() {
           <div id="map" className="mt-12">
             <div className="bg-primary-light rounded-2xl h-[300px] w-full flex flex-col items-center justify-center">
               <svg className="w-12 h-12 text-primary/40 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 0115 0z" /></svg>
-              <p className="font-serif text-lg text-primary">Grace Mission Primary School</p>
+              <p className="font-serif text-lg text-primary">Grace Missions High School</p>
               <p className="font-sans text-sm text-muted mt-1">123 Grace Mission Road, Marlborough, Harare</p>
             </div>
           </div>

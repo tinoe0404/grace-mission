@@ -2,15 +2,15 @@
 
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
-import { Calculator, BookOpen, Microscope, Monitor, Dumbbell, Palette } from "lucide-react";
+import { Calculator, BookOpen, Microscope, Monitor, Briefcase, Globe } from "lucide-react";
 
 const SUBJECTS = [
-  { icon: Calculator, title: "Mathematics", description: "Building strong numeracy and problem-solving from ECD to Grade 7." },
-  { icon: BookOpen, title: "English & Literacy", description: "Developing confident reading, writing, and oral communication skills." },
-  { icon: Microscope, title: "Science & Technology", description: "Exploring the natural and physical world through hands-on experiments." },
-  { icon: Monitor, title: "ICT & Computing", description: "Modern computer skills and digital literacy from an early age." },
-  { icon: Dumbbell, title: "Sports & PE", description: "Athletics, swimming, soccer, netball — building fitness and teamwork." },
-  { icon: Palette, title: "Arts & Culture", description: "Music, visual arts, drama, and cultural expression." },
+  { icon: Calculator, title: "Mathematics", description: "O-Level & A-Level pure and applied maths, building analytical thinkers." },
+  { icon: BookOpen, title: "English", description: "Language, Literature and Communication from Form 1 through A-Level." },
+  { icon: Microscope, title: "Sciences", description: "Biology, Chemistry, Physics — fully equipped labs for practical learning." },
+  { icon: Briefcase, title: "Commercials", description: "Accounting, Business Studies, Economics — preparing future entrepreneurs." },
+  { icon: Globe, title: "Humanities", description: "History, Geography, Divinity — Heritage-Based Education aligned." },
+  { icon: Monitor, title: "ICT", description: "Computer Science, Software Engineering, and Digital Literacy." },
 ];
 
 const staggerContainer: Variants = {
